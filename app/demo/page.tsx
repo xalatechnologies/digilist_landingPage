@@ -33,7 +33,7 @@ export default function DemoPage() {
               </Text>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-                <Button size="lg" showArrow>
+                <Button size="lg" showArrow className="!bg-green-600 !hover:bg-green-700 text-white">
                   Kom i gang
                 </Button>
                 <Button 

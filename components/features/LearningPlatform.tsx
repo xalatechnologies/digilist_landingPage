@@ -224,7 +224,7 @@ export const LearningPlatform: React.FC = () => {
                 key={video.id}
                 hoverable
                 onClick={() => setSelectedVideo(video)}
-                className="group cursor-pointer overflow-hidden h-full flex flex-col"
+                className="group cursor-pointer overflow-hidden h-full flex flex-col hover:!border-green-700"
               >
                 {/* Video Thumbnail */}
                 <div className="relative aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-digdir mb-5 overflow-hidden border-2 border-gray-200 group-hover:border-green-500/50 transition-all">
@@ -237,9 +237,9 @@ export const LearningPlatform: React.FC = () => {
                   <div className="absolute top-4 left-4">
                     <Badge 
                       variant="default" 
-                      className="text-xs bg-white/95 backdrop-blur-sm border border-gray-200 shadow-sm"
+                      className="text-xs bg-white/95 backdrop-blur-sm border border-gray-200 shadow-sm group-hover:border-green-700 group-hover:text-green-700"
                     >
-                      <CategoryIcon size={14} className="mr-1.5" aria-hidden="true" />
+                      <CategoryIcon size={14} className="mr-1.5 group-hover:text-green-700 transition-colors" aria-hidden="true" />
                       <span className="font-medium">{video.category}</span>
                     </Badge>
                   </div>
@@ -254,7 +254,7 @@ export const LearningPlatform: React.FC = () => {
 
                 {/* Video Info */}
                 <div className="flex-1 flex flex-col">
-                  <Heading level={3} className="text-xl font-bold text-navy-base mb-3 group-hover:text-action-blue transition-colors duration-300 tracking-tight">
+                  <Heading level={3} className="text-xl font-bold text-navy-base mb-3 group-hover:text-green-700 transition-colors duration-300 tracking-tight">
                     {video.title}
                   </Heading>
                   <Text variant="body" className="text-base text-text-secondary leading-relaxed flex-1">
