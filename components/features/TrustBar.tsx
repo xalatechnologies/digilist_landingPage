@@ -10,11 +10,11 @@ export const TrustBar: React.FC = () => {
         <p className="text-xs font-bold text-text-secondary uppercase tracking-widest mb-8">
           Brukes av ledende kommuner
         </p>
-        <div className="flex flex-wrap justify-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+        <div className="flex flex-wrap justify-center gap-12">
           {cities.map((city) => (
             <div 
               key={city} 
-              className="flex items-center gap-2 font-bold text-lg text-navy-base tracking-tight"
+              className="flex items-center gap-2 font-bold text-lg text-navy-base tracking-tight opacity-70 hover:opacity-100 hover:text-action-blue transition-all duration-300"
             >
               <Building2 className="text-action-blue" size={20} aria-hidden="true" /> 
               <span>{city} KOMMUNE</span>

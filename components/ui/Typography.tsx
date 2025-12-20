@@ -17,16 +17,22 @@ export const Heading: React.FC<HeadingProps> = ({ level, children, className = '
     6: "text-base mb-2",
   };
 
-  const Component = `h${level}` as keyof JSX.IntrinsicElements;
+  const combinedClassName = `${baseStyles} ${levelStyles[level]} ${className}`;
   
-  return (
-    <Component 
-      className={`${baseStyles} ${levelStyles[level]} ${className}`}
-      {...props}
-    >
-      {children}
-    </Component>
-  );
+  switch (level) {
+    case 1:
+      return <h1 className={combinedClassName} {...(props as React.HTMLAttributes<HTMLHeadingElement>)}>{children}</h1>;
+    case 2:
+      return <h2 className={combinedClassName} {...(props as React.HTMLAttributes<HTMLHeadingElement>)}>{children}</h2>;
+    case 3:
+      return <h3 className={combinedClassName} {...(props as React.HTMLAttributes<HTMLHeadingElement>)}>{children}</h3>;
+    case 4:
+      return <h4 className={combinedClassName} {...(props as React.HTMLAttributes<HTMLHeadingElement>)}>{children}</h4>;
+    case 5:
+      return <h5 className={combinedClassName} {...(props as React.HTMLAttributes<HTMLHeadingElement>)}>{children}</h5>;
+    case 6:
+      return <h6 className={combinedClassName} {...(props as React.HTMLAttributes<HTMLHeadingElement>)}>{children}</h6>;
+  }
 };
 
 export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {

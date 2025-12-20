@@ -21,10 +21,14 @@ export const Section: React.FC<SectionProps> = ({
     dark: "bg-navy-base text-white",
   };
 
+  // If className contains a background class, don't apply variant background
+  const hasCustomBackground = className.includes('bg-');
+  const backgroundStyle = hasCustomBackground ? '' : variantStyles[variant];
+
   return (
     <section 
       id={id}
-      className={`${baseStyles} ${variantStyles[variant]} ${className}`}
+      className={`${baseStyles} ${backgroundStyle} ${className}`}
     >
       <div className="max-w-[1140px] mx-auto px-6">
         {children}

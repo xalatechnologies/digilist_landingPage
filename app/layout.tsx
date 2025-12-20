@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="no" className={inter.variable}>
-      <body>
+      <body className={inter.className}>
         <SkipLink />
         <Navbar />
         <main id="main-content">

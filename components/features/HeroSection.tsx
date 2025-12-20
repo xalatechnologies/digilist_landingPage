@@ -1,5 +1,5 @@
 import React from 'react';
-import { Building2, Calendar, Users, ArrowRight } from 'lucide-react';
+import { Building2, Calendar, Users, ArrowRight, Dumbbell, UsersRound, Theater, BookOpen, Presentation, Clock } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { Heading } from '@/components/ui/Typography';
@@ -67,9 +67,9 @@ export const HeroSection: React.FC = () => {
           {/* Right Column: Mobile Preview */}
           <div className="relative lg:pl-8 flex justify-center lg:justify-end">
             {/* Mobile Phone Frame */}
-            <div className="relative w-[280px] md:w-[320px]">
+            <div className="relative w-[280px] md:w-[320px] group">
               {/* Phone Outer Frame */}
-              <div className="relative bg-navy-base rounded-[32px] p-2 shadow-2xl">
+              <div className="relative bg-navy-base rounded-[32px] p-2 shadow-2xl transition-all duration-300 group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] cursor-pointer shake-on-hover">
                 {/* Phone Screen */}
                 <div className="bg-white rounded-[24px] overflow-hidden">
                   {/* Status Bar */}
@@ -84,88 +84,129 @@ export const HeroSection: React.FC = () => {
                   
                   {/* App Header */}
                   <div className="bg-action-blue px-4 py-3">
-                    <h3 className="text-white font-bold text-sm tracking-tight">Ledige lokaler</h3>
+                    <h3 className="text-white font-bold text-sm tracking-tight mb-0.5">Ledige lokaler</h3>
+                    <p className="text-white/70 text-[8px] font-medium tracking-tight">developed by Xala tech</p>
                   </div>
                   
                   {/* Hall List */}
                   <div className="px-4 py-3 space-y-3 max-h-[480px] overflow-y-auto">
                     {/* Hall 1 */}
-                    <div className="bg-card-bg border border-border-default rounded-digdir p-3 hover:border-action-blue transition-all cursor-pointer">
-                      <div className="flex items-start justify-between mb-2">
-                        <div>
-                          <h4 className="font-bold text-navy-base text-sm tracking-tight">Idrettshallen</h4>
-                          <p className="text-xs text-text-secondary mt-1">250 m² • Håndballbane</p>
+                    <div className="bg-white border-2 border-gray-200 rounded-xl p-4 hover:border-action-blue hover:shadow-lg transition-all duration-200 cursor-pointer group">
+                      <div className="flex items-start gap-3">
+                        <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-2.5 rounded-xl shadow-sm group-hover:shadow-md transition-shadow shrink-0">
+                          <Dumbbell className="text-white" size={20} aria-hidden="true" />
                         </div>
-                        <span className="text-xs font-semibold text-action-blue bg-action-blue/10 px-2 py-1 rounded-digdir">
-                          Ledig
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2 mt-2">
-                        <div className="text-xs text-text-muted">I dag 14:00-18:00</div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-start justify-between mb-2.5">
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-bold text-gray-900 text-sm tracking-tight mb-1">Idrettshallen</h4>
+                              <p className="text-xs text-gray-600">250 m² • Håndballbane</p>
+                            </div>
+                            <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full shrink-0 ml-2 border border-blue-100">
+                              Ledig
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1.5 mt-2.5 pt-2.5 border-t border-gray-100">
+                            <Clock className="text-gray-400" size={12} aria-hidden="true" />
+                            <span className="text-xs text-gray-500 font-medium">I dag 14:00-18:00</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     
                     {/* Hall 2 */}
-                    <div className="bg-card-bg border border-border-default rounded-digdir p-3 hover:border-action-blue transition-all cursor-pointer">
-                      <div className="flex items-start justify-between mb-2">
-                        <div>
-                          <h4 className="font-bold text-navy-base text-sm tracking-tight">Møtesal A</h4>
-                          <p className="text-xs text-text-secondary mt-1">80 m² • Konferanse</p>
+                    <div className="bg-white border-2 border-gray-200 rounded-xl p-4 hover:border-purple-400 hover:shadow-lg transition-all duration-200 cursor-pointer group">
+                      <div className="flex items-start gap-3">
+                        <div className="bg-gradient-to-br from-purple-500 to-purple-600 p-2.5 rounded-xl shadow-sm group-hover:shadow-md transition-shadow shrink-0">
+                          <Presentation className="text-white" size={20} aria-hidden="true" />
                         </div>
-                        <span className="text-xs font-semibold text-[#27C93F] bg-[#27C93F]/10 px-2 py-1 rounded-digdir">
-                          Booket
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2 mt-2">
-                        <div className="text-xs text-text-muted">I dag 10:00-12:00</div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-start justify-between mb-2.5">
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-bold text-gray-900 text-sm tracking-tight mb-1">Møtesal A</h4>
+                              <p className="text-xs text-gray-600">80 m² • Konferanse</p>
+                            </div>
+                            <span className="text-[10px] font-semibold text-green-600 bg-green-50 px-2.5 py-1 rounded-full shrink-0 ml-2 border border-green-100">
+                              Booket
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1.5 mt-2.5 pt-2.5 border-t border-gray-100">
+                            <Clock className="text-gray-400" size={12} aria-hidden="true" />
+                            <span className="text-xs text-gray-500 font-medium">I dag 10:00-12:00</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     
                     {/* Hall 3 */}
-                    <div className="bg-card-bg border border-border-default rounded-digdir p-3 hover:border-action-blue transition-all cursor-pointer">
-                      <div className="flex items-start justify-between mb-2">
-                        <div>
-                          <h4 className="font-bold text-navy-base text-sm tracking-tight">Kultursalen</h4>
-                          <p className="text-xs text-text-secondary mt-1">150 m² • Scene & publikum</p>
+                    <div className="bg-white border-2 border-gray-200 rounded-xl p-4 hover:border-pink-400 hover:shadow-lg transition-all duration-200 cursor-pointer group">
+                      <div className="flex items-start gap-3">
+                        <div className="bg-gradient-to-br from-pink-500 to-rose-500 p-2.5 rounded-xl shadow-sm group-hover:shadow-md transition-shadow shrink-0">
+                          <Theater className="text-white" size={20} aria-hidden="true" />
                         </div>
-                        <span className="text-xs font-semibold text-action-blue bg-action-blue/10 px-2 py-1 rounded-digdir">
-                          Ledig
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2 mt-2">
-                        <div className="text-xs text-text-muted">I morgen 09:00-17:00</div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-start justify-between mb-2.5">
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-bold text-gray-900 text-sm tracking-tight mb-1">Kultursalen</h4>
+                              <p className="text-xs text-gray-600">150 m² • Scene & publikum</p>
+                            </div>
+                            <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full shrink-0 ml-2 border border-blue-100">
+                              Ledig
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1.5 mt-2.5 pt-2.5 border-t border-gray-100">
+                            <Clock className="text-gray-400" size={12} aria-hidden="true" />
+                            <span className="text-xs text-gray-500 font-medium">I morgen 09:00-17:00</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     
                     {/* Hall 4 */}
-                    <div className="bg-card-bg border border-border-default rounded-digdir p-3 hover:border-action-blue transition-all cursor-pointer">
-                      <div className="flex items-start justify-between mb-2">
-                        <div>
-                          <h4 className="font-bold text-navy-base text-sm tracking-tight">Gymnastikksal</h4>
-                          <p className="text-xs text-text-secondary mt-1">120 m² • Trening</p>
+                    <div className="bg-white border-2 border-gray-200 rounded-xl p-4 hover:border-green-400 hover:shadow-lg transition-all duration-200 cursor-pointer group">
+                      <div className="flex items-start gap-3">
+                        <div className="bg-gradient-to-br from-green-500 to-emerald-500 p-2.5 rounded-xl shadow-sm group-hover:shadow-md transition-shadow shrink-0">
+                          <UsersRound className="text-white" size={20} aria-hidden="true" />
                         </div>
-                        <span className="text-xs font-semibold text-action-blue bg-action-blue/10 px-2 py-1 rounded-digdir">
-                          Ledig
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2 mt-2">
-                        <div className="text-xs text-text-muted">I dag 16:00-20:00</div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-start justify-between mb-2.5">
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-bold text-gray-900 text-sm tracking-tight mb-1">Gymnastikksal</h4>
+                              <p className="text-xs text-gray-600">120 m² • Trening</p>
+                            </div>
+                            <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full shrink-0 ml-2 border border-blue-100">
+                              Ledig
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1.5 mt-2.5 pt-2.5 border-t border-gray-100">
+                            <Clock className="text-gray-400" size={12} aria-hidden="true" />
+                            <span className="text-xs text-gray-500 font-medium">I dag 16:00-20:00</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     
                     {/* Hall 5 */}
-                    <div className="bg-card-bg border border-border-default rounded-digdir p-3 hover:border-action-blue transition-all cursor-pointer">
-                      <div className="flex items-start justify-between mb-2">
-                        <div>
-                          <h4 className="font-bold text-navy-base text-sm tracking-tight">Biblioteket</h4>
-                          <p className="text-xs text-text-secondary mt-1">60 m² • Lesing & møter</p>
+                    <div className="bg-white border-2 border-gray-200 rounded-xl p-4 hover:border-amber-400 hover:shadow-lg transition-all duration-200 cursor-pointer group">
+                      <div className="flex items-start gap-3">
+                        <div className="bg-gradient-to-br from-amber-500 to-orange-500 p-2.5 rounded-xl shadow-sm group-hover:shadow-md transition-shadow shrink-0">
+                          <BookOpen className="text-white" size={20} aria-hidden="true" />
                         </div>
-                        <span className="text-xs font-semibold text-[#27C93F] bg-[#27C93F]/10 px-2 py-1 rounded-digdir">
-                          Booket
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2 mt-2">
-                        <div className="text-xs text-text-muted">I dag 13:00-15:00</div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-start justify-between mb-2.5">
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-bold text-gray-900 text-sm tracking-tight mb-1">Biblioteket</h4>
+                              <p className="text-xs text-gray-600">60 m² • Lesing & møter</p>
+                            </div>
+                            <span className="text-[10px] font-semibold text-green-600 bg-green-50 px-2.5 py-1 rounded-full shrink-0 ml-2 border border-green-100">
+                              Booket
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1.5 mt-2.5 pt-2.5 border-t border-gray-100">
+                            <Clock className="text-gray-400" size={12} aria-hidden="true" />
+                            <span className="text-xs text-gray-500 font-medium">I dag 13:00-15:00</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

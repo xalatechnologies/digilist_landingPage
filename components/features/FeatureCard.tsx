@@ -1,26 +1,42 @@
+'use client';
+
 import React from 'react';
-import { LucideIcon } from 'lucide-react';
+import { Calendar, CreditCard, Lock, LucideIcon } from 'lucide-react';
 import { Card, CardLink } from '@/components/ui/Card';
 import { Heading } from '@/components/ui/Typography';
 import { Text } from '@/components/ui/Typography';
 
+export type IconName = 'Calendar' | 'CreditCard' | 'Lock';
+
+const iconMap: Record<IconName, LucideIcon> = {
+  Calendar,
+  CreditCard,
+  Lock,
+};
+
 export interface FeatureCardProps {
-  icon: LucideIcon;
+  icon: IconName;
   title: string;
   description: string;
   href?: string;
 }
 
 export const FeatureCard: React.FC<FeatureCardProps> = ({
-  icon: Icon,
+  icon,
   title,
   description,
   href = '#',
 }) => {
+  const IconComponent = iconMap[icon];
+  
+  if (!IconComponent) {
+    return null;
+  }
+
   return (
     <Card hoverable className="flex flex-col h-full">
       <div className="mb-6">
-        <Icon 
+        <IconComponent 
           size={40} 
           className="text-action-blue mb-6 group-hover:scale-110 transition-transform duration-300" 
           aria-hidden="true" 

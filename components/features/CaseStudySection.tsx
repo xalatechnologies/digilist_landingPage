@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { CheckCircle2, BarChart3, TrendingUp, Clock, Users } from 'lucide-react';
 import { Heading } from '@/components/ui/Typography';
@@ -41,7 +43,7 @@ export const CaseStudySection: React.FC = () => {
   ];
 
   return (
-    <section id="cases" className="py-section border-t border-border-default" style={{ backgroundColor: '#F0F7FA' }}>
+    <section id="cases" className="py-section bg-section-light border-t border-border-default">
       <div className="max-w-[1140px] mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -67,7 +69,7 @@ export const CaseStudySection: React.FC = () => {
               </div>
               
               <Heading level={3} className="mb-6 text-2xl md:text-3xl leading-tight">
-                "Digilist har redusert administrasjonstiden vår med 70%"
+                &ldquo;Digilist har redusert administrasjonstiden vår med 70%&rdquo;
               </Heading>
               
               <div className="space-y-4 mb-8">

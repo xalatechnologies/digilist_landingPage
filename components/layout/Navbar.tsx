@@ -87,20 +87,20 @@ export const Navbar: React.FC = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            <Link 
+            <a 
               href="#utleieobjekter"
               className="flex items-center gap-2 text-base font-medium text-navy-base hover:text-action-blue hover:underline underline-offset-4 decoration-2 transition-all tracking-tight min-h-[44px]"
             >
               <Building2 size={18} aria-hidden="true" />
               Se utleieobjekter
-            </Link>
+            </a>
           </div>
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-4">
             <Link 
               href="/demo"
-              className={`flex items-center gap-2 text-base font-medium transition-colors tracking-tight min-h-[44px] ${
+              className={`flex items-center gap-2 text-base font-medium transition-all tracking-tight min-h-[44px] hover:underline underline-offset-4 decoration-2 ${
                 pathname === '/demo' ? 'text-action-blue' : 'text-navy-base hover:text-action-blue'
               }`}
             >
@@ -109,7 +109,7 @@ export const Navbar: React.FC = () => {
             </Link>
             <Link
               href="/login"
-              className="flex items-center gap-2 text-base font-medium text-navy-base hover:text-action-blue transition-colors tracking-tight min-h-[44px]"
+              className="flex items-center gap-2 text-base font-medium text-navy-base hover:text-action-blue hover:underline underline-offset-4 decoration-2 transition-all tracking-tight min-h-[44px]"
             >
               <LogIn size={18} aria-hidden="true" />
               Logg inn
@@ -141,7 +141,7 @@ export const Navbar: React.FC = () => {
           className="md:hidden absolute top-[84px] w-full bg-white border-b border-border-default p-4 flex flex-col gap-4 shadow-xl"
           role="menu"
         >
-          <Link 
+          <a 
             href="#utleieobjekter"
             className="flex items-center gap-2 font-medium text-navy-base min-h-[44px]"
             role="menuitem"
@@ -149,7 +149,7 @@ export const Navbar: React.FC = () => {
           >
             <Building2 size={18} aria-hidden="true" />
             Se utleieobjekter
-          </Link>
+          </a>
           <Link 
             href="/demo"
             className="flex items-center gap-2 font-medium text-action-blue min-h-[44px]"

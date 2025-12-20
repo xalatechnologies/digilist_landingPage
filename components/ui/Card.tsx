@@ -14,16 +14,14 @@ export const Card: React.FC<CardProps> = ({
   hoverable = false,
   onClick 
 }) => {
-  const baseStyles = "border border-border-default rounded-digdir p-8";
-  const bgStyle = { backgroundColor: '#FAFBFC' };
+  const baseStyles = "border-2 border-gray-200 rounded-digdir p-8 bg-white shadow-sm";
   const hoverStyles = hoverable 
-    ? "group cursor-pointer hover:border-action-blue hover:shadow-xl hover:-translate-y-[4px] transition-all duration-300 ease-out"
+    ? "group cursor-pointer hover:border-action-blue hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-out"
     : "";
 
   return (
     <div 
       className={`${baseStyles} ${hoverStyles} ${className}`}
-      style={bgStyle}
       onClick={onClick}
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : undefined}

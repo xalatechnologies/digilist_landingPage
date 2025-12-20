@@ -18,7 +18,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
     <Card hoverable className="relative h-full flex flex-col group">
       <Quote 
         className="text-background-light fill-background-light absolute top-6 right-6 group-hover:text-action-blue/20 group-hover:fill-action-blue/20 transition-colors duration-300" 
-        size={48} 
+        size={36} 
         aria-hidden="true" 
       />
       <Text 
@@ -27,7 +27,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
       >
         {quote}
       </Text>
-      <div className="pt-6 border-t border-border-default group-hover:border-action-blue/30 transition-colors duration-300">
+      <div className="pt-6 border-t-2 border-gray-200 group-hover:border-action-blue/50 transition-colors duration-300">
         <p className="font-bold text-navy-base text-base mb-1 group-hover:text-action-blue transition-colors duration-300">
           {author}
         </p>

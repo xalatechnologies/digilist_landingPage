@@ -1,28 +1,30 @@
 import React from 'react';
-import { Calendar, CreditCard, Lock } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
 import { Heading } from '@/components/ui/Typography';
 import { Text } from '@/components/ui/Typography';
 import { HeroSection } from '@/components/features/HeroSection';
 import { TrustBar } from '@/components/features/TrustBar';
 import { FeatureCard } from '@/components/features/FeatureCard';
+import { FeatureOverviewSection } from '@/components/features/FeatureOverviewSection';
+import { MobileAppShowcase } from '@/components/features/MobileAppShowcase';
 import { CaseStudySection } from '@/components/features/CaseStudySection';
+import { RentalObjectsSection } from '@/components/features/RentalObjectsSection';
 import { TestimonialCard } from '@/components/features/TestimonialCard';
 
 export default function HomePage() {
   const features = [
     {
-      icon: Calendar,
+      icon: 'Calendar' as const,
       title: 'Felles Kalender',
       description: 'Full oversikt over alle lokaler. Synkroniseres automatisk med Outlook og kommunens nettsider.',
     },
     {
-      icon: CreditCard,
+      icon: 'CreditCard' as const,
       title: 'Automatisk Faktura',
       description: 'Direkte integrasjon med Visma og økonomisystemer. Ingen manuell oppfølging nødvendig.',
     },
     {
-      icon: Lock,
+      icon: 'Lock' as const,
       title: 'Adgangskontroll',
       description: 'Send digitale nøkler via SMS. Tilgangen slettes automatisk når bookingen er over.',
     },
@@ -55,6 +57,9 @@ export default function HomePage() {
       {/* TRUST TICKER */}
       <TrustBar />
 
+      {/* FEATURE OVERVIEW SECTION */}
+      <FeatureOverviewSection />
+
       {/* FEATURE CARDS */}
       <Section variant="default" id="features">
         <div className="text-center mb-16">
@@ -79,8 +84,14 @@ export default function HomePage() {
       {/* CASE STUDY / STATS */}
       <CaseStudySection />
 
+      {/* MOBILE APP SHOWCASE */}
+      <MobileAppShowcase />
+
+      {/* RENTAL OBJECTS SECTION */}
+      <RentalObjectsSection />
+
       {/* TESTIMONIALS SECTION */}
-      <Section variant="default">
+      <Section variant="default" className="bg-gradient-to-b from-gray-50 via-blue-50/30 to-gray-50">
         <div className="text-center mb-16">
           <Heading level={2}>Tilbakemeldinger fra sektoren</Heading>
           <Text variant="lead" className="max-w-2xl mx-auto">

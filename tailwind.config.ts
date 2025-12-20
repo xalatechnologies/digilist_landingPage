@@ -37,6 +37,16 @@ const config: Config = {
       transitionProperty: {
         'digdir': 'border-color, transform, box-shadow, color, text-decoration',
       },
+      keyframes: {
+        shake: {
+          '0%, 100%': { transform: 'translateX(0) rotate(0deg)' },
+          '10%, 30%, 50%, 70%, 90%': { transform: 'translateX(-3px) rotate(-2deg)' },
+          '20%, 40%, 60%, 80%': { transform: 'translateX(3px) rotate(2deg)' },
+        },
+      },
+      animation: {
+        shake: 'shake 0.5s ease-in-out',
+      },
     },
   },
   plugins: [],
