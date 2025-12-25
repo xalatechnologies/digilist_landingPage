@@ -11,7 +11,7 @@ export const TrustBar: React.FC = () => {
   }
 
   return (
-    <div className="bg-surface py-16 border-b border-border">
+    <div className="bg-gray-50 py-16">
       <div className="container-main">
         <div className="text-center mb-12">
           <Heading level={2} className="mb-2">

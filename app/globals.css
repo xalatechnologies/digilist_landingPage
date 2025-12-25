@@ -154,10 +154,10 @@
            transition-all duration-300 ease-smooth;
   }
   .card-hover {
-    @apply card cursor-pointer;
+    @apply card cursor-pointer border-2 border-sky2/50 shadow-lg;
   }
   .card-hover:hover {
-    @apply shadow-lg border-primary/30 -translate-y-1;
+    @apply shadow-xl border-cyan -translate-y-2;
   }
 
   /* ----- INPUT COMPONENTS ----- */
@@ -224,15 +224,15 @@
     @apply max-w-container mx-auto px-6;
   }
   
-  /* Section backgrounds - Using brand colors for subtle differentiation */
+  /* Section backgrounds - Simple white/gray backgrounds */
   .section-default {
-    @apply bg-white;
+    @apply bg-gray-50;
   }
   .section-tinted {
-    background-color: rgb(var(--sky-2) / 0.06);
+    @apply bg-gray-50;
   }
   .section-gradient {
-    background-color: rgb(var(--sky-1) / 0.08);
+    @apply bg-gray-50;
   }
   .section-alt {
     background-color: rgb(var(--primary) / 0.03);

@@ -11,12 +11,8 @@ const groupIcons = [Calendar, CreditCard, Shield, Palette];
 
 export const FeatureGroupsSection: React.FC = () => {
   return (
-    <Section variant="default" id="funksjoner" className="relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-      
-      <div className="relative">
+    <Section variant="default" id="funksjoner">
+      <div>
         <SectionHeader
           title="Funksjoner"
           subtitle="Alt du trenger for å administrere bookinger, ressurser og arrangementer"
@@ -33,14 +29,15 @@ export const FeatureGroupsSection: React.FC = () => {
                 key={group.title} 
                 className="
                   bg-white
-                  rounded-xl border border-border p-6 sm:p-8 
-                  shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-primary/30
-                  transition-all duration-300 ease-smooth group
+                  rounded-xl border-2 border-sky2/50 p-6 sm:p-8 
+                  shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan
+                  transition-all duration-300 ease-smooth group cursor-pointer
+                  overflow-hidden
                 "
               >
                 {/* Header with icon and title */}
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="w-16 h-16 rounded-xl bg-primary flex items-center justify-center shadow-sm">
+                  <div className="w-16 h-16 rounded-xl bg-primary flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth">
                     <Icon className="text-white" size={28} aria-hidden="true" />
                   </div>
                   <div>
@@ -103,9 +100,9 @@ export const FeatureGroupsSection: React.FC = () => {
               key={idx}
               className="
                 text-center p-4 sm:p-6 rounded-lg 
-                bg-surface/80 backdrop-blur-sm ring-1 ring-border-light 
-                shadow-sm hover:shadow-soft hover:-translate-y-1
-                transition-all duration-180 ease-smooth
+                bg-surface/80 backdrop-blur-sm border-2 border-sky2/50
+                shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan
+                transition-all duration-300 ease-smooth
               "
             >
               <div className={`text-2xl sm:text-3xl font-bold ${stat.color} mb-1`}>{stat.number}</div>

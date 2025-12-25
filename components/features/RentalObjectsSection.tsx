@@ -115,7 +115,7 @@ const RentalObjectCard: React.FC<{
   return (
     <div
       onClick={() => onCardClick(object.id)}
-      className="group bg-gradient-to-br from-white to-sky2/20 border-2 border-sky2/50 rounded-lg overflow-hidden cursor-pointer shadow-lg hover:border-cyan hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-smooth"
+      className="group bg-gradient-to-br from-white to-sky2/20 border-2 border-sky2/50 rounded-lg overflow-hidden cursor-pointer shadow-lg hover:border-cyan hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-smooth"
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {

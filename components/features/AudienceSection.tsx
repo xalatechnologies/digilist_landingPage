@@ -22,12 +22,8 @@ const cardStyles = {
 
 export const AudienceSection: React.FC = () => {
   return (
-    <Section variant="tinted" id="hvem-passer-det-for" className="relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute top-1/2 left-0 w-[300px] h-[300px] bg-cyan/5 rounded-full blur-3xl -translate-x-1/2" />
-      <div className="absolute top-1/4 right-0 w-[250px] h-[250px] bg-success/5 rounded-full blur-3xl translate-x-1/2" />
-      
-      <div className="relative">
+    <Section variant="default" id="hvem-passer-det-for">
+      <div>
         <SectionHeader
           title="Hvem passer det for"
           subtitle="En løsning som fungerer for alle typer organisasjoner"

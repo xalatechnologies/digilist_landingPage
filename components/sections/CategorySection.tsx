@@ -91,7 +91,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
             transition-all duration-200 cursor-pointer
             ${activeTab === 0 
               ? 'bg-primary text-white shadow-lg' 
-              : 'bg-white shadow-sm border border-border hover:shadow-md hover:-translate-y-0.5'
+              : 'bg-white shadow-lg border-2 border-sky2/50 hover:shadow-xl hover:-translate-y-2 hover:border-cyan'
             }
           `}
         >
@@ -112,7 +112,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
             transition-all duration-200 cursor-pointer
             ${activeTab === 1 
               ? 'bg-cyan text-white shadow-lg' 
-              : 'bg-white shadow-sm border border-border hover:shadow-md hover:-translate-y-0.5'
+              : 'bg-white shadow-lg border-2 border-sky2/50 hover:shadow-xl hover:-translate-y-2 hover:border-cyan'
             }
           `}
         >
@@ -133,7 +133,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
             transition-all duration-200 cursor-pointer
             ${activeTab === 2 
               ? 'bg-success text-white shadow-lg' 
-              : 'bg-white shadow-sm border border-border hover:shadow-md hover:-translate-y-0.5'
+              : 'bg-white shadow-lg border-2 border-sky2/50 hover:shadow-xl hover:-translate-y-2 hover:border-cyan'
             }
           `}
         >

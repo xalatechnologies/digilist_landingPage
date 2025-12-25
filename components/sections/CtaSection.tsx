@@ -28,13 +28,8 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
   onSecondaryClick,
 }) => {
   return (
-    <Section variant={variant} className={`relative overflow-hidden ${className}`}>
-      {/* Background decorations */}
-      <div className="absolute inset-0 bg-gradient-hero" />
-      <div className="absolute top-0 left-1/4 w-[300px] h-[300px] bg-cyan/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-[250px] h-[250px] bg-primary/10 rounded-full blur-3xl" />
-      
-      <div className="relative text-center px-4 sm:px-0">
+    <Section variant={variant} className={`bg-gray-50 ${className}`}>
+      <div className="text-center px-4 sm:px-0">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface ring-1 ring-cyan/20 shadow-sm mb-6">
           <Sparkles size={16} className="text-cyan" />

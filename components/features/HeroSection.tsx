@@ -13,15 +13,7 @@ import { homeContent } from '@/lib/homeContent';
  */
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative overflow-hidden">
-      {/* Background with brand gradient using tokens */}
-      <div className="absolute inset-0 bg-gradient-hero" />
-      
-      {/* Decorative elements using token colors */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-      <div className="absolute top-1/4 left-1/4 w-[200px] h-[200px] bg-success/10 rounded-full blur-2xl" />
-      
+    <section className="relative overflow-hidden bg-sky2/10">
       {/* Subtle grid pattern */}
       <div 
         className="absolute inset-0 opacity-[0.03]"
@@ -336,8 +328,6 @@ export const HeroSection: React.FC = () => {
         </div>
       </div>
       
-      {/* Bottom wave decoration */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-bg to-transparent" />
     </section>
   );
 };

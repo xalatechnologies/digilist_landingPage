@@ -35,7 +35,7 @@ export default function HomePage() {
         title={homeContent.publicSectorRequirements.title}
         subtitle={homeContent.publicSectorRequirements.subtitle}
         categories={homeContent.publicSectorRequirements.categories}
-        variant="gradient"
+        variant="default"
         columns={3}
         image="/images/utleieobjekter/flytende-badstua-ulefoss.jpg"
         imageAlt="Offentlig sektor løsning"
@@ -47,7 +47,7 @@ export default function HomePage() {
       {/* 6.5. IMAGE SHOWCASE */}
       <ImageShowcase
         variant="left"
-        sectionVariant="tinted"
+        sectionVariant="default"
         badge="Se det i praksis"
         title="Fra kultursal til idrettshall"
         description="Digilist gir deg full oversikt over alle utleieobjekter. Se tilgjengelighet i sanntid, administrer bookinger enkelt, og la brukerne selv finne og booke ledige lokaler."
@@ -94,7 +94,7 @@ export default function HomePage() {
         description={homeContent.cta.final.description}
         primaryCta={homeContent.cta.final.primary}
         secondaryCta={homeContent.cta.final.secondary}
-        variant="gradient"
+        variant="default"
       />
     </div>
   );

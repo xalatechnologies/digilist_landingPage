@@ -193,19 +193,19 @@ const CardRoot: React.FC<CardProps> = ({
   const colorStyle = colorStyles[color];
   
   const variantClasses = {
-    default: `bg-white border ${colorStyle.border}`,
-    gradient: `bg-white border ${colorStyle.border}`,
-    outlined: `bg-white/80 backdrop-blur-sm border ${colorStyle.border}`,
-    filled: `${colorStyle.bg} border ${colorStyle.border}`,
+    default: `bg-white border-2 border-sky2/50`,
+    gradient: `bg-white border-2 border-sky2/50`,
+    outlined: `bg-white/80 backdrop-blur-sm border-2 border-sky2/50`,
+    filled: `${colorStyle.bg} border-2 border-sky2/50`,
   };
 
   const hoverClasses = hoverable 
-    ? `${colorStyle.accent} hover:shadow-lift hover:-translate-y-1 cursor-pointer` 
-    : '';
+    ? `shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan cursor-pointer` 
+    : 'shadow-lg';
 
   const baseClasses = `
-    rounded-lg shadow-soft
-    transition-all duration-180 ease-smooth
+    rounded-lg
+    transition-all duration-300 ease-smooth
     ${variantClasses[variant]}
     ${hoverClasses}
   `.trim().replace(/\s+/g, ' ');

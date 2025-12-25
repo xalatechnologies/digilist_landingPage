@@ -24,7 +24,7 @@ export const HowItWorksSection: React.FC = () => {
             <Card key={idx} hoverable className="h-full">
               <Card.Block>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center mb-3 sm:mb-4 shadow-sm group-hover:scale-110 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center mb-3 sm:mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth">
                     <Icon size={28} className="text-white" aria-hidden="true" />
                   </div>
                   <div className="text-xs sm:text-sm font-bold text-primary mb-2">Steg {idx + 1}</div>

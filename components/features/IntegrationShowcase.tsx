@@ -127,15 +127,15 @@ export const IntegrationShowcase: React.FC = () => {
                   key={idx}
                   className={`
                     flex items-start gap-4 p-5 rounded-xl
-                    bg-white border-2 ${colors.border} ${colors.hoverBorder}
-                    shadow-sm hover:shadow-md hover:-translate-y-0.5
-                    transition-all duration-200 cursor-pointer group
+                    bg-white border-2 border-sky2/50 hover:border-cyan
+                    shadow-lg hover:shadow-xl hover:-translate-y-2
+                    transition-all duration-300 ease-smooth cursor-pointer group
                   `}
                 >
                   <div className={`
                     w-12 h-12 rounded-xl ${colors.bg} 
-                    flex items-center justify-center shrink-0
-                    group-hover:scale-110 transition-transform duration-200
+                    flex items-center justify-center shrink-0 shadow-lg
+                    group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth
                   `}>
                     <Icon size={24} className={colors.icon} />
                   </div>
