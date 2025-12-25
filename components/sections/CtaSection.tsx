@@ -1,0 +1,88 @@
+'use client';
+
+import React from 'react';
+import { Section } from '@/components/layout/Section';
+import { Heading, Text } from '@/components/ui/Typography';
+import { Button } from '@/components/ui/Button';
+import { Sparkles } from 'lucide-react';
+
+export interface CtaSectionProps {
+  title: string;
+  description: string;
+  primaryCta: string;
+  secondaryCta: string;
+  variant?: 'default' | 'tinted';
+  className?: string;
+  onPrimaryClick?: () => void;
+  onSecondaryClick?: () => void;
+}
+
+export const CtaSection: React.FC<CtaSectionProps> = ({
+  title,
+  description,
+  primaryCta,
+  secondaryCta,
+  variant = 'default',
+  className = '',
+  onPrimaryClick,
+  onSecondaryClick,
+}) => {
+  return (
+    <Section variant={variant} className={`relative overflow-hidden ${className}`}>
+      {/* Background decorations */}
+      <div className="absolute inset-0 bg-gradient-hero" />
+      <div className="absolute top-0 left-1/4 w-[300px] h-[300px] bg-cyan/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-[250px] h-[250px] bg-primary/10 rounded-full blur-3xl" />
+      
+      <div className="relative text-center px-4 sm:px-0">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface ring-1 ring-cyan/20 shadow-sm mb-6">
+          <Sparkles size={16} className="text-cyan" />
+          <span className="text-sm font-medium text-navy">Kom i gang i dag</span>
+        </div>
+        
+        <Heading level={2} className="mb-4 sm:mb-6">
+          {title}
+        </Heading>
+        <Text variant="lead" className="max-w-2xl mx-auto mb-8 sm:mb-10 text-base sm:text-xl">
+          {description}
+        </Text>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button 
+            variant="gradient" 
+            size="lg" 
+            onClick={onPrimaryClick} 
+            className="w-full sm:w-auto"
+          >
+            {primaryCta}
+          </Button>
+          <Button 
+            variant="secondary" 
+            size="lg" 
+            onClick={onSecondaryClick} 
+            className="w-full sm:w-auto"
+          >
+            {secondaryCta}
+          </Button>
+        </div>
+        
+        {/* Trust indicator */}
+        <div className="mt-8 flex items-center justify-center gap-6">
+          <div className="flex items-center gap-1.5">
+            <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
+            <span className="text-sm text-text-muted">Gratis demo</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <div className="w-2 h-2 rounded-full bg-cyan" />
+            <span className="text-sm text-text-muted">Ingen binding</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <div className="w-2 h-2 rounded-full bg-primary" />
+            <span className="text-sm text-text-muted">Norsk support</span>
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
+};

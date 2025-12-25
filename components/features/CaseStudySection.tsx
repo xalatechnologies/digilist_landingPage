@@ -32,7 +32,7 @@ export const CaseStudySection: React.FC = () => {
       icon: TrendingUp,
       value: '30%',
       label: 'Økt utnyttelse av lokaler',
-      color: 'text-[#27C93F]',
+      color: 'text-status-success',
     },
     {
       icon: Clock,

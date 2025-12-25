@@ -1,28 +1,57 @@
+'use client';
+
 import React from 'react';
-import { Building2 } from 'lucide-react';
+import Link from 'next/link';
+import { Heading } from '@/components/ui/Typography';
+import { homeContent } from '@/lib/homeContent';
 
 export const TrustBar: React.FC = () => {
-  const cities = ['ASKER', 'BÆRUM', 'BERGEN', 'TRONDHEIM', 'DRAMMEN'];
+  if (!homeContent.partners || homeContent.partners.length === 0) {
+    return null;
+  }
 
   return (
-    <div className="bg-white py-12 border-b border-border-default">
-      <div className="max-w-[1140px] mx-auto px-6 text-center">
-        <p className="text-xs font-bold text-text-secondary uppercase tracking-widest mb-8">
-          Brukes av ledende kommuner
-        </p>
-        <div className="flex flex-wrap justify-center gap-12">
-          {cities.map((city) => (
-            <div 
-              key={city} 
-              className="flex items-center gap-2 font-bold text-lg text-navy-base tracking-tight opacity-70 hover:opacity-100 hover:text-action-blue transition-all duration-300"
-            >
-              <Building2 className="text-action-blue" size={20} aria-hidden="true" /> 
-              <span>{city} KOMMUNE</span>
-            </div>
-          ))}
+    <div className="bg-surface py-16 border-b border-border">
+      <div className="container-main">
+        <div className="text-center mb-12">
+          <Heading level={2} className="mb-2">
+            Partnere
+          </Heading>
+          <p className="text-text-secondary text-base">
+            Vi samarbeider med ledende teknologipartnere
+          </p>
+        </div>
+        
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
+          {homeContent.partners.map((partner) => {
+            const isExternal = partner.url && partner.url.startsWith('http');
+            
+            if (isExternal) {
+              return (
+                <a
+                  key={partner.id}
+                  href={partner.url}
+                  className="link text-lg font-semibold"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {partner.name}
+                </a>
+              );
+            }
+            
+            return (
+              <Link
+                key={partner.id}
+                href={partner.url || '#'}
+                className="link text-lg font-semibold"
+              >
+                {partner.name}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>
   );
 };
-

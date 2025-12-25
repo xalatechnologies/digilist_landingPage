@@ -3,49 +3,24 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { CheckCircle2, PlayCircle, Menu, X, Building2, LogIn } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
+import { PlayCircle, Menu, X, Info, Settings } from 'lucide-react';
 import { Logo } from '@/components/ui/Logo';
 
 export const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const menuRef = useRef<HTMLDivElement>(null);
   const firstFocusableRef = useRef<HTMLButtonElement>(null);
-  const lastFocusableRef = useRef<HTMLButtonElement>(null);
 
+  // Track scroll for navbar styling
   useEffect(() => {
-    setIsMounted(true);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Focus trap for mobile menu
-  useEffect(() => {
-    if (!isMobileMenuOpen) return;
-
-    const handleTabKey = (e: KeyboardEvent) => {
-      if (e.key !== 'Tab') return;
-
-      if (e.shiftKey) {
-        if (document.activeElement === firstFocusableRef.current) {
-          e.preventDefault();
-          lastFocusableRef.current?.focus();
-        }
-      } else {
-        if (document.activeElement === lastFocusableRef.current) {
-          e.preventDefault();
-          firstFocusableRef.current?.focus();
-        }
-      }
-    };
-
-    document.addEventListener('keydown', handleTabKey);
-    firstFocusableRef.current?.focus();
-
-    return () => {
-      document.removeEventListener('keydown', handleTabKey);
-    };
-  }, [isMobileMenuOpen]);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -54,74 +29,99 @@ export const Navbar: React.FC = () => {
         setIsMobileMenuOpen(false);
       }
     };
-
     if (isMobileMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isMobileMenuOpen]);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [isMobileMenuOpen]);
+
+  const navLinks = [
+    { href: '/om-oss', label: 'Om oss', icon: Info },
+    { href: '/funksjonalitet', label: 'Funksjonalitet', icon: Settings },
+  ];
+
+  const isActive = (href: string) => pathname === href;
 
   return (
     <nav 
-      className="sticky top-0 z-50 w-full bg-white border-b border-border-default"
+      className={`
+        sticky top-0 z-50 w-full transition-all duration-180 ease-smooth
+        ${isScrolled 
+          ? 'bg-surface/95 backdrop-blur-md shadow-soft border-b border-border-light' 
+          : 'bg-surface-2 border-b border-border'}
+      `}
       role="navigation"
       aria-label="Hovednavigasjon"
     >
-      <div className="max-w-[1140px] mx-auto px-6">
-        <div className="flex justify-between items-center h-[84px]">
+      <div className="container-main">
+        <div className="flex justify-between items-center h-[80px]">
           
           {/* Logo */}
           <Link 
             href="/"
-            className="flex items-center cursor-pointer group"
+            className="flex items-center cursor-pointer group relative focus-ring rounded-lg"
             aria-label="Digilist - Gå til forsiden"
           >
-            <Logo size={32} className="group-hover:opacity-90 transition-opacity duration-300" />
+            <Logo size={52} className="group-hover:opacity-90 transition-all duration-180" />
+            {/* Subtle glow on hover */}
+            <div className="absolute inset-0 bg-cyan/0 group-hover:bg-cyan/5 rounded-lg transition-colors duration-180" />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
-            <a 
-              href="#utleieobjekter"
-              className="flex items-center gap-2 text-base font-medium text-navy-base hover:text-action-blue hover:underline underline-offset-4 decoration-2 transition-all tracking-tight min-h-[44px]"
-            >
-              <Building2 size={18} aria-hidden="true" />
-              Se utleieobjekter
-            </a>
-          </div>
-
-          {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-4">
-            <Link 
-              href="/demo"
-              className={`flex items-center gap-2 text-base font-medium transition-all tracking-tight min-h-[44px] hover:underline underline-offset-4 decoration-2 ${
-                pathname === '/demo' ? 'text-action-blue' : 'text-navy-base hover:text-action-blue'
-              }`}
-            >
-              <PlayCircle size={20} aria-hidden="true" />
-              Se demo
-            </Link>
+          <div className="hidden md:flex items-center gap-2">
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              return (
+                <Link 
+                  key={link.href}
+                  href={link.href}
+                  className={`
+                    flex items-center gap-2 px-4 py-2.5 rounded-md
+                    text-base font-medium transition-all duration-180 ease-smooth
+                    min-h-[44px] relative overflow-hidden group focus-ring
+                    ${isActive(link.href) 
+                      ? 'text-primary bg-primary/5' 
+                      : 'text-navy hover:text-primary hover:bg-surface-3'}
+                  `}
+                >
+                  <Icon size={18} className="transition-transform duration-180 group-hover:scale-110" aria-hidden="true" />
+                  <span>{link.label}</span>
+                  {/* Active indicator */}
+                  {isActive(link.href) && (
+                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-cyan rounded-full" />
+                  )}
+                </Link>
+              );
+            })}
+            
+            {/* CTA Button with gradient */}
             <Link
-              href="/login"
-              className="flex items-center gap-2 text-base font-medium text-navy-base hover:text-action-blue hover:underline underline-offset-4 decoration-2 transition-all tracking-tight min-h-[44px]"
+              href="/demo"
+              className="btn-gradient ml-4 group"
             >
-              <LogIn size={18} aria-hidden="true" />
-              Logg inn
+              <PlayCircle size={20} className="transition-transform duration-180 group-hover:scale-110" aria-hidden="true" />
+              <span className="ml-2">Book Demo</span>
             </Link>
-            <Button variant="primary" className="py-2.5 px-5 text-base">
-              Book møte
-            </Button>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button 
             ref={firstFocusableRef}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-navy-base min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className={`
+              md:hidden min-h-[44px] min-w-[44px] 
+              flex items-center justify-center rounded-md
+              transition-all duration-180 ease-smooth focus-ring
+              ${isMobileMenuOpen 
+                ? 'bg-navy text-white' 
+                : 'text-navy hover:bg-surface-3'}
+            `}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"
             aria-label={isMobileMenuOpen ? 'Lukk meny' : 'Åpne meny'}
@@ -132,49 +132,96 @@ export const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
+      <div 
+        id="mobile-menu"
+        ref={menuRef}
+        className={`
+          md:hidden fixed inset-0 top-[80px] z-40 
+          transition-all duration-180 ease-smooth
+          ${isMobileMenuOpen 
+            ? 'opacity-100 pointer-events-auto' 
+            : 'opacity-0 pointer-events-none'}
+        `}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobil meny"
+      >
+        {/* Backdrop */}
         <div 
-          id="mobile-menu"
-          ref={menuRef}
-          className="md:hidden absolute top-[84px] w-full bg-white border-b border-border-default p-4 flex flex-col gap-4 shadow-xl"
-          role="menu"
+          className={`
+            absolute inset-0 bg-navy/20 backdrop-blur-sm
+            transition-opacity duration-180
+            ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}
+          `}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+        
+        {/* Menu Panel */}
+        <div 
+          className={`
+            absolute top-0 right-0 w-[85%] max-w-[320px] h-full
+            bg-surface shadow-lift
+            transform transition-transform duration-180 ease-smooth
+            ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
+          `}
         >
-          <a 
-            href="#utleieobjekter"
-            className="flex items-center gap-2 font-medium text-navy-base min-h-[44px]"
-            role="menuitem"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            <Building2 size={18} aria-hidden="true" />
-            Se utleieobjekter
-          </a>
-          <Link 
-            href="/demo"
-            className="flex items-center gap-2 font-medium text-action-blue min-h-[44px]"
-            role="menuitem"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            <PlayCircle size={18} aria-hidden="true" /> Se demo
-          </Link>
-          <Link
-            href="/login"
-            className="flex items-center gap-2 font-medium text-navy-base min-h-[44px]"
-            role="menuitem"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            <LogIn size={18} aria-hidden="true" />
-            Logg inn
-          </Link>
-          <Button 
-            ref={lastFocusableRef}
-            className="w-full"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Book møte
-          </Button>
+          {/* Decorative gradient bar */}
+          <div className="h-1 bg-gradient-button" />
+          
+          <div className="px-6 py-8">
+            {/* Navigation Links */}
+            <div className="space-y-2">
+              {navLinks.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <Link 
+                    key={link.href}
+                    href={link.href}
+                    className={`
+                      flex items-center gap-4 px-4 py-4 rounded-md
+                      transition-all duration-180 ease-smooth group focus-ring
+                      ${isActive(link.href)
+                        ? 'bg-gradient-to-r from-primary/10 to-cyan/10 text-primary'
+                        : 'text-navy hover:bg-surface-3'}
+                    `}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <div className={`
+                      w-10 h-10 rounded-md flex items-center justify-center
+                      transition-all duration-180 ease-smooth
+                      ${isActive(link.href)
+                        ? 'bg-primary text-white'
+                        : 'bg-surface-3 text-cyan group-hover:bg-cyan group-hover:text-white'}
+                    `}>
+                      <Icon size={20} aria-hidden="true" />
+                    </div>
+                    <span className="text-lg font-medium">{link.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+            
+            {/* Mobile CTA */}
+            <div className="mt-8 pt-6 border-t border-border-light">
+              <Link
+                href="/demo"
+                className="btn-gradient w-full text-lg justify-center"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <PlayCircle size={24} aria-hidden="true" />
+                <span className="ml-2">Book Demo</span>
+              </Link>
+            </div>
+            
+            {/* Brand accent */}
+            <div className="mt-8 flex items-center justify-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary" />
+              <div className="w-2 h-2 rounded-full bg-cyan" />
+              <div className="w-2 h-2 rounded-full bg-success" />
+            </div>
+          </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
-

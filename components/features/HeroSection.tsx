@@ -1,236 +1,343 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
-import { Building2, Calendar, Users, ArrowRight, Dumbbell, UsersRound, Theater, BookOpen, Presentation, Clock } from 'lucide-react';
-import { Badge } from '@/components/ui/Badge';
+import { Dumbbell, Presentation, Theater, Shield, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { Heading } from '@/components/ui/Typography';
-import { Text } from '@/components/ui/Typography';
+import { Heading, Text } from '@/components/ui/Typography';
+import { homeContent } from '@/lib/homeContent';
 
+/**
+ * Hero Section with brand-consistent design tokens
+ * Uses CSS variables from tokens.css via Tailwind utilities
+ */
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative bg-gradient-to-b from-background-light via-white to-white pt-16 pb-24 md:pt-20 md:pb-32 border-b border-border-default">
-      <div className="max-w-[1140px] mx-auto px-6">
+    <section className="relative overflow-hidden">
+      {/* Background with brand gradient using tokens */}
+      <div className="absolute inset-0 bg-gradient-hero" />
+      
+      {/* Decorative elements using token colors */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+      <div className="absolute top-1/4 left-1/4 w-[200px] h-[200px] bg-success/10 rounded-full blur-2xl" />
+      
+      {/* Subtle grid pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231A365D' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }}
+      />
+
+      <div className="relative container-main pt-8 pb-20 md:pt-12 md:pb-28">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Text Content */}
-          <div className="text-center lg:text-left">
-            <Badge className="mb-6">Nyhet: Versjon 2.0</Badge>
+          <div className="text-center lg:text-left relative z-10">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface/80 backdrop-blur-sm ring-1 ring-cyan/20 shadow-sm mb-6">
+              <Sparkles size={16} className="text-cyan" />
+              <span className="text-sm font-medium text-navy">Norges smarteste bookingsystem</span>
+            </div>
             
             <Heading level={1} className="mb-6 text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1]">
-              Automatiser utleie av{' '}
-              <span className="text-action-blue">kommunale lokaler</span>
+              {homeContent.hero.title}
             </Heading>
             
             <Text variant="lead" className="mb-8 text-lg md:text-xl max-w-xl mx-auto lg:mx-0">
-              Det komplette operativsystemet for norske kommuner. 
-              Håndter booking, betaling og adgangskontroll uten manuelt arbeid.
+              {homeContent.hero.subtitle}
             </Text>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-              <Button size="lg">
-                Kom i gang
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <Link href="/demo">
-                <Button 
-                  variant="secondary" 
-                  size="lg"
-                  showArrow
-                >
-                  Slik fungerer det
+                <Button variant="gradient" size="lg" className="group">
+                  {homeContent.hero.ctaPrimary}
+                </Button>
+              </Link>
+              <Link href="/funksjonalitet">
+                <Button variant="secondary" size="lg" showArrow>
+                  {homeContent.hero.ctaSecondary}
                 </Button>
               </Link>
             </div>
 
-            {/* Quick Stats/Features */}
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border-default">
-              <div className="text-center lg:text-left">
-                <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
-                  <Calendar className="text-action-blue" size={20} aria-hidden="true" />
-                  <span className="text-2xl font-bold text-navy-base">100%</span>
+            {/* Trust & Certifications */}
+            <div className="pt-8 border-t border-border">
+              <p className="text-sm font-semibold text-navy mb-5 flex items-center gap-2 justify-center lg:justify-start">
+                <Shield size={16} className="text-cyan" />
+                Sikkerhet & Sertifisering
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+                {/* Vipps - uses brand color */}
+                <div className="flex items-center gap-3 group cursor-pointer p-2 rounded-lg hover:bg-surface/60 transition-all duration-180">
+                  <div className="icon-box bg-vipps/10">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" className="fill-vipps"/>
+                    </svg>
+                  </div>
+                  <span className="text-base font-semibold text-vipps group-hover:opacity-80 transition-opacity">Vipps</span>
                 </div>
-                <p className="text-sm text-text-secondary">Automatisert</p>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
-                  <Building2 className="text-action-blue" size={20} aria-hidden="true" />
-                  <span className="text-2xl font-bold text-navy-base">50+</span>
+                
+                {/* BankID */}
+                <div className="flex items-center gap-3 group cursor-pointer p-2 rounded-lg hover:bg-surface/60 transition-all duration-180">
+                  <div className="icon-box bg-navy/10">
+                    <svg width="28" height="20" viewBox="0 0 36 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="2" y="4" width="32" height="16" rx="2" className="fill-navy"/>
+                      <rect x="4" y="6" width="8" height="6" rx="1" fill="white" opacity="0.3"/>
+                      <rect x="4" y="14" width="12" height="2" rx="1" fill="white" opacity="0.5"/>
+                      <rect x="4" y="17" width="8" height="2" rx="1" fill="white" opacity="0.5"/>
+                      <circle cx="28" cy="10" r="3" className="fill-success"/>
+                    </svg>
+                  </div>
+                  <span className="text-base font-semibold text-navy group-hover:text-primary transition-colors">BankID</span>
                 </div>
-                <p className="text-sm text-text-secondary">Kommuner</p>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
-                  <Users className="text-action-blue" size={20} aria-hidden="true" />
-                  <span className="text-2xl font-bold text-navy-base">3M+</span>
+                
+                {/* GDPR */}
+                <div className="flex items-center gap-3 group cursor-pointer p-2 rounded-lg hover:bg-surface/60 transition-all duration-180">
+                  <div className="icon-box bg-primary/10">
+                    <Shield size={20} className="text-primary" strokeWidth={2.5} />
+                  </div>
+                  <span className="text-base font-semibold text-primary group-hover:opacity-80 transition-opacity">GDPR</span>
                 </div>
-                <p className="text-sm text-text-secondary">Innbyggere</p>
+                
+                {/* ISO 27001 */}
+                <div className="flex items-center gap-3 group cursor-pointer p-2 rounded-lg hover:bg-surface/60 transition-all duration-180">
+                  <div className="icon-box bg-primary/10">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="14" cy="14" r="14" className="fill-primary"/>
+                      <text x="14" y="18" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="900" fill="white" textAnchor="middle" letterSpacing="0.5">ISO</text>
+                    </svg>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-base font-semibold text-navy leading-tight group-hover:text-primary transition-colors">27001</span>
+                    <span className="text-xs text-muted">Sertifisert</span>
+                  </div>
+                </div>
+                
+                {/* ISO 27701 */}
+                <div className="flex items-center gap-3 group cursor-pointer p-2 rounded-lg hover:bg-surface/60 transition-all duration-180">
+                  <div className="icon-box bg-primary/10">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="14" cy="14" r="14" className="fill-primary"/>
+                      <text x="14" y="18" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="900" fill="white" textAnchor="middle" letterSpacing="0.5">ISO</text>
+                    </svg>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-base font-semibold text-navy leading-tight group-hover:text-primary transition-colors">27701</span>
+                    <span className="text-xs text-muted">Sertifisert</span>
+                  </div>
+                </div>
+                
+                {/* Microsoft - uses their brand colors */}
+                <div className="flex items-center gap-3 group cursor-pointer p-2 rounded-lg hover:bg-surface/60 transition-all duration-180">
+                  <div className="icon-box bg-surface-2">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="0" y="0" width="9" height="9" fill="#F25022"/>
+                      <rect x="11" y="0" width="9" height="9" fill="#7FBA00"/>
+                      <rect x="0" y="11" width="9" height="9" fill="#00A4EF"/>
+                      <rect x="11" y="11" width="9" height="9" fill="#FFB900"/>
+                    </svg>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-base font-semibold text-navy leading-tight group-hover:text-primary transition-colors">Microsoft</span>
+                    <span className="text-xs text-muted">Sertifisert</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Mobile Preview */}
-          <div className="relative lg:pl-8 flex justify-center lg:justify-end">
-            {/* Mobile Phone Frame */}
-            <div className="relative w-[280px] md:w-[320px] group">
-              {/* Phone Outer Frame */}
-              <div className="relative bg-navy-base rounded-[32px] p-2 shadow-2xl transition-all duration-300 group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] cursor-pointer shake-on-hover">
-                {/* Phone Screen */}
-                <div className="bg-white rounded-[24px] overflow-hidden">
-                  {/* Status Bar */}
-                  <div className="bg-white px-4 pt-3 pb-2 flex items-center justify-between">
-                    <div className="text-[10px] font-semibold text-navy-base">9:41</div>
+          {/* Right Column: Device Mockups */}
+          <div className="relative lg:pl-8 flex justify-center lg:justify-end min-h-[500px] lg:min-h-[600px]">
+            {/* Mobile-only view */}
+            <div className="relative w-[280px] md:w-[320px] lg:hidden group mx-auto">
+              <div className="relative bg-gradient-navy rounded-[32px] p-2 shadow-lift transition-all duration-300 group-hover:shadow-glow-strong cursor-pointer">
+                <div className="bg-surface rounded-[24px] overflow-hidden">
+                  <div className="bg-surface px-4 pt-3 pb-2 flex items-center justify-between">
+                    <div className="text-[10px] font-semibold text-navy">9:41</div>
                     <div className="flex gap-1">
-                      <div className="w-1 h-1 rounded-full bg-navy-base" aria-hidden="true"></div>
-                      <div className="w-1 h-1 rounded-full bg-navy-base" aria-hidden="true"></div>
-                      <div className="w-1 h-1 rounded-full bg-navy-base" aria-hidden="true"></div>
+                      <div className="w-1 h-1 rounded-full bg-navy" />
+                      <div className="w-1 h-1 rounded-full bg-navy" />
+                      <div className="w-1 h-1 rounded-full bg-navy" />
                     </div>
                   </div>
-                  
-                  {/* App Header */}
-                  <div className="bg-action-blue px-4 py-3">
+                  <div className="bg-gradient-button px-4 py-3">
                     <h3 className="text-white font-bold text-sm tracking-tight mb-0.5">Ledige lokaler</h3>
-                    <p className="text-white/70 text-[8px] font-medium tracking-tight">developed by Xala tech</p>
+                    <p className="text-white/70 text-[8px] font-medium">developed by Xala tech</p>
                   </div>
-                  
-                  {/* Hall List */}
-                  <div className="px-4 py-3 space-y-3 max-h-[480px] overflow-y-auto">
-                    {/* Hall 1 */}
-                    <div className="bg-white border-2 border-gray-200 rounded-xl p-4 hover:border-action-blue hover:shadow-lg transition-all duration-200 cursor-pointer group">
+                  <div className="px-4 py-3 space-y-3 max-h-[400px] overflow-y-auto">
+                    <div className="bg-surface ring-2 ring-border rounded-lg p-4 hover:ring-cyan transition-colors">
                       <div className="flex items-start gap-3">
-                        <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-2.5 rounded-xl shadow-sm group-hover:shadow-md transition-shadow shrink-0">
-                          <Dumbbell className="text-white" size={20} aria-hidden="true" />
+                        <div className="bg-gradient-button p-2.5 rounded-lg shrink-0">
+                          <Dumbbell className="text-white" size={20} />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <div className="flex items-start justify-between mb-2.5">
-                            <div className="flex-1 min-w-0">
-                              <h4 className="font-bold text-gray-900 text-sm tracking-tight mb-1">Idrettshallen</h4>
-                              <p className="text-xs text-gray-600">250 m² • Håndballbane</p>
-                            </div>
-                            <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full shrink-0 ml-2 border border-blue-100">
-                              Ledig
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-1.5 mt-2.5 pt-2.5 border-t border-gray-100">
-                            <Clock className="text-gray-400" size={12} aria-hidden="true" />
-                            <span className="text-xs text-gray-500 font-medium">I dag 14:00-18:00</span>
-                          </div>
+                          <h4 className="font-bold text-navy text-sm tracking-tight mb-1">Idrettshallen</h4>
+                          <p className="text-xs text-text-secondary">250 m² • Håndballbane</p>
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
                     
-                    {/* Hall 2 */}
-                    <div className="bg-white border-2 border-gray-200 rounded-xl p-4 hover:border-purple-400 hover:shadow-lg transition-all duration-200 cursor-pointer group">
-                      <div className="flex items-start gap-3">
-                        <div className="bg-gradient-to-br from-purple-500 to-purple-600 p-2.5 rounded-xl shadow-sm group-hover:shadow-md transition-shadow shrink-0">
-                          <Presentation className="text-white" size={20} aria-hidden="true" />
+            {/* Desktop view - three devices */}
+            <div className="relative w-full max-w-[700px] h-[600px] hidden lg:block overflow-visible">
+              {/* Desktop Mockup */}
+              <div className="absolute left-0 top-0 w-[400px] xl:w-[500px] z-10 transform rotate-[-2deg] hover:rotate-0 transition-all duration-300 group">
+                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg shadow-lift p-2 group-hover:shadow-glow transition-shadow duration-300">
+                  <div className="bg-gray-700 rounded-t-lg px-3 py-2 flex items-center gap-2">
+                    <div className="flex gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-red-500" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                      <div className="w-3 h-3 rounded-full bg-green-500" />
+                    </div>
+                    <div className="flex-1 bg-gray-600 rounded px-3 py-1 text-[10px] text-gray-300 text-center">
+                      digilist.no
+                    </div>
+                  </div>
+                  <div className="bg-surface rounded-b-lg overflow-hidden h-[400px]">
+                    <div className="bg-gradient-button px-4 py-3">
+                      <h3 className="text-white font-bold text-sm mb-1">Ledige lokaler</h3>
+                    </div>
+                    <div className="p-4 space-y-3">
+                      <div className="grid grid-cols-3 gap-3">
+                        <div className="bg-surface-2 ring-2 ring-cyan/20 rounded-lg p-3 hover:ring-cyan transition-all duration-180 hover:shadow-soft">
+                          <div className="w-10 h-10 bg-gradient-button rounded-lg mb-2 flex items-center justify-center">
+                            <Dumbbell className="text-white" size={18} />
+                          </div>
+                          <p className="text-xs font-semibold text-navy mb-0.5">Idrettshallen</p>
+                          <p className="text-[10px] text-muted">250 m²</p>
+                          <span className="badge-success mt-1.5 text-[9px]">Ledig</span>
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-start justify-between mb-2.5">
-                            <div className="flex-1 min-w-0">
-                              <h4 className="font-bold text-gray-900 text-sm tracking-tight mb-1">Møtesal A</h4>
-                              <p className="text-xs text-gray-600">80 m² • Konferanse</p>
-                            </div>
-                            <span className="text-[10px] font-semibold text-green-600 bg-green-50 px-2.5 py-1 rounded-full shrink-0 ml-2 border border-green-100">
-                              Booket
-                            </span>
+                        <div className="bg-purple-50 ring-2 ring-purple-200 rounded-lg p-3 hover:ring-purple-400 transition-all duration-180 hover:shadow-soft">
+                          <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg mb-2 flex items-center justify-center">
+                            <Presentation className="text-white" size={18} />
                           </div>
-                          <div className="flex items-center gap-1.5 mt-2.5 pt-2.5 border-t border-gray-100">
-                            <Clock className="text-gray-400" size={12} aria-hidden="true" />
-                            <span className="text-xs text-gray-500 font-medium">I dag 10:00-12:00</span>
+                          <p className="text-xs font-semibold text-navy mb-0.5">Møtesal A</p>
+                          <p className="text-[10px] text-muted">80 m²</p>
+                          <span className="badge-warning mt-1.5 text-[9px]">Booket</span>
+                        </div>
+                        <div className="bg-pink-50 ring-2 ring-pink-200 rounded-lg p-3 hover:ring-pink-400 transition-all duration-180 hover:shadow-soft">
+                          <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-rose-500 rounded-lg mb-2 flex items-center justify-center">
+                            <Theater className="text-white" size={18} />
                           </div>
+                          <p className="text-xs font-semibold text-navy mb-0.5">Kultursalen</p>
+                          <p className="text-[10px] text-muted">150 m²</p>
+                          <span className="badge-success mt-1.5 text-[9px]">Ledig</span>
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
                     
-                    {/* Hall 3 */}
-                    <div className="bg-white border-2 border-gray-200 rounded-xl p-4 hover:border-pink-400 hover:shadow-lg transition-all duration-200 cursor-pointer group">
-                      <div className="flex items-start gap-3">
-                        <div className="bg-gradient-to-br from-pink-500 to-rose-500 p-2.5 rounded-xl shadow-sm group-hover:shadow-md transition-shadow shrink-0">
-                          <Theater className="text-white" size={20} aria-hidden="true" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-start justify-between mb-2.5">
-                            <div className="flex-1 min-w-0">
-                              <h4 className="font-bold text-gray-900 text-sm tracking-tight mb-1">Kultursalen</h4>
-                              <p className="text-xs text-gray-600">150 m² • Scene & publikum</p>
-                            </div>
-                            <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full shrink-0 ml-2 border border-blue-100">
-                              Ledig
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-1.5 mt-2.5 pt-2.5 border-t border-gray-100">
-                            <Clock className="text-gray-400" size={12} aria-hidden="true" />
-                            <span className="text-xs text-gray-500 font-medium">I morgen 09:00-17:00</span>
+              {/* iPad Mockup */}
+              <div className="absolute left-[240px] xl:left-[300px] top-8 w-[220px] xl:w-[280px] z-20 transform rotate-[3deg] hover:rotate-0 transition-all duration-300 group">
+                <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-[20px] p-2 shadow-lift group-hover:shadow-glow transition-shadow duration-300">
+                  <div className="bg-surface rounded-[16px] overflow-hidden h-[380px]">
+                    <div className="bg-gradient-button px-3 py-2">
+                      <h3 className="text-white font-bold text-xs mb-0.5">Ledige lokaler</h3>
+                    </div>
+                    <div className="p-3 space-y-2">
+                      <div className="bg-surface-2 ring-2 ring-cyan/20 rounded-lg p-2">
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="w-6 h-6 bg-gradient-button rounded-md" />
+                          <div>
+                            <p className="text-[10px] font-semibold text-navy">Idrettshallen</p>
+                            <p className="text-[9px] text-muted">250 m²</p>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    
-                    {/* Hall 4 */}
-                    <div className="bg-white border-2 border-gray-200 rounded-xl p-4 hover:border-green-400 hover:shadow-lg transition-all duration-200 cursor-pointer group">
-                      <div className="flex items-start gap-3">
-                        <div className="bg-gradient-to-br from-green-500 to-emerald-500 p-2.5 rounded-xl shadow-sm group-hover:shadow-md transition-shadow shrink-0">
-                          <UsersRound className="text-white" size={20} aria-hidden="true" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-start justify-between mb-2.5">
-                            <div className="flex-1 min-w-0">
-                              <h4 className="font-bold text-gray-900 text-sm tracking-tight mb-1">Gymnastikksal</h4>
-                              <p className="text-xs text-gray-600">120 m² • Trening</p>
-                            </div>
-                            <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full shrink-0 ml-2 border border-blue-100">
-                              Ledig
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-1.5 mt-2.5 pt-2.5 border-t border-gray-100">
-                            <Clock className="text-gray-400" size={12} aria-hidden="true" />
-                            <span className="text-xs text-gray-500 font-medium">I dag 16:00-20:00</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Hall 5 */}
-                    <div className="bg-white border-2 border-gray-200 rounded-xl p-4 hover:border-amber-400 hover:shadow-lg transition-all duration-200 cursor-pointer group">
-                      <div className="flex items-start gap-3">
-                        <div className="bg-gradient-to-br from-amber-500 to-orange-500 p-2.5 rounded-xl shadow-sm group-hover:shadow-md transition-shadow shrink-0">
-                          <BookOpen className="text-white" size={20} aria-hidden="true" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-start justify-between mb-2.5">
-                            <div className="flex-1 min-w-0">
-                              <h4 className="font-bold text-gray-900 text-sm tracking-tight mb-1">Biblioteket</h4>
-                              <p className="text-xs text-gray-600">60 m² • Lesing & møter</p>
-                            </div>
-                            <span className="text-[10px] font-semibold text-green-600 bg-green-50 px-2.5 py-1 rounded-full shrink-0 ml-2 border border-green-100">
-                              Booket
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-1.5 mt-2.5 pt-2.5 border-t border-gray-100">
-                            <Clock className="text-gray-400" size={12} aria-hidden="true" />
-                            <span className="text-xs text-gray-500 font-medium">I dag 13:00-15:00</span>
+                      <div className="bg-purple-50 ring-2 ring-purple-200 rounded-lg p-2">
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-md" />
+                          <div>
+                            <p className="text-[10px] font-semibold text-navy">Møtesal A</p>
+                            <p className="text-[9px] text-muted">80 m²</p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Bottom Navigation */}
-                  <div className="bg-zebra-tint border-t border-border-default px-4 py-2 flex items-center justify-around">
-                    <div className="text-action-blue text-xs font-semibold">Hjem</div>
-                    <div className="text-text-muted text-xs">Søk</div>
-                    <div className="text-text-muted text-xs">Min side</div>
+                </div>
+              </div>
+
+              {/* Mobile Mockup */}
+              <div className="absolute left-[360px] xl:left-[450px] top-16 w-[160px] xl:w-[200px] z-30 transform rotate-[-4deg] hover:rotate-0 transition-all duration-300 group">
+                <div className="relative bg-gradient-navy rounded-[24px] p-1.5 shadow-lift transition-all duration-300 group-hover:shadow-glow-strong cursor-pointer">
+                  <div className="bg-surface rounded-[20px] overflow-hidden">
+                    <div className="bg-surface px-3 pt-2 pb-1.5 flex items-center justify-between">
+                      <div className="text-[8px] font-semibold text-navy">9:41</div>
+                      <div className="flex gap-0.5">
+                        <div className="w-0.5 h-0.5 rounded-full bg-navy" />
+                        <div className="w-0.5 h-0.5 rounded-full bg-navy" />
+                        <div className="w-0.5 h-0.5 rounded-full bg-navy" />
+                      </div>
+                    </div>
+                    <div className="bg-gradient-button px-3 py-2">
+                      <h3 className="text-white font-bold text-xs tracking-tight mb-0.5">Ledige lokaler</h3>
+                      <p className="text-white/70 text-[7px] font-medium">developed by Xala tech</p>
+                    </div>
+                    <div className="px-3 py-2 space-y-2 max-h-[280px] overflow-y-auto">
+                      <div className="bg-surface ring-2 ring-cyan/20 rounded-lg p-2 hover:ring-cyan transition-all duration-180">
+                        <div className="flex items-center gap-2">
+                          <div className="bg-gradient-button p-1.5 rounded-md shrink-0">
+                            <Dumbbell className="text-white" size={12} />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-bold text-navy text-[9px]">Idrettshallen</h4>
+                            <p className="text-[8px] text-muted">250 m²</p>
+                          </div>
+                          <span className="text-[8px] font-semibold text-cyan bg-surface-3 px-1.5 py-0.5 rounded-full">Ledig</span>
+                        </div>
+                      </div>
+                      <div className="bg-surface ring-2 ring-purple-200 rounded-lg p-2 hover:ring-purple-400 transition-all duration-180">
+                        <div className="flex items-center gap-2">
+                          <div className="bg-gradient-to-br from-purple-500 to-pink-500 p-1.5 rounded-md shrink-0">
+                            <Presentation className="text-white" size={12} />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-bold text-navy text-[9px]">Møtesal A</h4>
+                            <p className="text-[8px] text-muted">80 m²</p>
+                          </div>
+                          <span className="text-[8px] font-semibold text-success bg-success/10 px-1.5 py-0.5 rounded-full">Booket</span>
+                        </div>
+                      </div>
+                      <div className="bg-surface ring-2 ring-pink-200 rounded-lg p-2 hover:ring-pink-400 transition-all duration-180">
+                        <div className="flex items-center gap-2">
+                          <div className="bg-gradient-to-br from-pink-500 to-rose-500 p-1.5 rounded-md shrink-0">
+                            <Theater className="text-white" size={12} />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-bold text-navy text-[9px]">Kultursalen</h4>
+                            <p className="text-[8px] text-muted">150 m²</p>
+                          </div>
+                          <span className="text-[8px] font-semibold text-cyan bg-surface-3 px-1.5 py-0.5 rounded-full">Ledig</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-surface-2 border-t border-border-light px-3 py-1.5 flex items-center justify-around">
+                      <div className="text-primary text-[8px] font-semibold">Hjem</div>
+                      <div className="text-muted text-[8px]">Søk</div>
+                      <div className="text-muted text-[8px]">Min side</div>
+                    </div>
                   </div>
                 </div>
               </div>
               
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-action-blue/10 rounded-full blur-2xl -z-10" aria-hidden="true"></div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-background-light rounded-full blur-2xl -z-10" aria-hidden="true"></div>
+              {/* Decorative glow effects */}
+              <div className="absolute -top-8 -right-8 w-32 h-32 bg-cyan/20 rounded-full blur-3xl animate-pulse" />
+              <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-primary/15 rounded-full blur-3xl" />
             </div>
           </div>
         </div>
       </div>
+      
+      {/* Bottom wave decoration */}
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-bg to-transparent" />
     </section>
   );
 };
-
