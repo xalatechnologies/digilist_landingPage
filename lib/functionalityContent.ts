@@ -239,7 +239,7 @@ export const functionalityContent = {
 
   integrations: {
     title: "Integrasjoner",
-    subtitle: "Kobles sømløst til systemene du allerede bruker",
+    subtitle: "Integrer med de systemene du allerede bruker for en sømløs arbeidsflyt",
     groups: [
       {
         id: "calendar",

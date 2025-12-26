@@ -1,12 +1,63 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Dumbbell, Presentation, Theater, Shield, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Heading, Text } from '@/components/ui/Typography';
 import { homeContent } from '@/lib/homeContent';
+
+/**
+ * Device Screenshot Component with fallback
+ */
+const DeviceScreenshot: React.FC<{
+  src: string;
+  alt: string;
+  className?: string;
+  placeholder?: string;
+}> = ({ src, alt, className = '', placeholder = 'Screenshot' }) => {
+  const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  if (hasError) {
+    return (
+      <div className={`absolute inset-0 flex items-center justify-center bg-gradient-to-br from-sky2/10 to-primary/5 ${className}`}>
+        <div className="text-center p-4">
+          <div className="w-16 h-16 mx-auto mb-3 bg-primary/10 rounded-lg flex items-center justify-center">
+            <Presentation className="text-primary/50" size={24} />
+          </div>
+          <p className="text-sm text-navy/50 font-medium">{placeholder}</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      {isLoading && (
+        <div className={`absolute inset-0 flex items-center justify-center bg-gradient-to-br from-sky2/10 to-primary/5 ${className}`}>
+          <div className="animate-pulse text-navy/30 text-xs">Loading...</div>
+        </div>
+      )}
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className={`object-cover ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300 ${className}`}
+        style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+        sizes="100vw"
+        priority
+        onError={() => {
+          setHasError(true);
+          setIsLoading(false);
+        }}
+        onLoad={() => setIsLoading(false)}
+      />
+    </>
+  );
+};
 
 /**
  * Hero Section with brand-consistent design tokens
@@ -215,22 +266,12 @@ export const HeroSection: React.FC = () => {
                       <div className="w-1 h-1 rounded-full bg-navy" />
                     </div>
                   </div>
-                  <div className="bg-gradient-button px-4 py-3">
-                    <h3 className="text-white font-bold text-sm tracking-tight mb-0.5">Ledige lokaler</h3>
-                    <p className="text-white/70 text-[8px] font-medium">developed by Xala tech</p>
-                  </div>
-                  <div className="px-4 py-3 space-y-3 max-h-[400px] overflow-y-auto">
-                    <div className="bg-surface ring-2 ring-border rounded-lg p-4 hover:ring-cyan transition-colors">
-                      <div className="flex items-start gap-3">
-                        <div className="bg-gradient-button p-2.5 rounded-lg shrink-0">
-                          <Dumbbell className="text-white" size={20} />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="font-bold text-navy text-sm tracking-tight mb-1">Idrettshallen</h4>
-                          <p className="text-xs text-text-secondary">250 m² • Håndballbane</p>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="relative w-full h-[500px] bg-surface">
+                    <DeviceScreenshot
+                      src="/images/screenshots/mobile-app.png"
+                      alt="Digilist mobile application"
+                      placeholder="Mobile Screenshot"
+                    />
                   </div>
                 </div>
               </div>
@@ -251,38 +292,12 @@ export const HeroSection: React.FC = () => {
                       digilist.no
                     </div>
                   </div>
-                  <div className="bg-surface rounded-b-lg overflow-hidden h-[400px]">
-                    <div className="bg-gradient-button px-4 py-3">
-                      <h3 className="text-white font-bold text-sm mb-1">Ledige lokaler</h3>
-                    </div>
-                    <div className="p-4 space-y-3">
-                      <div className="grid grid-cols-3 gap-3">
-                        <div className="bg-surface-2 ring-2 ring-cyan/20 rounded-lg p-3 hover:ring-cyan transition-all duration-180 hover:shadow-soft">
-                          <div className="w-10 h-10 bg-gradient-button rounded-lg mb-2 flex items-center justify-center">
-                            <Dumbbell className="text-white" size={18} />
-                          </div>
-                          <p className="text-xs font-semibold text-navy mb-0.5">Idrettshallen</p>
-                          <p className="text-[10px] text-muted">250 m²</p>
-                          <span className="badge-success mt-1.5 text-[9px]">Ledig</span>
-                        </div>
-                        <div className="bg-purple-50 ring-2 ring-purple-200 rounded-lg p-3 hover:ring-purple-400 transition-all duration-180 hover:shadow-soft">
-                          <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg mb-2 flex items-center justify-center">
-                            <Presentation className="text-white" size={18} />
-                          </div>
-                          <p className="text-xs font-semibold text-navy mb-0.5">Møtesal A</p>
-                          <p className="text-[10px] text-muted">80 m²</p>
-                          <span className="badge-warning mt-1.5 text-[9px]">Booket</span>
-                        </div>
-                        <div className="bg-pink-50 ring-2 ring-pink-200 rounded-lg p-3 hover:ring-pink-400 transition-all duration-180 hover:shadow-soft">
-                          <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-rose-500 rounded-lg mb-2 flex items-center justify-center">
-                            <Theater className="text-white" size={18} />
-                          </div>
-                          <p className="text-xs font-semibold text-navy mb-0.5">Kultursalen</p>
-                          <p className="text-[10px] text-muted">150 m²</p>
-                          <span className="badge-success mt-1.5 text-[9px]">Ledig</span>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="bg-surface rounded-b-lg overflow-hidden h-[400px] relative">
+                    <DeviceScreenshot
+                      src="/images/screenshots/desktop-app.png"
+                      alt="Digilist desktop application"
+                      placeholder="Desktop Screenshot"
+                    />
                   </div>
                 </div>
               </div>
@@ -290,30 +305,12 @@ export const HeroSection: React.FC = () => {
               {/* iPad Mockup */}
               <div className="absolute left-[240px] xl:left-[300px] top-8 w-[220px] xl:w-[280px] z-20 transform rotate-[3deg] hover:rotate-0 transition-all duration-300 group">
                 <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-[20px] p-2 shadow-lift group-hover:shadow-glow transition-shadow duration-300">
-                  <div className="bg-surface rounded-[16px] overflow-hidden h-[380px]">
-                    <div className="bg-gradient-button px-3 py-2">
-                      <h3 className="text-white font-bold text-xs mb-0.5">Ledige lokaler</h3>
-                    </div>
-                    <div className="p-3 space-y-2">
-                      <div className="bg-surface-2 ring-2 ring-cyan/20 rounded-lg p-2">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-6 h-6 bg-gradient-button rounded-md" />
-                          <div>
-                            <p className="text-[10px] font-semibold text-navy">Idrettshallen</p>
-                            <p className="text-[9px] text-muted">250 m²</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="bg-purple-50 ring-2 ring-purple-200 rounded-lg p-2">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-md" />
-                          <div>
-                            <p className="text-[10px] font-semibold text-navy">Møtesal A</p>
-                            <p className="text-[9px] text-muted">80 m²</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="bg-surface rounded-[16px] overflow-hidden h-[380px] relative">
+                    <DeviceScreenshot
+                      src="/images/screenshots/tablet-app.png"
+                      alt="Digilist tablet application"
+                      placeholder="Tablet Screenshot"
+                    />
                   </div>
                 </div>
               </div>
@@ -330,47 +327,12 @@ export const HeroSection: React.FC = () => {
                         <div className="w-0.5 h-0.5 rounded-full bg-navy" />
                       </div>
                     </div>
-                    <div className="bg-gradient-button px-3 py-2">
-                      <h3 className="text-white font-bold text-xs tracking-tight mb-0.5">Ledige lokaler</h3>
-                      <p className="text-white/70 text-[7px] font-medium">developed by Xala tech</p>
-                    </div>
-                    <div className="px-3 py-2 space-y-2 max-h-[280px] overflow-y-auto">
-                      <div className="bg-surface ring-2 ring-cyan/20 rounded-lg p-2 hover:ring-cyan transition-all duration-180">
-                        <div className="flex items-center gap-2">
-                          <div className="bg-gradient-button p-1.5 rounded-md shrink-0">
-                            <Dumbbell className="text-white" size={12} />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h4 className="font-bold text-navy text-[9px]">Idrettshallen</h4>
-                            <p className="text-[8px] text-muted">250 m²</p>
-                          </div>
-                          <span className="text-[8px] font-semibold text-cyan bg-surface-3 px-1.5 py-0.5 rounded-full">Ledig</span>
-                        </div>
-                      </div>
-                      <div className="bg-surface ring-2 ring-purple-200 rounded-lg p-2 hover:ring-purple-400 transition-all duration-180">
-                        <div className="flex items-center gap-2">
-                          <div className="bg-gradient-to-br from-purple-500 to-pink-500 p-1.5 rounded-md shrink-0">
-                            <Presentation className="text-white" size={12} />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h4 className="font-bold text-navy text-[9px]">Møtesal A</h4>
-                            <p className="text-[8px] text-muted">80 m²</p>
-                          </div>
-                          <span className="text-[8px] font-semibold text-success bg-success/10 px-1.5 py-0.5 rounded-full">Booket</span>
-                        </div>
-                      </div>
-                      <div className="bg-surface ring-2 ring-pink-200 rounded-lg p-2 hover:ring-pink-400 transition-all duration-180">
-                        <div className="flex items-center gap-2">
-                          <div className="bg-gradient-to-br from-pink-500 to-rose-500 p-1.5 rounded-md shrink-0">
-                            <Theater className="text-white" size={12} />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h4 className="font-bold text-navy text-[9px]">Kultursalen</h4>
-                            <p className="text-[8px] text-muted">150 m²</p>
-                          </div>
-                          <span className="text-[8px] font-semibold text-cyan bg-surface-3 px-1.5 py-0.5 rounded-full">Ledig</span>
-                        </div>
-                      </div>
+                    <div className="relative w-full h-[320px] bg-surface">
+                      <DeviceScreenshot
+                        src="/images/screenshots/mobile-app.png"
+                        alt="Digilist mobile application"
+                        placeholder="Mobile Screenshot"
+                      />
                     </div>
                     <div className="bg-surface-2 border-t border-border-light px-3 py-1.5 flex items-center justify-around">
                       <div className="text-primary text-[8px] font-semibold">Hjem</div>

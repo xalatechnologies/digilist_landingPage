@@ -257,12 +257,12 @@ export default function FunksjonalitetPage() {
         <div className="bg-primary/5 rounded-2xl p-6 sm:p-8 md:p-10">
           <SectionHeader
             title="Alle funksjoner"
-            subtitle="Utforsk funksjonaliteten i detalj"
+            subtitle="Oppdag alle verktøy og funksjoner som forenkler din booking"
             badge="Funksjoner"
           />
           
           {/* Category Tabs */}
-        <StaggerAnimation staggerDelay={0.1} className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
+        <StaggerAnimation staggerDelay={0.1} className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-2 sm:mb-3">
           {functionalityContent.categories.map((category, idx) => {
             const Icon = categoryIcons[category.icon as keyof typeof categoryIcons] || Calendar;
             return (
@@ -285,15 +285,7 @@ export default function FunksjonalitetPage() {
 
         {/* Active Category Content */}
         <ScrollAnimation variant="scale" delay={150}>
-          <div className="rounded-lg p-6 sm:p-8">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl sm:text-3xl font-bold text-navy mb-2">
-                {functionalityContent.categories[activeCategory].title}
-              </h3>
-              <p className="text-navy/60">
-                {functionalityContent.categories[activeCategory].subtitle}
-              </p>
-            </div>
+          <div className="rounded-lg p-3 sm:p-4">
             
             <StaggerAnimation staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-8 sm:mt-12 items-stretch">
               {functionalityContent.categories[activeCategory].features.map((feature, idx) => (
@@ -644,9 +636,6 @@ export default function FunksjonalitetPage() {
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Button variant="secondary" size="lg" className="w-full sm:w-auto">
-              Ta kontakt
-            </Button>
           </div>
           
           {/* Trust indicators */}

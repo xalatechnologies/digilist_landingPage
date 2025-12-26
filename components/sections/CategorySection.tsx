@@ -96,7 +96,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
                 transition-all duration-200 cursor-pointer min-h-[44px]
                 ${activeTab === 0 
                   ? 'bg-primary text-white shadow-lg ring-2 ring-primary ring-offset-2' 
-                  : 'bg-white shadow-md border-2 border-sky2/50 hover:shadow-lg hover:-translate-y-1 hover:border-primary/50 hover:bg-primary/5'
+                  : 'bg-white shadow-md hover:shadow-lg hover:-translate-y-1 hover:bg-primary/5'
                 }
               `}
               aria-pressed={activeTab === 0}
@@ -119,7 +119,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
                 transition-all duration-200 cursor-pointer min-h-[44px]
                 ${activeTab === 1 
                   ? 'bg-cyan text-white shadow-lg ring-2 ring-cyan ring-offset-2' 
-                  : 'bg-white shadow-md border-2 border-sky2/50 hover:shadow-lg hover:-translate-y-1 hover:border-cyan/50 hover:bg-cyan/5'
+                  : 'bg-white shadow-md hover:shadow-lg hover:-translate-y-1 hover:bg-cyan/5'
                 }
               `}
               aria-pressed={activeTab === 1}
@@ -142,7 +142,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
                 transition-all duration-200 cursor-pointer min-h-[44px]
                 ${activeTab === 2 
                   ? 'bg-success text-white shadow-lg ring-2 ring-success ring-offset-2' 
-                  : 'bg-white shadow-md border-2 border-sky2/50 hover:shadow-lg hover:-translate-y-1 hover:border-success/50 hover:bg-success/5'
+                  : 'bg-white shadow-md hover:shadow-lg hover:-translate-y-1 hover:bg-success/5'
                 }
               `}
               aria-pressed={activeTab === 2}

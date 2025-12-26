@@ -91,7 +91,7 @@ export const IntegrationShowcase: React.FC = () => {
           <div className="lg:sticky lg:top-24">
             <SectionHeader 
               title="Integrasjoner" 
-              subtitle="Kobles sømløst til systemene du allerede bruker"
+              subtitle="Integrer med de systemene du allerede bruker for en sømløs arbeidsflyt"
               align="left"
             />
             
