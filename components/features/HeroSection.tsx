@@ -36,7 +36,7 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* Mobile Image - Shown only on mobile */}
-      <div className="lg:hidden relative w-full h-[250px] sm:h-[350px] mb-6 sm:mb-8 mx-auto px-4">
+      <div className="lg:hidden relative w-full h-[280px] sm:h-[380px] mb-8 sm:mb-10 mx-auto px-4">
         <div className="relative w-full h-full max-w-md mx-auto">
           <Image
             src="/images/hero-devices.png"
@@ -45,6 +45,7 @@ export const HeroSection: React.FC = () => {
             className="object-contain object-center hero-device-image"
             priority
             unoptimized
+            sizes="(max-width: 640px) 100vw, 50vw"
             style={{ 
               backgroundColor: 'transparent', 
               background: 'none',
@@ -54,11 +55,11 @@ export const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="relative max-w-[1400px] mx-auto px-6 pt-8 pb-12 sm:pt-12 sm:pb-16 md:pt-12 md:pb-20 lg:pb-28 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
+      <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 pt-6 sm:pt-8 pb-12 sm:pb-16 md:pt-12 md:pb-20 lg:pb-28 z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center">
           
           {/* Left Column: Text Content */}
-          <div className="text-center lg:text-left relative z-20 w-full">
+          <div className="text-center lg:text-left relative z-20 w-full px-2 sm:px-0">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -75,7 +76,7 @@ export const HeroSection: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.2, 0.8, 0.2, 1] }}
             >
-              <Heading level={1} className="mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] px-2 sm:px-0">
+              <Heading level={1} className="mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1]">
                 {homeContent.hero.subtitle}
               </Heading>
             </motion.div>
@@ -85,7 +86,7 @@ export const HeroSection: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.25, ease: [0.2, 0.8, 0.2, 1] }}
             >
-              <Text variant="body" className="mb-6 sm:mb-8 text-sm sm:text-base text-navy/70 max-w-xl mx-auto lg:mx-0 px-2 sm:px-0">
+              <Text variant="body" className="mb-6 sm:mb-8 text-base sm:text-lg text-navy/70 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 {homeContent.hero.description}
               </Text>
             </motion.div>
@@ -96,8 +97,8 @@ export const HeroSection: React.FC = () => {
               transition={{ duration: 0.7, delay: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-6 sm:mb-8"
             >
-              <Link href="/demo" className="w-full sm:w-auto">
-                <button className="btn text-white font-bold shadow-soft btn-lg w-full sm:w-auto group bg-cyan hover:bg-cyan/90 hover:shadow-lift focus-visible:ring-4 focus-visible:ring-cyan/35 transition-all duration-180 ease-smooth">
+              <Link href="/demo" className="w-full sm:w-auto inline-block">
+                <button className="btn text-white font-bold shadow-soft btn-lg w-full sm:w-auto min-h-[52px] group bg-cyan hover:bg-cyan/90 hover:shadow-lift focus-visible:ring-4 focus-visible:ring-cyan/35 transition-all duration-180 ease-smooth">
                   Mer om DigiList
                 </button>
               </Link>
@@ -118,21 +119,21 @@ export const HeroSection: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="flex flex-nowrap justify-center lg:justify-start gap-1.5 sm:gap-2 overflow-x-auto pb-2 -mx-1 px-1 scrollbar-hide"
+                className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3"
               >
                 {/* Vipps - uses brand color */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.6 }}
-                  className="group flex items-center gap-1.5 px-2 py-1.5 bg-white rounded-md border border-sky2/50 shadow-sm hover:shadow-md hover:border-cyan hover:-translate-y-0.5 transition-all duration-300 ease-smooth cursor-pointer shrink-0"
+                  className="group flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 sm:py-2.5 bg-white rounded-sm border-2 border-gray-200/60 shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 hover:-translate-y-0.5 transition-all duration-300 ease-smooth cursor-pointer min-h-[44px]"
                 >
-                  <div className="w-5 h-5 rounded bg-vipps/10 flex items-center justify-center shrink-0">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 rounded bg-vipps/10 flex items-center justify-center shrink-0">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 sm:w-3.5 sm:h-3.5">
                       <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" className="fill-vipps"/>
                     </svg>
                   </div>
-                  <span className="text-[11px] font-semibold text-vipps group-hover:text-vipps/80 transition-colors duration-180">Vipps</span>
+                  <span className="text-xs sm:text-sm font-semibold text-vipps group-hover:text-vipps/80 transition-colors duration-180 whitespace-nowrap">Vipps</span>
                 </motion.div>
                 
                 {/* BankID */}
@@ -140,10 +141,10 @@ export const HeroSection: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.65 }}
-                  className="group flex items-center gap-1.5 px-2 py-1.5 bg-white rounded-md border border-sky2/50 shadow-sm hover:shadow-md hover:border-cyan hover:-translate-y-0.5 transition-all duration-300 ease-smooth cursor-pointer shrink-0"
+                  className="group flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 sm:py-2.5 bg-white rounded-sm border-2 border-gray-200/60 shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 hover:-translate-y-0.5 transition-all duration-300 ease-smooth cursor-pointer min-h-[44px]"
                 >
-                  <div className="w-5 h-5 rounded bg-navy/10 flex items-center justify-center shrink-0">
-                    <svg width="14" height="11" viewBox="0 0 36 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 rounded bg-navy/10 flex items-center justify-center shrink-0">
+                    <svg width="14" height="11" viewBox="0 0 36 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3 sm:w-4 sm:h-3">
                       <rect x="2" y="4" width="32" height="16" rx="2" className="fill-navy"/>
                       <rect x="4" y="6" width="8" height="6" rx="1" fill="white" opacity="0.3"/>
                       <rect x="4" y="14" width="12" height="2" rx="1" fill="white" opacity="0.5"/>
@@ -151,7 +152,7 @@ export const HeroSection: React.FC = () => {
                       <circle cx="28" cy="10" r="3" className="fill-success"/>
                     </svg>
                   </div>
-                  <span className="text-[11px] font-semibold text-navy group-hover:text-primary transition-colors duration-180">BankID</span>
+                    <span className="text-xs sm:text-sm font-semibold text-navy group-hover:text-primary transition-colors duration-180 whitespace-nowrap">BankID</span>
                 </motion.div>
                 
                 {/* GDPR */}
@@ -159,12 +160,12 @@ export const HeroSection: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.7 }}
-                  className="group flex items-center gap-1.5 px-2 py-1.5 bg-white rounded-md border border-sky2/50 shadow-sm hover:shadow-md hover:border-cyan hover:-translate-y-0.5 transition-all duration-300 ease-smooth cursor-pointer shrink-0"
+                  className="group flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 sm:py-2.5 bg-white rounded-sm border-2 border-gray-200/60 shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 hover:-translate-y-0.5 transition-all duration-300 ease-smooth cursor-pointer min-h-[44px]"
                 >
-                  <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center shrink-0">
-                    <Shield size={12} className="text-primary" strokeWidth={2.5} />
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 rounded bg-primary/10 flex items-center justify-center shrink-0">
+                    <Shield size={12} className="text-primary sm:w-3 sm:h-3" strokeWidth={2.5} />
                   </div>
-                  <span className="text-[11px] font-semibold text-primary group-hover:text-primary/80 transition-colors duration-180">GDPR</span>
+                    <span className="text-xs sm:text-sm font-semibold text-primary group-hover:text-primary/80 transition-colors duration-180 whitespace-nowrap">GDPR</span>
                 </motion.div>
                 
                 {/* ISO 27001 */}
@@ -172,17 +173,17 @@ export const HeroSection: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.75 }}
-                  className="group flex items-center gap-1.5 px-2 py-1.5 bg-white rounded-md border border-sky2/50 shadow-sm hover:shadow-md hover:border-cyan hover:-translate-y-0.5 transition-all duration-300 ease-smooth cursor-pointer shrink-0"
+                  className="group flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 sm:py-2.5 bg-white rounded-sm border-2 border-gray-200/60 shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 hover:-translate-y-0.5 transition-all duration-300 ease-smooth cursor-pointer min-h-[44px]"
                 >
-                  <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center shrink-0">
-                    <svg width="14" height="14" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 rounded bg-primary/10 flex items-center justify-center shrink-0">
+                    <svg width="14" height="14" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
                       <circle cx="14" cy="14" r="14" className="fill-primary"/>
                       <text x="14" y="18" fontFamily="Arial, sans-serif" fontSize="7" fontWeight="900" fill="white" textAnchor="middle" letterSpacing="0.5">ISO</text>
                     </svg>
                   </div>
-                  <div className="flex flex-col shrink-0">
-                    <span className="text-[11px] font-semibold text-navy leading-tight group-hover:text-primary transition-colors duration-180 whitespace-nowrap">27001</span>
-                    <span className="text-[9px] text-navy/60 whitespace-nowrap">Sertifisert</span>
+                    <div className="flex flex-col shrink-0">
+                    <span className="text-[10px] sm:text-xs font-semibold text-navy leading-tight group-hover:text-primary transition-colors duration-180 whitespace-nowrap">27001</span>
+                    <span className="text-[9px] sm:text-[10px] text-navy/60 whitespace-nowrap">Sertifisert</span>
                   </div>
                 </motion.div>
                 
@@ -191,17 +192,17 @@ export const HeroSection: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.8 }}
-                  className="group flex items-center gap-1.5 px-2 py-1.5 bg-white rounded-md border border-sky2/50 shadow-sm hover:shadow-md hover:border-cyan hover:-translate-y-0.5 transition-all duration-300 ease-smooth cursor-pointer shrink-0"
+                  className="group flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 sm:py-2.5 bg-white rounded-sm border-2 border-gray-200/60 shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 hover:-translate-y-0.5 transition-all duration-300 ease-smooth cursor-pointer min-h-[44px]"
                 >
-                  <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center shrink-0">
-                    <svg width="14" height="14" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 rounded bg-primary/10 flex items-center justify-center shrink-0">
+                    <svg width="14" height="14" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 sm:w-4 sm:h-4">
                       <circle cx="14" cy="14" r="14" className="fill-primary"/>
                       <text x="14" y="18" fontFamily="Arial, sans-serif" fontSize="7" fontWeight="900" fill="white" textAnchor="middle" letterSpacing="0.5">ISO</text>
                     </svg>
                   </div>
                   <div className="flex flex-col shrink-0">
-                    <span className="text-[11px] font-semibold text-navy leading-tight group-hover:text-primary transition-colors duration-180 whitespace-nowrap">27701</span>
-                    <span className="text-[9px] text-navy/60 whitespace-nowrap">Sertifisert</span>
+                    <span className="text-[10px] sm:text-xs font-semibold text-navy leading-tight group-hover:text-primary transition-colors duration-180 whitespace-nowrap">27701</span>
+                    <span className="text-[9px] sm:text-[10px] text-navy/60 whitespace-nowrap">Sertifisert</span>
                   </div>
                 </motion.div>
                 
@@ -210,19 +211,19 @@ export const HeroSection: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.85 }}
-                  className="group flex items-center gap-1.5 px-2 py-1.5 bg-white rounded-md border border-sky2/50 shadow-sm hover:shadow-md hover:border-cyan hover:-translate-y-0.5 transition-all duration-300 ease-smooth cursor-pointer shrink-0"
+                  className="group flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 sm:py-2.5 bg-white rounded-sm border-2 border-gray-200/60 shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 hover:-translate-y-0.5 transition-all duration-300 ease-smooth cursor-pointer min-h-[44px]"
                 >
-                  <div className="w-5 h-5 rounded bg-surface-2 flex items-center justify-center shrink-0">
-                    <svg width="11" height="11" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 rounded bg-surface-2 flex items-center justify-center shrink-0">
+                    <svg width="11" height="11" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 sm:w-3.5 sm:h-3.5">
                       <rect x="0" y="0" width="9" height="9" fill="#F25022"/>
                       <rect x="11" y="0" width="9" height="9" fill="#7FBA00"/>
                       <rect x="0" y="11" width="9" height="9" fill="#00A4EF"/>
                       <rect x="11" y="11" width="9" height="9" fill="#FFB900"/>
                     </svg>
                   </div>
-                  <div className="flex flex-col shrink-0">
-                    <span className="text-[11px] font-semibold text-navy leading-tight group-hover:text-primary transition-colors duration-180 whitespace-nowrap">Microsoft</span>
-                    <span className="text-[9px] text-navy/60 whitespace-nowrap">Sertifisert</span>
+                    <div className="flex flex-col shrink-0">
+                    <span className="text-[10px] sm:text-xs font-semibold text-navy leading-tight group-hover:text-primary transition-colors duration-180 whitespace-nowrap">Microsoft</span>
+                    <span className="text-[9px] sm:text-[10px] text-navy/60 whitespace-nowrap">Sertifisert</span>
                   </div>
                 </motion.div>
               </motion.div>

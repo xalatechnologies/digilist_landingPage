@@ -87,7 +87,7 @@ export const VideoController: React.FC = () => {
             <Card key={idx} hoverable variant="gradient" className="cursor-pointer">
               <Card.Block>
                 {/* Video Placeholder */}
-                <div className="relative aspect-video bg-gradient-to-br from-surface-2 to-sky2/30 rounded-lg border-2 border-sky2/50 overflow-hidden mb-4 group-hover:border-cyan transition-all">
+                <div className="relative aspect-video bg-gradient-to-br from-surface-2 to-sky2/30 rounded-sm border-2 border-gray-200/60 shadow-md overflow-hidden mb-4 group-hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 transition-all">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center pl-1 shadow-lg group-hover:scale-110 transition-transform text-primary" aria-hidden="true">
                       <Play size={40} fill="currentColor" />

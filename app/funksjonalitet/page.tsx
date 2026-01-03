@@ -143,7 +143,7 @@ export default function FunksjonalitetPage() {
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.4, delay: 0.5 + idx * 0.1 }}
-                      className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-md bg-cyan/10 border border-cyan/20 shadow-sm whitespace-nowrap"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-sm bg-cyan/10 border border-cyan/20 shadow-sm whitespace-nowrap"
                     >
                       <Icon size={14} className="text-cyan" />
                       <span className="text-xs sm:text-sm font-medium text-navy">{highlight.number}</span>
@@ -166,7 +166,7 @@ export default function FunksjonalitetPage() {
                 <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-cyan/10 rounded-full blur-2xl" />
                 
                 {/* Main dashboard mockup */}
-                <div className="relative bg-gradient-to-br from-navy to-navy/90 rounded-2xl shadow-2xl overflow-hidden border border-white/10">
+                <div className="relative bg-gradient-to-br from-navy to-navy/90 rounded-sm shadow-2xl overflow-hidden border border-white/10">
                   {/* Browser chrome */}
                   <div className="flex items-center gap-2 px-4 py-3 bg-navy/50 border-b border-white/10">
                     <div className="flex gap-1.5">
@@ -175,7 +175,7 @@ export default function FunksjonalitetPage() {
                       <div className="w-3 h-3 rounded-full bg-green-400/80" />
                     </div>
                     <div className="flex-1 mx-4">
-                      <div className="bg-white/10 rounded-md px-3 py-1 text-xs text-white/50">
+                      <div className="bg-white/10 rounded-sm px-3 py-1 text-xs text-white/50">
                         app.digilist.no/bookinger
                       </div>
                     </div>
@@ -190,7 +190,7 @@ export default function FunksjonalitetPage() {
                         { label: 'Denne uken', value: '156' },
                         { label: 'Kapasitet', value: '78%' },
                       ].map((stat, i) => (
-                        <div key={i} className="bg-white/5 rounded-lg p-3 text-center">
+                        <div key={i} className="bg-white/5 rounded-sm p-3 text-center">
                           <div className="text-xl font-bold text-white">{stat.value}</div>
                           <div className="text-xs text-white/50">{stat.label}</div>
                         </div>
@@ -198,7 +198,7 @@ export default function FunksjonalitetPage() {
                     </div>
                     
                     {/* Calendar preview */}
-                    <div className="bg-white/5 rounded-lg p-4 mb-4">
+                    <div className="bg-white/5 rounded-sm p-4 mb-4">
                       <div className="flex items-center justify-between mb-3">
                         <span className="text-sm font-medium text-white">Desember 2025</span>
                         <div className="flex gap-1">
@@ -231,7 +231,7 @@ export default function FunksjonalitetPage() {
                         { time: '09:00', title: 'Møterom A', status: 'confirmed' },
                         { time: '14:00', title: 'Kultursal', status: 'pending' },
                       ].map((booking, i) => (
-                        <div key={i} className="flex items-center gap-3 bg-white/5 rounded-lg px-3 py-2">
+                        <div key={i} className="flex items-center gap-3 bg-white/5 rounded-sm px-3 py-2">
                           <div className={`w-2 h-2 rounded-full ${booking.status === 'confirmed' ? 'bg-success' : 'bg-yellow-400'}`} />
                           <span className="text-xs text-white/50">{booking.time}</span>
                           <span className="text-sm text-white">{booking.title}</span>
@@ -276,10 +276,10 @@ export default function FunksjonalitetPage() {
                       <button
                         key={category.id}
                         onClick={() => setActiveCategory(idx)}
-                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-md font-medium transition-all duration-300 ease-smooth text-left group ${
+                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-sm font-medium transition-all duration-300 ease-smooth text-left group ${
                           activeCategory === idx
                             ? 'bg-cyan text-white shadow-lg'
-                            : 'bg-white text-navy border border-sky2/20 shadow-md hover:shadow-lg hover:border-cyan/50 hover:text-cyan'
+                            : 'bg-white text-navy border-2 border-gray-200/60 shadow-md shadow-md hover:shadow-lg hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 hover:text-cyan'
                         }`}
                       >
                         <Icon size={20} aria-hidden="true" />
@@ -309,10 +309,10 @@ export default function FunksjonalitetPage() {
                       {functionalityContent.categories[activeCategory].features.map((feature, idx) => (
                         <div 
                           key={idx}
-                          className="group relative p-6 sm:p-8 rounded-md bg-white border border-sky2/20 shadow-lg hover:shadow-xl hover:-translate-y-1 hover:border-cyan/50 transition-all duration-300 ease-smooth cursor-pointer overflow-hidden h-full flex flex-col"
+                          className="group relative p-6 sm:p-8 rounded-sm bg-white border-2 border-gray-200/60 shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 transition-all duration-300 ease-smooth cursor-pointer overflow-hidden h-full flex flex-col"
                         >
                           {/* Icon Badge */}
-                          <div className="w-12 h-12 rounded-md bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-12 h-12 rounded-sm bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300">
                             <CheckCircle2 className="text-white" size={24} aria-hidden="true" />
                           </div>
                           
@@ -338,8 +338,6 @@ export default function FunksjonalitetPage() {
                             ))}
                           </ul>
                           
-                          {/* Decorative accent */}
-                          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         </div>
                       ))}
                     </StaggerAnimation>
@@ -361,7 +359,7 @@ export default function FunksjonalitetPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Left - Image with Overlay Content */}
               <div className="relative order-2 lg:order-1 group">
-                <div className="relative rounded-md overflow-hidden shadow-2xl">
+                <div className="relative rounded-sm overflow-hidden shadow-2xl">
                   {/* Image */}
                   <div className="relative aspect-[4/3] lg:aspect-[3/4]">
                     <img 
@@ -374,7 +372,7 @@ export default function FunksjonalitetPage() {
                     
                     {/* Top Right Badge */}
                     <div className="absolute top-4 right-4 z-20">
-                      <div className="bg-white/95 backdrop-blur-sm rounded-md px-3 py-2 shadow-lg border border-cyan/20">
+                      <div className="bg-white/95 backdrop-blur-sm rounded-sm px-3 py-2 shadow-lg border border-cyan/20">
                         <span className="text-sm font-semibold text-cyan">100%</span>
                         <span className="text-xs text-navy/70 ml-1">Skybasert</span>
                       </div>
@@ -410,9 +408,9 @@ export default function FunksjonalitetPage() {
                     { icon: CheckCircle2, text: 'Sanntidsoversikt over alle lokaler' },
                     { icon: CheckCircle2, text: 'Integrert fakturering og betaling' },
                   ].map((item, idx) => (
-                    <div key={idx} className="group/item p-4 rounded-md bg-white border border-sky2/20 hover:border-cyan/50 hover:shadow-lg transition-all duration-300">
+                    <div key={idx} className="group/item p-4 rounded-sm bg-white border-2 border-gray-200/60 shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 hover:shadow-lg transition-all duration-300">
                       <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-md bg-cyan/10 flex items-center justify-center shrink-0 group-hover/item:bg-cyan group-hover/item:scale-110 transition-all duration-300">
+                        <div className="w-10 h-10 rounded-sm bg-cyan/10 flex items-center justify-center shrink-0 group-hover/item:bg-cyan group-hover/item:scale-110 transition-all duration-300">
                           <item.icon size={18} className="text-cyan group-hover/item:text-white transition-colors" />
                         </div>
                         <span className="text-sm sm:text-base text-navy leading-relaxed group-hover/item:text-cyan transition-colors flex-1 min-w-0 break-words">
@@ -463,7 +461,7 @@ export default function FunksjonalitetPage() {
                 return (
                   <div 
                     key={group.id}
-                    className="group relative rounded-md bg-white border border-sky2/20 shadow-lg hover:shadow-xl hover:-translate-y-1 hover:border-cyan/50 transition-all duration-300 overflow-hidden"
+                    className="group relative rounded-sm bg-white border-2 border-gray-200/60 shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 transition-all duration-300 overflow-hidden"
                   >
                     {/* Horizontal Layout: Image + Content */}
                     <div className="flex flex-col lg:flex-row">
@@ -496,10 +494,10 @@ export default function FunksjonalitetPage() {
                             return (
                               <div 
                                 key={idx}
-                                className="group/item p-4 rounded-md bg-white hover:bg-cyan/5 transition-all duration-300 cursor-pointer"
+                                className="group/item p-4 rounded-sm bg-white border border-gray-200/40 hover:border-cyan/40 hover:bg-cyan/5 transition-all duration-300 cursor-pointer"
                               >
                                 <div className="flex items-start gap-4">
-                                  <div className="w-10 h-10 rounded-md bg-cyan/10 flex items-center justify-center shrink-0 group-hover/item:bg-cyan group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300">
+                                  <div className="w-10 h-10 rounded-sm bg-cyan/10 flex items-center justify-center shrink-0 group-hover/item:bg-cyan group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300">
                                     <Icon 
                                       className="text-cyan group-hover/item:text-white transition-colors" 
                                       size={18} 
@@ -521,9 +519,6 @@ export default function FunksjonalitetPage() {
                         </div>
                       </div>
                     </div>
-                    
-                    {/* Decorative accent */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 );
               })}
@@ -560,12 +555,12 @@ export default function FunksjonalitetPage() {
                 return (
                   <div 
                     key={idx} 
-                    className="group relative rounded-md bg-gradient-to-br from-cyan/5 via-white to-cyan/5 border-2 border-cyan/20 shadow-xl hover:shadow-2xl hover:-translate-y-2 hover:border-cyan/50 transition-all duration-500 ease-smooth cursor-pointer overflow-hidden"
+                    className="group relative rounded-sm bg-white border-2 border-gray-200/60 shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 transition-all duration-300 ease-smooth cursor-pointer overflow-hidden"
                   >
                     <div className="p-8 lg:p-12">
                       <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-12">
                         {/* Large Icon */}
-                        <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-xl bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shrink-0">
+                        <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-sm bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-300 shrink-0">
                           <Icon className="text-white" size={40} aria-hidden="true" />
                         </div>
                         
@@ -587,9 +582,6 @@ export default function FunksjonalitetPage() {
                         </div>
                       </div>
                     </div>
-                    
-                    {/* Decorative accent */}
-                    <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-cyan to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                 );
               })}
@@ -601,11 +593,11 @@ export default function FunksjonalitetPage() {
                   return (
                     <div 
                       key={idx + 1} 
-                      className="group relative rounded-md bg-white border-2 border-sky2/20 shadow-lg hover:shadow-xl hover:-translate-y-1 hover:border-cyan/50 transition-all duration-300 ease-smooth cursor-pointer overflow-hidden h-full flex flex-col"
+                      className="group relative rounded-sm bg-white border-2 border-gray-200/60 shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 transition-all duration-300 ease-smooth cursor-pointer overflow-hidden h-full flex flex-col"
                     >
                       {/* Icon positioned absolutely */}
                       <div className="absolute top-6 right-6 z-10">
-                        <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-cyan/20 to-cyan/10 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 backdrop-blur-sm">
+                        <div className="w-14 h-14 rounded-sm bg-gradient-to-br from-cyan/20 to-cyan/10 flex items-center justify-center shadow-md group-hover:scale-110 transition-all duration-300 backdrop-blur-sm">
                           <Icon className="text-cyan" size={28} aria-hidden="true" />
                         </div>
                       </div>
@@ -626,9 +618,6 @@ export default function FunksjonalitetPage() {
                           ))}
                         </div>
                       </div>
-                      
-                      {/* Decorative accent */}
-                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                   );
                 })}
@@ -638,16 +627,16 @@ export default function FunksjonalitetPage() {
               {functionalityContent.techSpecs.specs.slice(3).map((spec, idx) => {
                 const Icon = techSpecIcons[spec.category as keyof typeof techSpecIcons] || Shield;
                 return (
-                  <div 
-                    key={idx + 3} 
-                    className="group relative rounded-md bg-gradient-to-br from-cyan/5 via-white to-cyan/5 border-2 border-cyan/20 shadow-xl hover:shadow-2xl hover:-translate-y-2 hover:border-cyan/50 transition-all duration-500 ease-smooth cursor-pointer overflow-hidden"
-                  >
-                    <div className="p-8 lg:p-12">
-                      <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-12">
-                        {/* Large Icon */}
-                        <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-xl bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shrink-0">
-                          <Icon className="text-white" size={40} aria-hidden="true" />
-                        </div>
+                    <div 
+                      key={idx + 3} 
+                      className="group relative rounded-sm bg-white border-2 border-gray-200/60 shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 transition-all duration-300 ease-smooth cursor-pointer overflow-hidden"
+                    >
+                      <div className="p-8 lg:p-12">
+                        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-12">
+                          {/* Large Icon */}
+                          <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-sm bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-300 shrink-0">
+                            <Icon className="text-white" size={40} aria-hidden="true" />
+                          </div>
                         
                         {/* Content */}
                         <div className="flex-1">
@@ -667,9 +656,6 @@ export default function FunksjonalitetPage() {
                         </div>
                       </div>
                     </div>
-                    
-                    {/* Decorative accent */}
-                    <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-cyan to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                 );
               })}
@@ -683,7 +669,7 @@ export default function FunksjonalitetPage() {
       {/* USE CASES - With Images */}
       <ScrollAnimation variant="fadeUp" delay={150}>
         <Section variant="default" className="bg-white" id="bruksomrader">
-        <div className="bg-white rounded-md p-6 sm:p-8 md:p-10">
+        <div className="bg-white rounded-sm p-6 sm:p-8 md:p-10">
         <SectionHeader
           title={functionalityContent.useCases.title}
           subtitle={functionalityContent.useCases.subtitle}
@@ -704,10 +690,10 @@ export default function FunksjonalitetPage() {
               <div 
                 key={idx} 
                 className="
-                  rounded-md overflow-hidden
+                  rounded-sm overflow-hidden
                   bg-white
-                  border border-sky2/20 shadow-lg
-                  hover:shadow-xl hover:-translate-y-1 hover:border-cyan/50
+                  border-2 border-gray-200/60 shadow-md
+                  hover:shadow-xl hover:-translate-y-1 hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20
                   transition-all duration-300 ease-smooth group cursor-pointer overflow-hidden
                 "
               >
@@ -755,7 +741,7 @@ export default function FunksjonalitetPage() {
       {/* CTA SECTION */}
       <ScrollAnimation variant="scale" delay={100}>
         <Section variant="default" className="bg-white">
-        <div className="bg-white rounded-md p-6 sm:p-8 md:p-10">
+        <div className="bg-white rounded-sm p-6 sm:p-8 md:p-10">
         <div className="text-center px-4 sm:px-0">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-cyan/20 shadow-sm mb-6">
             <Sparkles size={16} className="text-cyan" />

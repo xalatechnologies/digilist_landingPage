@@ -57,7 +57,7 @@ export const IntegrationShowcase: React.FC = () => {
             />
             
         {/* Call-to-action buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10 sm:mb-12 px-4 sm:px-0">
               {[
                 'Ingen dobbeltføring',
                 'Automatisk dataflyt',
@@ -65,7 +65,7 @@ export const IntegrationShowcase: React.FC = () => {
               ].map((item, idx) => (
             <div
               key={idx}
-              className="px-5 py-2.5 rounded-full bg-cyan text-white text-sm font-semibold"
+              className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-sm bg-cyan text-white text-sm sm:text-base font-semibold min-h-[44px] flex items-center"
             >
               {item}
             </div>
@@ -73,7 +73,7 @@ export const IntegrationShowcase: React.FC = () => {
         </div>
         
         {/* Integration cards grid - 2x3 */}
-        <StaggerAnimation staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <StaggerAnimation staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {integrations.map((integration, idx) => {
               const Icon = integration.icon;
               
@@ -81,29 +81,29 @@ export const IntegrationShowcase: React.FC = () => {
                 <div
                   key={idx}
                 className="
-                  flex flex-col gap-3 p-5 rounded-md
-                  bg-white border border-sky2/20 shadow-md
-                  hover:border-cyan/50 hover:shadow-lg
+                  flex flex-col gap-4 p-6 sm:p-7 rounded-sm
+                  bg-white border-2 border-gray-200/60 shadow-md
+                  hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20
                     transition-all duration-300 ease-smooth cursor-pointer group
                   h-full
                 "
                 >
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-4">
                   <div className="
-                    w-12 h-12 rounded-lg bg-cyan/10
-                    flex items-center justify-center shrink-0
+                    w-12 h-12 sm:w-14 sm:h-14 rounded-sm bg-cyan/10
+                    flex items-center justify-center shrink-0 min-w-[48px] min-h-[48px]
                     group-hover:bg-cyan/20 transition-all duration-300
                   ">
-                    <Icon size={24} className="text-cyan" strokeWidth={2} />
+                    <Icon size={24} className="text-cyan sm:w-6 sm:h-6" strokeWidth={2} />
                   </div>
-                  <div className="flex-1 pt-1">
-                    <Heading level={4} className="text-base font-bold text-navy mb-1.5 group-hover:text-cyan transition-colors">
+                  <div className="flex-1 pt-1 min-w-0">
+                    <Heading level={4} className="text-lg sm:text-xl font-bold text-navy mb-2 group-hover:text-cyan transition-colors">
                       {integration.title}
                     </Heading>
                   </div>
                 </div>
-                <div className="pl-[60px]">
-                  <Text variant="body" className="text-sm text-navy/70 leading-relaxed">
+                <div className="pl-0 sm:pl-[64px]">
+                  <Text variant="body" className="text-base sm:text-lg text-navy/70 leading-relaxed">
                       {integration.description}
                     </Text>
                   </div>

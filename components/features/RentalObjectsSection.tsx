@@ -115,7 +115,7 @@ const RentalObjectCard: React.FC<{
   return (
     <div
       onClick={() => onCardClick(object.id)}
-      className="group bg-gradient-to-br from-white to-sky2/20 border-2 border-sky2/50 rounded-lg overflow-hidden cursor-pointer shadow-lg hover:border-cyan hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-smooth"
+      className="group bg-gradient-to-br from-white to-sky2/20 border-2 border-gray-200/60 shadow-md rounded-sm overflow-hidden cursor-pointer hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 hover:-translate-y-2 transition-all duration-300 ease-smooth"
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
@@ -158,7 +158,7 @@ const RentalObjectCard: React.FC<{
             {imageLoaded && (
               <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-180 pointer-events-none z-10">
                 <div className="text-center p-4">
-                  <div className="w-16 h-16 bg-surface/90 rounded-md flex items-center justify-center mx-auto mb-2 backdrop-blur-sm">
+                  <div className="w-16 h-16 bg-surface/90 rounded-sm flex items-center justify-center mx-auto mb-2 backdrop-blur-sm">
                     <ArrowRight className="text-primary" size={24} aria-hidden="true" />
                   </div>
                   <p className="text-xs text-white font-medium drop-shadow-lg">Klikk for å se</p>
@@ -170,7 +170,7 @@ const RentalObjectCard: React.FC<{
           <>
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent flex items-center justify-center">
               <div className="text-center p-4">
-                <div className="w-16 h-16 rounded-md flex items-center justify-center mx-auto mb-2 backdrop-blur-sm bg-white/30">
+                <div className="w-16 h-16 rounded-sm flex items-center justify-center mx-auto mb-2 backdrop-blur-sm bg-white/30">
                   <ArrowRight className="text-white" size={24} aria-hidden="true" />
                 </div>
                 <p className="text-xs text-white font-medium drop-shadow-sm">Klikk for å se</p>

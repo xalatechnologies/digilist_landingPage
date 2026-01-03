@@ -20,21 +20,21 @@ export const FeatureGroupsSection: React.FC = () => {
   return (
     <Section variant="default" className="bg-white" id="funksjoner">
       <div className="relative">
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20 px-4 sm:px-0 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan/20 ring-1 ring-cyan/30 mb-4">
+        <div className="text-center mb-10 sm:mb-14 lg:mb-18 px-4 sm:px-0 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm bg-cyan/20 ring-1 ring-cyan/30 mb-5 sm:mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse" />
-            <span className="text-sm font-medium text-cyan">Komplett løsning</span>
+            <span className="text-sm sm:text-base font-medium text-cyan">Komplett løsning</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-4 sm:mb-5">
             Funksjoner
           </h2>
-          <p className="text-base sm:text-xl text-navy/70 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-navy/70 max-w-2xl mx-auto leading-relaxed">
             Alt du trenger for å administrere bookinger, ressurser og arrangementer
           </p>
         </div>
         
         {/* Alternating Image + Content Layout */}
-        <div className="space-y-12 sm:space-y-16 lg:space-y-20">
+        <div className="space-y-10 sm:space-y-14 lg:space-y-18">
           {homeContent.featureGroups.map((group, groupIdx) => {
             const imageSrc = featureImages[groupIdx] || featureImages[0];
             const isEven = groupIdx % 2 === 0;
@@ -46,15 +46,15 @@ export const FeatureGroupsSection: React.FC = () => {
                 className="w-full"
               >
                 <div className={`
-                  relative rounded-md overflow-hidden
+                  relative rounded-sm overflow-hidden
                   bg-gradient-to-br from-white via-cyan/5 to-white
-                  border border-sky2/20 shadow-xl hover:shadow-2xl
+                  border-2 border-gray-200/60 shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20
                   transition-all duration-500 ease-smooth group
                   ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'}
                   flex flex-col lg:flex
                 `}>
                   {/* Image Section - 50% width on large screens */}
-                  <div className="relative w-full lg:w-1/2 h-64 sm:h-80 lg:h-auto min-h-[400px] overflow-hidden">
+                  <div className="relative w-full lg:w-1/2 h-72 sm:h-96 lg:h-auto min-h-[450px] overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-cyan/20 via-transparent to-navy/10 z-10" />
                     <Image
                       src={imageSrc}
@@ -74,27 +74,27 @@ export const FeatureGroupsSection: React.FC = () => {
                   </div>
                   
                   {/* Content Section - 50% width on large screens */}
-                  <div className="w-full lg:w-1/2 p-6 sm:p-8 lg:p-10 flex flex-col justify-center bg-white">
+                  <div className="w-full lg:w-1/2 p-6 sm:p-8 lg:p-10 xl:p-12 flex flex-col justify-center bg-white">
                     {/* Feature list */}
-                    <ul className="space-y-4">
+                    <ul className="space-y-5 sm:space-y-6">
                       {group.items.map((item, idx) => (
                         <li 
                           key={idx} 
                           className="flex items-start gap-4 group/item"
                         >
-                          <div className="w-6 h-6 rounded-lg bg-cyan/10 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:bg-cyan/20 transition-colors duration-300">
+                          <div className="w-7 h-7 rounded-sm bg-cyan/10 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:bg-cyan/20 transition-colors duration-300 min-h-[28px] min-w-[28px]">
                             <Check 
                               className="text-cyan" 
-                              size={16} 
+                              size={18} 
                               strokeWidth={2.5}
                               aria-hidden="true"
                             />
                           </div>
-                          <div className="flex-1">
-                            <h4 className="text-lg font-semibold text-navy mb-1 group-hover/item:text-cyan transition-colors duration-300">
+                          <div className="flex-1 min-w-0">
+                            <h4 className="text-lg sm:text-xl font-semibold text-navy mb-2 group-hover/item:text-cyan transition-colors duration-300">
                               {item.title}
                             </h4>
-                            <p className="text-base text-navy/60 leading-relaxed">
+                            <p className="text-base sm:text-lg text-navy/60 leading-relaxed">
                               {item.description}
                             </p>
                           </div>
@@ -109,12 +109,12 @@ export const FeatureGroupsSection: React.FC = () => {
         </div>
         
         {/* CTA */}
-        <div className="mt-12 sm:mt-16 text-center">
+        <div className="mt-10 sm:mt-14 text-center px-4 sm:px-0">
           <Link 
             href="/funksjonalitet"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-cyan text-white hover:text-white rounded-lg font-semibold hover:bg-cyan/90 shadow-lg hover:shadow-xl transition-all duration-300 group"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-cyan text-white hover:text-white rounded-sm font-semibold hover:bg-cyan/90 shadow-lg hover:shadow-xl transition-all duration-300 group min-h-[52px]"
           >
-            Se alle funksjoner i detalj
+            Se alle funksjoner
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-180" aria-hidden="true" />
           </Link>
         </div>

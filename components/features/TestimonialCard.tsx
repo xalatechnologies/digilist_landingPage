@@ -28,7 +28,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
         >
           &ldquo;{quote}&rdquo;
         </Text>
-        <div className="pt-6 border-t-2 border-sky2/50 group-hover:border-cyan/50 transition-colors duration-180">
+        <div className="pt-6 border-t-2 border-sky2/50 group-hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 transition-colors duration-180">
           <p className="font-bold text-navy text-base mb-1 group-hover:text-primary transition-colors duration-180">
             {author}
           </p>

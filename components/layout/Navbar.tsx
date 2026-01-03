@@ -69,18 +69,18 @@ export const Navbar: React.FC = () => {
       role="navigation"
       aria-label="Hovednavigasjon"
     >
-      <div className="max-w-[1400px] mx-auto px-6">
-        <div className="flex justify-between items-center h-[80px]">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
+        <div className="flex justify-between items-center h-[72px] sm:h-[80px]">
           
           {/* Logo */}
           <Link 
             href="/"
-            className="flex items-center cursor-pointer group relative focus-ring rounded-lg"
+            className="flex items-center cursor-pointer group relative focus-ring rounded-sm"
             aria-label="Digilist - Gå til forsiden"
           >
             <Logo size={52} className="group-hover:opacity-90 transition-all duration-180" />
             {/* Subtle cyan glow on hover */}
-            <div className="absolute inset-0 bg-cyan/0 group-hover:bg-cyan/10 rounded-lg transition-colors duration-180" />
+            <div className="absolute inset-0 bg-cyan/0 group-hover:bg-cyan/10 rounded-sm transition-colors duration-180" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -92,12 +92,12 @@ export const Navbar: React.FC = () => {
                   key={link.href}
                   href={link.href}
                   className={`
-                    flex items-center gap-2 px-4 py-2.5 rounded-md
+                    flex items-center gap-2 px-4 py-2.5 rounded-sm
                     text-base font-medium transition-all duration-180 ease-smooth
                     min-h-[44px] relative overflow-hidden group focus-ring
                     ${isActive(link.href) 
-                      ? 'text-primary bg-primary/5' 
-                      : 'text-navy hover:text-primary hover:bg-surface-3'}
+                      ? 'text-cyan bg-cyan/5' 
+                      : 'text-navy hover:bg-surface-3'}
                   `}
                 >
                   <Icon size={18} className="transition-transform duration-180 group-hover:scale-110" aria-hidden="true" />
@@ -126,12 +126,12 @@ export const Navbar: React.FC = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`
               md:hidden min-h-[44px] min-w-[44px] 
-              flex items-center justify-center rounded-lg
+              flex items-center justify-center rounded-sm
               transition-all duration-300 ease-smooth focus-ring
               relative overflow-hidden group
               ${isMobileMenuOpen 
-                ? 'bg-primary text-white shadow-lg' 
-                : 'text-navy hover:bg-primary/10 hover:text-primary'}
+                ? 'bg-cyan text-white shadow-lg' 
+                : 'text-navy hover:bg-cyan/10 hover:text-cyan'}
             `}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"
@@ -145,7 +145,7 @@ export const Navbar: React.FC = () => {
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.div>
             {!isMobileMenuOpen && (
-              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 rounded-lg transition-colors duration-300" />
+              <div className="absolute inset-0 bg-cyan/0 group-hover:bg-cyan/5 rounded-sm transition-colors duration-300" />
             )}
           </button>
         </div>
@@ -162,7 +162,7 @@ export const Navbar: React.FC = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               className="md:hidden fixed inset-0 bg-navy/40 backdrop-blur-sm z-[45]"
-              style={{ top: '80px' }}
+              style={{ top: '72px' }}
               onClick={() => setIsMobileMenuOpen(false)}
             />
             
@@ -178,21 +178,21 @@ export const Navbar: React.FC = () => {
                 damping: 30, 
                 stiffness: 300
               }}
-              className="md:hidden fixed right-0 w-[75%] max-w-[320px] bg-white shadow-2xl z-[50] flex flex-col overflow-hidden"
-              style={{ top: '80px', bottom: 0, height: 'calc(100vh - 80px)' }}
+              className="md:hidden fixed right-0 w-[85%] max-w-[360px] bg-white shadow-2xl z-[50] flex flex-col overflow-hidden"
+              style={{ top: '72px', bottom: 0, height: 'calc(100vh - 72px)' }}
               role="dialog"
               aria-modal="true"
               aria-label="Mobil meny"
             >
               {/* Decorative gradient bar */}
-              <div className="h-1 bg-gradient-to-r from-primary via-cyan to-success" />
+              <div className="h-1 bg-gradient-to-r from-cyan via-cyan/80 to-cyan" />
               
               {/* Header with close button */}
               <div className="flex items-center justify-between px-4 py-3.5 border-b border-border-light shrink-0">
                 <h2 className="text-base font-bold text-navy">Meny</h2>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="min-h-[40px] min-w-[40px] flex items-center justify-center rounded-lg text-navy hover:bg-surface-3 transition-colors duration-200 focus-ring shrink-0"
+                  className="min-h-[40px] min-w-[40px] flex items-center justify-center rounded-sm text-navy hover:bg-surface-3 transition-colors duration-200 focus-ring shrink-0"
                   aria-label="Lukk meny"
                 >
                   <X size={18} />
@@ -219,39 +219,39 @@ export const Navbar: React.FC = () => {
                         <Link 
                           href={link.href}
                           className={`
-                            flex items-center gap-3 px-4 py-3.5 rounded-lg
+                            flex items-center gap-3 px-5 py-4 rounded-sm
                             transition-all duration-200 ease-smooth group focus-ring
-                            relative
+                            relative min-h-[52px]
                             ${isLinkActive
-                              ? 'bg-primary/10 text-primary'
+                              ? 'bg-cyan/10 text-cyan'
                               : 'text-navy hover:bg-surface-3'}
                           `}
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {/* Active indicator */}
                           {isLinkActive && (
-                            <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-r-full" />
+                            <div className="absolute left-0 top-0 bottom-0 w-1 bg-cyan rounded-r-full" />
                           )}
                           
                           <div 
                             className={`
-                              w-10 h-10 rounded-lg flex items-center justify-center shrink-0
+                              w-11 h-11 rounded-sm flex items-center justify-center shrink-0 min-w-[44px] min-h-[44px]
                               transition-all duration-200
                               ${isLinkActive
-                                ? 'bg-primary text-white'
+                                ? 'bg-cyan text-white'
                                 : 'bg-surface-3 text-cyan group-hover:bg-cyan group-hover:text-white'}
                             `}
                           >
-                            <Icon size={20} aria-hidden="true" />
+                            <Icon size={22} aria-hidden="true" />
                           </div>
                           
-                          <span className="text-base font-medium flex-1 truncate">{link.label}</span>
+                          <span className="text-base sm:text-lg font-medium flex-1 truncate">{link.label}</span>
                           
                           <ArrowRight 
                             size={16} 
                             className={`
                               text-navy/30 transition-all duration-200 shrink-0
-                              ${isLinkActive ? 'text-primary' : 'group-hover:text-primary group-hover:translate-x-0.5'}
+                              ${isLinkActive ? 'text-cyan' : 'group-hover:text-cyan group-hover:translate-x-0.5'}
                             `}
                             aria-hidden="true"
                           />
@@ -270,10 +270,10 @@ export const Navbar: React.FC = () => {
                 >
                   <Link
                     href="/demo"
-                    className="btn text-white hover:text-white font-bold shadow-soft w-full text-base justify-center py-3.5 group bg-cyan hover:bg-cyan/90 hover:shadow-lift focus-visible:ring-4 focus-visible:ring-cyan/35 transition-all duration-180 ease-smooth"
+                    className="btn text-white hover:text-white font-bold shadow-soft w-full text-base justify-center py-4 min-h-[52px] group bg-cyan hover:bg-cyan/90 hover:shadow-lift focus-visible:ring-4 focus-visible:ring-cyan/35 transition-all duration-180 ease-smooth"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <PlayCircle size={20} aria-hidden="true" />
+                    <PlayCircle size={22} aria-hidden="true" />
                     <span className="ml-2 font-semibold">Book Demo</span>
                   </Link>
                 </motion.div>

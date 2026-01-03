@@ -3,19 +3,17 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Calendar, 
-  Clock, 
-  Users, 
   CheckCircle2, 
   Phone, 
-  Mail, 
-  MapPin,
-  PlayCircle,
-  Shield,
-  Zap,
-  MessageSquare,
+  Mail,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  Zap,
+  PlayCircle,
+  Users,
+  MessageSquare,
+  Clock,
+  Shield
 } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
 import { Heading, Text } from '@/components/ui/Typography';
@@ -41,15 +39,6 @@ const demoFeatures = [
     title: "Rask oppstart",
     description: "Lær hvordan du kommer i gang på få dager",
   },
-];
-
-const demoAgenda = [
-  "Introduksjon og kartlegging av behov",
-  "Gjennomgang av bookingflyt for innbyggere",
-  "Administrasjonsgrensesnitt og rapportering",
-  "Integrasjoner med eksisterende systemer",
-  "Spørsmål og diskusjon om implementering",
-  "Neste steg og prisindikasjon",
 ];
 
 const applicationImages = [
@@ -85,10 +74,7 @@ export default function DemoPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     organization: '',
-    role: '',
-    organizationType: '',
     message: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -162,7 +148,7 @@ export default function DemoPage() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.4 }}
-                  className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-2.5 py-1 rounded-md border border-border shadow-sm whitespace-nowrap shrink-0"
+                  className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-2.5 py-1 rounded-sm border border-border shadow-sm whitespace-nowrap shrink-0"
                 >
                   <Clock size={14} className="text-cyan" aria-hidden="true" />
                   <span className="text-xs font-medium text-navy">30-45 minutter</span>
@@ -171,7 +157,7 @@ export default function DemoPage() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.5 }}
-                  className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-2.5 py-1 rounded-md border border-border shadow-sm whitespace-nowrap shrink-0"
+                  className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-2.5 py-1 rounded-sm border border-border shadow-sm whitespace-nowrap shrink-0"
                 >
                   <Shield size={14} className="text-cyan" aria-hidden="true" />
                   <span className="text-xs font-medium text-navy">Ingen forpliktelser</span>
@@ -180,7 +166,7 @@ export default function DemoPage() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.6 }}
-                  className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-2.5 py-1 rounded-md border border-border shadow-sm whitespace-nowrap shrink-0"
+                  className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-2.5 py-1 rounded-sm border border-border shadow-sm whitespace-nowrap shrink-0"
                 >
                   <Users size={14} className="text-cyan" aria-hidden="true" />
                   <span className="text-xs font-medium text-navy">Tilpasset demo</span>
@@ -203,7 +189,7 @@ export default function DemoPage() {
                 {/* Image Gallery Grid */}
                 <div className="grid grid-cols-2 gap-3">
                   {/* Main large image */}
-                  <div className="col-span-2 relative rounded-xl overflow-hidden shadow-xl ring-1 ring-white/20 group">
+                  <div className="col-span-2 relative rounded-sm overflow-hidden shadow-xl ring-1 ring-white/20 group">
                     <img 
                       src="/images/utleieobjekter/kipo-kultursal.jpg" 
                       alt="Digilist Dashboard"
@@ -223,7 +209,7 @@ export default function DemoPage() {
                   </div>
                   
                   {/* Smaller images */}
-                  <div className="relative rounded-xl overflow-hidden shadow-lg ring-1 ring-white/20 group">
+                  <div className="relative rounded-sm overflow-hidden shadow-lg ring-1 ring-white/20 group">
                     <img 
                       src="/images/utleieobjekter/gyllenborg-idrettshall.jpg" 
                       alt="Digilist Booking Interface"
@@ -232,7 +218,7 @@ export default function DemoPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent" />
                   </div>
                   
-                  <div className="relative rounded-xl overflow-hidden shadow-lg ring-1 ring-white/20 group">
+                  <div className="relative rounded-sm overflow-hidden shadow-lg ring-1 ring-white/20 group">
                     <img 
                       src="/images/utleieobjekter/flytende-badstua-ulefoss.jpg" 
                       alt="Digilist Calendar View"
@@ -246,15 +232,16 @@ export default function DemoPage() {
           </div>
         </div>
       </section>
+      {/* Bottom dividing line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-cyan/60 to-transparent mt-12 sm:mt-16" />
 
-      {/* MAIN CONTENT - Improved Structure */}
+      {/* MAIN CONTENT - Simplified Structure */}
       <Section variant="default" className="bg-white">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-8 lg:py-12">
+        <div className="max-w-4xl mx-auto py-8 lg:py-12">
             
-            {/* LEFT: Form (Sticky) */}
-            <div className="lg:col-span-5 order-1 lg:order-1">
-              <div className="lg:sticky lg:top-24">
-                <div className="bg-white rounded-md p-6 sm:p-8 border border-sky2/20 shadow-lg relative overflow-hidden">
+            {/* Form */}
+            <div className="mb-12">
+              <div className="bg-white rounded-sm p-6 sm:p-8 border-2 border-gray-200/60 shadow-md relative overflow-hidden">
                 {isSubmitted ? (
                   <div className="text-center py-8 relative z-10">
                     <div className="w-20 h-20 rounded-full bg-cyan/10 flex items-center justify-center mx-auto mb-6">
@@ -323,21 +310,6 @@ export default function DemoPage() {
                       </div>
                       
                       <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-navy mb-1.5">
-                          Telefon
-                        </label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          className="input"
-                          placeholder="+47 XXX XX XXX"
-                        />
-                      </div>
-                      
-                      <div>
                         <label htmlFor="organization" className="block text-sm font-medium text-navy mb-1.5">
                           Organisasjon *
                         </label>
@@ -354,35 +326,13 @@ export default function DemoPage() {
                       </div>
                       
                       <div>
-                        <label htmlFor="organizationType" className="block text-sm font-medium text-navy mb-1.5">
-                          Type organisasjon *
-                        </label>
-                        <select
-                          id="organizationType"
-                          name="organizationType"
-                          required
-                          value={formData.organizationType}
-                          onChange={handleChange}
-                          className="input bg-white"
-                        >
-                          <option value="">Velg type</option>
-                          <option value="kommune">Kommune</option>
-                          <option value="kulturhus">Kulturhus</option>
-                          <option value="idrett">Idrettsanlegg</option>
-                          <option value="skole">Skole</option>
-                          <option value="bedrift">Bedrift</option>
-                          <option value="annet">Annet</option>
-                        </select>
-                      </div>
-                      
-                      <div>
                         <label htmlFor="message" className="block text-sm font-medium text-navy mb-1.5">
-                          Hva ønsker du å se?
+                          Hva ønsker du å se? (valgfritt)
                         </label>
                         <textarea
                           id="message"
                           name="message"
-                          rows={3}
+                          rows={5}
                           value={formData.message}
                           onChange={handleChange}
                           className="input resize-none"
@@ -407,113 +357,66 @@ export default function DemoPage() {
                   </div>
                 )}
                 </div>
-              </div>
             </div>
             
-            {/* RIGHT: Info Cards (Wider) */}
-            <div className="lg:col-span-7 order-2 lg:order-2">
-              {/* What to expect - Feature Cards */}
-              <div className="mb-10">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-md bg-cyan flex items-center justify-center">
+            {/* Simplified Info Section */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* What to expect - Simplified */}
+              <div className="bg-white rounded-sm p-6 border-2 border-gray-200/60 shadow-md">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-sm bg-cyan flex items-center justify-center">
                     <Zap className="text-white" size={20} />
                   </div>
-                  <Heading level={3} className="text-xl sm:text-2xl text-navy">
+                  <Heading level={3} className="text-lg sm:text-xl text-navy">
                     Hva du kan forvente
                   </Heading>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {demoFeatures.map((feature, idx) => {
-                    const Icon = feature.icon;
-                    return (
-                      <div 
-                        key={idx}
-                        className="group p-5 rounded-md bg-white border border-sky2/20 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan/50 transition-all duration-300 ease-smooth cursor-pointer overflow-hidden"
-                      >
-                        <div className="w-12 h-12 rounded-md bg-cyan flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth">
-                          <Icon className="text-white" size={22} aria-hidden="true" />
-                        </div>
-                        <h4 className="font-bold text-navy text-base mb-2 group-hover:text-cyan transition-colors">
-                          {feature.title}
-                        </h4>
-                        <p className="text-sm text-navy/60 leading-relaxed">
-                          {feature.description}
-                        </p>
+                <ul className="space-y-3">
+                  {demoFeatures.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <CheckCircle2 className="text-cyan shrink-0 mt-0.5" size={18} />
+                      <div>
+                        <p className="font-medium text-navy text-sm">{feature.title}</p>
+                        <p className="text-xs text-navy/60 mt-0.5">{feature.description}</p>
                       </div>
-                    );
-                  })}
-                </div>
-            </div>
-            
-            {/* Demo Agenda - Timeline Style */}
-            <div className="mb-10">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-md bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center">
-                  <Calendar className="text-white" size={20} />
-                </div>
-                <Heading level={3} className="text-xl sm:text-2xl text-navy">
-                  Typisk agenda (30-45 min)
-                </Heading>
-              </div>
-              <div className="relative">
-                {/* Timeline line */}
-                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan via-cyan/80 to-cyan hidden sm:block" />
-                
-                <div className="space-y-4">
-                  {demoAgenda.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-4 group">
-                      <div className="relative z-10 w-8 h-8 rounded-full bg-cyan flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth">
-                        <span className="text-xs font-bold text-white">{idx + 1}</span>
-                      </div>
-                      <div className="flex-1 p-4 rounded-md bg-white border border-sky2/20 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan/50 transition-all duration-300 ease-smooth cursor-pointer overflow-hidden">
-                        <span className="text-sm font-medium text-navy">{item}</span>
-                      </div>
-                    </div>
+                    </li>
                   ))}
+                </ul>
+              </div>
+              
+              {/* Contact - Simplified */}
+              <div className="bg-white rounded-sm p-6 border-2 border-gray-200/60 shadow-md">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-sm bg-cyan flex items-center justify-center">
+                    <Phone className="text-white" size={20} />
+                  </div>
+                  <Heading level={3} className="text-lg sm:text-xl text-navy">
+                    Kontakt oss
+                  </Heading>
+                </div>
+                <div className="space-y-4">
+                  <a 
+                    href="mailto:demo@digilist.no"
+                    className="flex items-center gap-3 group"
+                  >
+                    <Mail className="text-cyan shrink-0" size={18} />
+                    <div>
+                      <p className="text-xs text-navy/50">E-post</p>
+                      <p className="text-sm font-medium text-navy group-hover:text-cyan transition-colors">demo@digilist.no</p>
+                    </div>
+                  </a>
+                  <a 
+                    href="tel:+4722334455"
+                    className="flex items-center gap-3 group"
+                  >
+                    <Phone className="text-cyan shrink-0" size={18} />
+                    <div>
+                      <p className="text-xs text-navy/50">Telefon</p>
+                      <p className="text-sm font-medium text-navy group-hover:text-cyan transition-colors">+47 22 33 44 55</p>
+                    </div>
+                  </a>
                 </div>
               </div>
-            </div>
-            
-            {/* Contact Info - Horizontal Cards */}
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-md bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center">
-                  <Phone className="text-white" size={20} />
-                </div>
-                <Heading level={3} className="text-xl sm:text-2xl text-navy">
-                  Eller kontakt oss direkte
-                </Heading>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <a 
-                  href="mailto:demo@digilist.no"
-                  className="group p-5 rounded-md bg-white border border-sky2/20 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan/50 transition-all duration-300 ease-smooth text-center cursor-pointer overflow-hidden"
-                >
-                  <div className="w-12 h-12 rounded-md bg-cyan flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth">
-                    <Mail className="text-white" size={20} aria-hidden="true" />
-                  </div>
-                  <p className="text-xs text-navy/50 mb-1">E-post</p>
-                  <p className="font-semibold text-navy group-hover:text-cyan transition-colors text-sm">demo@digilist.no</p>
-                </a>
-                <a 
-                  href="tel:+4722334455"
-                  className="group p-5 rounded-md bg-white border border-sky2/20 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan/50 transition-all duration-300 ease-smooth text-center cursor-pointer overflow-hidden"
-                >
-                  <div className="w-12 h-12 rounded-md bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-smooth">
-                    <Phone className="text-white" size={20} aria-hidden="true" />
-                  </div>
-                  <p className="text-xs text-navy/50 mb-1">Telefon</p>
-                  <p className="font-semibold text-navy group-hover:text-cyan transition-colors text-sm">+47 22 33 44 55</p>
-                </a>
-                <div className="group p-5 rounded-md bg-white border border-sky2/20 shadow-lg text-center overflow-hidden">
-                  <div className="w-12 h-12 rounded-md bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center mx-auto mb-3 shadow-lg">
-                    <MapPin className="text-white" size={20} aria-hidden="true" />
-                  </div>
-                  <p className="text-xs text-navy/50 mb-1">Lokasjon</p>
-                  <p className="font-semibold text-navy text-sm">Oslo, Norge</p>
-                </div>
-              </div>
-            </div>
             </div>
         </div>
       </Section>

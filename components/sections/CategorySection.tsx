@@ -70,7 +70,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
   if (!image) {
     return (
       <Section variant={variant} id={id} className={className}>
-        <div className="bg-success/5 rounded-md p-6 sm:p-8 md:p-10">
+        <div className="bg-success/5 rounded-sm p-6 sm:p-8 md:p-10">
           <SectionHeader title={title} subtitle={subtitle} />
           <CategoryCardGrid categories={categories} columns={columns} />
         </div>
@@ -88,7 +88,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
         <SectionHeader title={title} subtitle={subtitle} />
         
         {/* Modern Category tabs - Horizontal pill design */}
-        <div className="mb-12 sm:mb-16">
+        <div className="mb-10 sm:mb-14 px-4 sm:px-0">
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
             {tabConfig.map((tab, idx) => {
               const TabIcon = tab.icon;
@@ -99,23 +99,23 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
                   key={tab.id}
                   onClick={() => setActiveTab(idx)}
                   className={`
-                    relative flex items-center gap-3 px-5 py-3.5 rounded-md
-                    transition-all duration-300 cursor-pointer group
+                    relative flex items-center gap-2 px-4 sm:px-5 py-3 sm:py-3.5 rounded-sm
+                    transition-all duration-300 cursor-pointer group min-h-[48px]
                     ${isActive 
-                      ? 'bg-gradient-to-r from-cyan to-cyan/90 text-white shadow-xl shadow-cyan/30 scale-105' 
-                      : 'bg-white text-navy border-2 border-sky2/30 hover:border-cyan/50 hover:bg-cyan/5 hover:shadow-lg hover:scale-[1.02]'
+                      ? 'bg-gradient-to-r from-cyan to-cyan/90 text-white shadow-xl shadow-cyan/30' 
+                      : 'bg-white text-navy border-2 border-gray-200/60 shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 hover:bg-cyan/5'
                     }
                   `}
                   aria-pressed={isActive}
                   aria-label={`Velg ${tab.label}`}
                 >
-                  <div className={`w-11 h-11 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${
+                  <div className={`w-9 h-9 rounded-sm flex items-center justify-center shrink-0 transition-all duration-300 ${
                     isActive 
                       ? 'bg-white/20 backdrop-blur-sm' 
                       : 'bg-cyan/10 group-hover:bg-cyan/20'
                   }`}>
                     <TabIcon 
-                      size={20} 
+                      size={18} 
                       className={`transition-colors duration-300 ${
                         isActive ? 'text-white' : 'text-cyan'
                       }`} 
@@ -123,7 +123,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
                     />
                   </div>
                   <div className="text-left">
-                    <div className={`text-sm font-bold transition-colors duration-300 ${
+                    <div className={`text-sm font-semibold transition-colors duration-300 ${
                       isActive ? 'text-white' : 'text-navy group-hover:text-cyan'
                     }`}>
                       {tab.label}
@@ -142,7 +142,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
       
         {/* Modern Content Card with Image Split Layout */}
         <div className="max-w-6xl mx-auto">
-          <div className="bg-gradient-to-br from-white via-cyan/5 to-white rounded-md border border-sky2/20 shadow-xl overflow-hidden">
+          <div className="bg-gradient-to-br from-white via-cyan/5 to-white rounded-sm border-2 border-gray-200/60 shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 transition-all duration-300 overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
               {/* Image Section */}
               <div className="relative h-64 sm:h-80 lg:h-auto min-h-[400px] overflow-hidden order-2 lg:order-1">
@@ -169,9 +169,9 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
                   {activeCategory.items.map((item, idx) => (
                     <div 
                       key={idx} 
-                      className="flex items-start gap-4 group/item hover:bg-cyan/5 rounded-lg p-3 -m-3 transition-colors duration-300"
+                      className="flex items-start gap-4 group/item hover:bg-cyan/5 rounded-sm p-3 -m-3 transition-colors duration-300"
                     >
-                      <div className="w-6 h-6 rounded-lg bg-cyan/10 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:bg-cyan/20 transition-colors duration-300">
+                      <div className="w-6 h-6 rounded-sm bg-cyan/10 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:bg-cyan/20 transition-colors duration-300">
                         <CheckCircle2 
                           size={18} 
                           className="text-cyan" 

@@ -36,9 +36,9 @@ export const ImageShowcase: React.FC<ImageShowcaseProps> = ({
     <ScrollAnimation variant={variant === 'left' ? 'fadeRight' : 'fadeLeft'} delay={200}>
       <div className="relative group">
         {/* Main image container */}
-        <div className="relative rounded-md overflow-hidden shadow-xl border border-border">
+        <div className="relative rounded-sm overflow-hidden shadow-xl border border-border">
           {/* Image with taller aspect ratio to maintain height */}
-          <div className="relative rounded-md overflow-hidden aspect-[3/4]">
+          <div className="relative rounded-sm overflow-hidden aspect-[3/4]">
             <img 
               src={image} 
               alt={imageAlt}
@@ -58,17 +58,17 @@ export const ImageShowcase: React.FC<ImageShowcaseProps> = ({
       <div>
         {badge && (
           <ScrollAnimation variant="fade" delay={0}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan/10 border border-cyan/20 mb-6">
-              <span className="text-sm font-medium text-cyan">{badge}</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-cyan/10 border border-cyan/20 mb-6 sm:mb-8">
+              <span className="text-sm sm:text-base font-medium text-cyan">{badge}</span>
             </div>
           </ScrollAnimation>
         )}
         
-        <Heading level={2} className="mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-navy">
+        <Heading level={2} className="mb-6 sm:mb-8 text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-navy">
           {title}
         </Heading>
         
-        <Text variant="body" className="text-navy/70 mb-8 text-lg leading-relaxed">
+        <Text variant="body" className="text-navy/70 mb-8 sm:mb-10 text-base sm:text-lg md:text-xl leading-relaxed">
           {description}
         </Text>
         
@@ -87,8 +87,8 @@ export const ImageShowcase: React.FC<ImageShowcaseProps> = ({
         
         {ctaText && (
           <ScrollAnimation variant="scale" delay={300}>
-            <Link href={ctaHref}>
-              <button className="btn text-white font-bold shadow-soft btn-lg group bg-cyan hover:bg-cyan/90 hover:shadow-lift focus-visible:ring-4 focus-visible:ring-cyan/35 transition-all duration-180 ease-smooth inline-flex items-center">
+            <Link href={ctaHref} className="inline-block">
+              <button className="btn text-white font-bold shadow-soft btn-lg w-full sm:w-auto min-h-[52px] group bg-cyan hover:bg-cyan/90 hover:shadow-lift focus-visible:ring-4 focus-visible:ring-cyan/35 transition-all duration-180 ease-smooth inline-flex items-center justify-center">
                 {ctaText}
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
@@ -101,7 +101,7 @@ export const ImageShowcase: React.FC<ImageShowcaseProps> = ({
 
   return (
     <Section variant={sectionVariant} className="relative overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-center px-4 sm:px-0">
         {variant === 'left' ? (
           <>
             <div className="order-2 lg:order-1 lg:col-span-5">{imageContent}</div>

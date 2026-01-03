@@ -229,7 +229,7 @@ export const LearningPlatform: React.FC = () => {
               >
                 <Card.Block className="flex flex-col h-full">
                   {/* Video Thumbnail */}
-                  <div className="relative aspect-video bg-gradient-to-br from-surface-2 to-surface-3 rounded-lg mb-5 overflow-hidden border-2 border-sky2/50 group-hover:border-cyan transition-all">
+                  <div className="relative aspect-video bg-gradient-to-br from-surface-2 to-surface-3 rounded-sm mb-5 overflow-hidden border-2 border-gray-200/60 shadow-md group-hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 transition-all">
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center pl-1 shadow-xl text-primary group-hover:scale-105 transition-transform">
                         <Play size={40} fill="currentColor" />
@@ -247,7 +247,7 @@ export const LearningPlatform: React.FC = () => {
                     </div>
                     {/* Duration Badge */}
                     <div className="absolute bottom-4 right-4">
-                      <div className="bg-navy/80 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5 font-medium shadow-lg">
+                      <div className="bg-navy/80 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-sm flex items-center gap-1.5 font-medium shadow-lg">
                         <Clock size={14} aria-hidden="true" />
                         {video.duration}
                       </div>
@@ -304,14 +304,14 @@ export const LearningPlatform: React.FC = () => {
                   </button>
 
                   {/* Video Player */}
-                  <div className="relative aspect-video bg-gradient-to-br from-surface-2 to-surface-3 rounded-lg mb-6 overflow-hidden border-2 border-border">
+                  <div className="relative aspect-video bg-gradient-to-br from-surface-2 to-surface-3 rounded-sm mb-6 overflow-hidden border-2 border-border">
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center pl-1 shadow-xl text-primary">
                         <Play size={48} fill="currentColor" />
                       </div>
                     </div>
                     <div className="absolute bottom-4 left-4 right-4">
-                      <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3">
+                      <div className="bg-white/90 backdrop-blur-sm rounded-sm p-3">
                         <div className="text-sm font-semibold text-navy">
                           {selectedVideo.title}
                         </div>
@@ -322,7 +322,7 @@ export const LearningPlatform: React.FC = () => {
                   {/* Video Details */}
                   <div className="px-2 pb-4">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="bg-gradient-to-br from-primary to-cyan p-2 rounded-lg">
+                      <div className="bg-gradient-to-br from-primary to-cyan p-2 rounded-sm">
                         {(() => {
                           const Icon = selectedVideo.categoryIcon;
                           return <Icon className="text-white" size={20} aria-hidden="true" />;

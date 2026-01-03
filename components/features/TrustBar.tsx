@@ -33,7 +33,7 @@ export const TrustBar: React.FC = () => {
             const isExternal = partner.url && partner.url.startsWith('http');
               
               const badgeContent = (
-                <div className="group flex items-center gap-2 px-3 py-2 bg-white rounded-md border border-sky2/50 shadow-sm hover:shadow-md hover:border-cyan hover:-translate-y-0.5 transition-all duration-300 ease-smooth cursor-pointer shrink-0 whitespace-nowrap">
+                <div className="group flex items-center gap-2 px-3 py-2 bg-white rounded-sm border-2 border-gray-200/60 shadow-md shadow-sm hover:shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 hover:-translate-y-0.5 transition-all duration-300 ease-smooth cursor-pointer shrink-0 whitespace-nowrap">
                   <span className="text-sm font-semibold text-navy group-hover:text-primary transition-colors duration-180">
                     {partner.name}
                   </span>

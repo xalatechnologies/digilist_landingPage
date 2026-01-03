@@ -121,7 +121,7 @@ export default function OmOssPage() {
                 <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
                 
                 {/* Main image */}
-                <div className="relative rounded-md overflow-hidden shadow-2xl ring-1 ring-white/20 max-w-[500px]">
+                <div className="relative rounded-sm overflow-hidden shadow-2xl ring-1 ring-white/20 max-w-[500px]">
                   <img 
                     src="/images/utleieobjekter/gyllenborg-idrettshall.jpg" 
                     alt="Om Digilist"
@@ -150,7 +150,7 @@ export default function OmOssPage() {
       {/* MISSION SECTION - Split Layout */}
       <ScrollAnimation variant="fadeUp" delay={100}>
         <Section variant="default" className="bg-white">
-        <div className="bg-white rounded-md p-6 sm:p-8 md:p-10">
+        <div className="bg-white rounded-sm p-6 sm:p-8 md:p-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left - Image */}
           <div className="relative order-2 lg:order-1">
@@ -160,7 +160,7 @@ export default function OmOssPage() {
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
               
               {/* Main image */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/20 max-w-[500px]">
+              <div className="relative rounded-sm overflow-hidden shadow-2xl ring-1 ring-white/20 max-w-[500px]">
                 <img 
                   src="/images/utleieobjekter/kipo-kultursal.jpg" 
                   alt="Vår visjon"
@@ -243,7 +243,7 @@ export default function OmOssPage() {
                 return (
                   <div
                     key={0}
-                    className="group relative overflow-hidden rounded-md bg-gradient-to-br from-white via-cyan/5 to-white border border-sky2/20 shadow-xl hover:shadow-2xl transition-all duration-500 ease-smooth"
+                    className="group relative overflow-hidden rounded-sm bg-gradient-to-br from-white via-cyan/5 to-white border-2 border-gray-200/60 shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 transition-all duration-500 ease-smooth"
                   >
                     <div className="flex flex-col lg:flex lg:flex-row">
                       {/* Image Section - 50% width on large screens */}
@@ -268,7 +268,7 @@ export default function OmOssPage() {
                       {/* Content Section - 50% width on large screens */}
                       <div className="w-full lg:w-1/2 p-6 sm:p-8 lg:p-10 flex flex-col justify-center bg-white">
                         <div className="flex items-center gap-4 mb-6">
-                          <div className="w-14 h-14 rounded-md bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-14 h-14 rounded-sm bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                             <Icon size={28} className="text-white" strokeWidth={2.5} aria-hidden="true" />
                           </div>
                         </div>
@@ -292,12 +292,12 @@ export default function OmOssPage() {
                   return (
                     <div
                       key={idx + 2}
-                      className="group relative overflow-hidden rounded-md bg-white border border-sky2/20 shadow-lg hover:shadow-xl hover:border-cyan/50 transition-all duration-300 ease-smooth cursor-pointer h-full flex flex-col"
+                      className="group relative overflow-hidden rounded-sm bg-white border-2 border-gray-200/60 shadow-md hover:shadow-xl hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 transition-all duration-300 ease-smooth cursor-pointer h-full flex flex-col"
                     >
                       <div className="p-6 sm:p-8 flex flex-col h-full">
                         {/* Header with icon and title */}
                         <div className="flex items-start gap-4 mb-6 flex-shrink-0">
-                          <div className="w-16 h-16 rounded-md bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                          <div className="w-16 h-16 rounded-sm bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                             <Icon size={28} className="text-white" strokeWidth={2.5} aria-hidden="true" />
                           </div>
                           <div className="flex-1 pt-1">
@@ -326,7 +326,7 @@ export default function OmOssPage() {
                 return (
                   <div
                     key={1}
-                    className="group relative overflow-hidden rounded-md bg-gradient-to-br from-white via-cyan/5 to-white border border-sky2/20 shadow-xl hover:shadow-2xl transition-all duration-500 ease-smooth"
+                    className="group relative overflow-hidden rounded-sm bg-gradient-to-br from-white via-cyan/5 to-white border-2 border-gray-200/60 shadow-md hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 transition-all duration-500 ease-smooth"
                   >
                     <div className="flex flex-col lg:flex lg:flex-row-reverse">
                       {/* Image Section - 50% width on large screens */}
@@ -351,7 +351,7 @@ export default function OmOssPage() {
                       {/* Content Section - 50% width on large screens */}
                       <div className="w-full lg:w-1/2 p-6 sm:p-8 lg:p-10 flex flex-col justify-center bg-white">
                         <div className="flex items-center gap-4 mb-6">
-                          <div className="w-14 h-14 rounded-md bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-14 h-14 rounded-sm bg-gradient-to-br from-cyan to-cyan/80 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                             <Icon size={28} className="text-white" strokeWidth={2.5} aria-hidden="true" />
                           </div>
                         </div>
@@ -400,7 +400,7 @@ export default function OmOssPage() {
                 return (
                   <div 
                     key={idx} 
-                    className="group relative overflow-hidden rounded-md bg-white border border-sky2/20 shadow-lg hover:shadow-xl hover:-translate-y-1 hover:border-cyan/50 transition-all duration-300 ease-smooth cursor-pointer h-full flex flex-col"
+                    className="group relative overflow-hidden rounded-sm bg-white border-2 border-gray-200/60 shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 transition-all duration-300 ease-smooth cursor-pointer h-full flex flex-col"
                   >
                     {/* Image Section */}
                     <div className="relative w-full h-48 sm:h-56 overflow-hidden">
@@ -460,7 +460,7 @@ export default function OmOssPage() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12 items-center">
                 {/* First Image */}
                 <div className="order-2 lg:order-1">
-                  <div className="relative rounded-md overflow-hidden shadow-2xl group">
+                  <div className="relative rounded-sm overflow-hidden shadow-2xl group">
                     <div className="absolute inset-0 bg-gradient-to-br from-cyan/20 via-transparent to-navy/10 z-10" />
                     <div className="relative h-80 sm:h-96 lg:h-[500px]">
                       <Image
@@ -509,7 +509,7 @@ export default function OmOssPage() {
                 
                 {/* Second Image */}
                 <div className="order-1 lg:order-2">
-                  <div className="relative rounded-md overflow-hidden shadow-2xl group">
+                  <div className="relative rounded-sm overflow-hidden shadow-2xl group">
                     <div className="absolute inset-0 bg-gradient-to-br from-cyan/20 via-transparent to-navy/10 z-10" />
                     <div className="relative h-80 sm:h-96 lg:h-[500px]">
                       <Image

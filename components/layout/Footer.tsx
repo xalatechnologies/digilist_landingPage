@@ -16,37 +16,37 @@ export const Footer: React.FC = () => {
       {/* Top accent bar */}
       <div className="h-1 bg-gradient-to-r from-transparent via-cyan to-transparent" />
       
-      <div className="relative max-w-[1400px] mx-auto px-6 py-8 md:py-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
+      <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-10 md:mb-12">
           {/* Logo and Description */}
           <div>
             <Link 
               href="/"
-              className="flex items-center cursor-pointer group relative focus-ring rounded-lg mb-3"
+              className="flex items-center cursor-pointer group relative focus-ring rounded-sm mb-3"
               aria-label="Digilist - Gå til forsiden"
             >
               <Logo size={52} variant="text-only" className="group-hover:opacity-90 transition-all duration-180 [&_span]:!text-white" />
               {/* Subtle glow on hover */}
-              <div className="absolute inset-0 bg-cyan/0 group-hover:bg-cyan/5 rounded-lg transition-colors duration-180" />
+              <div className="absolute inset-0 bg-cyan/0 group-hover:bg-cyan/5 rounded-sm transition-colors duration-180" />
             </Link>
-            <p className="text-white text-sm mb-4 leading-relaxed font-medium">
+            <p className="text-white text-base sm:text-lg mb-5 sm:mb-6 leading-relaxed font-medium">
               Norges smarteste bookingsystem for lokaler, ressurser og arrangementer.
             </p>
             
             {/* Contact info */}
-            <div className="space-y-2">
+            <div className="space-y-3">
               <a 
                 href="mailto:kontakt@digilist.no"
-                className="flex items-center gap-2 text-sm text-white hover:text-white/80 transition-colors duration-180 font-medium"
+                className="flex items-center gap-3 text-base sm:text-lg text-white hover:text-white/80 transition-colors duration-180 font-medium min-h-[44px]"
               >
-                <Mail size={16} className="text-white" />
+                <Mail size={18} className="text-white shrink-0" />
                 <span>kontakt@digilist.no</span>
               </a>
               <a 
                 href="tel:+4722000000"
-                className="flex items-center gap-2 text-sm text-white hover:text-white/80 transition-colors duration-180 font-medium"
+                className="flex items-center gap-3 text-base sm:text-lg text-white hover:text-white/80 transition-colors duration-180 font-medium min-h-[44px]"
               >
-                <Phone size={16} className="text-white" />
+                <Phone size={18} className="text-white shrink-0" />
                 <span>+47 22 00 00 00</span>
               </a>
             </div>
@@ -54,14 +54,14 @@ export const Footer: React.FC = () => {
 
           {/* Navigation Links */}
           <div>
-            <h4 className="font-bold mb-3 text-white uppercase text-sm tracking-wider">
+            <h4 className="font-bold mb-4 sm:mb-5 text-white uppercase text-sm sm:text-base tracking-wider">
               Navigasjon
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               <li>
                 <Link 
                   href="/om-oss"
-                  className="text-base text-white hover:text-white/80 font-semibold transition-colors duration-180"
+                  className="text-base sm:text-lg text-white hover:text-white/80 font-semibold transition-colors duration-180 flex items-center min-h-[44px]"
                 >
                   Om oss
                 </Link>
@@ -69,7 +69,7 @@ export const Footer: React.FC = () => {
               <li>
                 <Link 
                   href="/funksjonalitet"
-                  className="text-base text-white hover:text-white/80 font-semibold transition-colors duration-180"
+                  className="text-base sm:text-lg text-white hover:text-white/80 font-semibold transition-colors duration-180 flex items-center min-h-[44px]"
                 >
                   Funksjonalitet
                 </Link>
@@ -77,7 +77,7 @@ export const Footer: React.FC = () => {
               <li>
                 <Link 
                   href="/demo"
-                  className="text-base text-white hover:text-white/80 font-semibold transition-colors duration-180"
+                  className="text-base sm:text-lg text-white hover:text-white/80 font-semibold transition-colors duration-180 flex items-center min-h-[44px]"
                 >
                   Book demo
                 </Link>
@@ -87,14 +87,14 @@ export const Footer: React.FC = () => {
 
           {/* Legal Links */}
           <div>
-            <h4 className="font-bold mb-3 text-white uppercase text-sm tracking-wider">
+            <h4 className="font-bold mb-4 sm:mb-5 text-white uppercase text-sm sm:text-base tracking-wider">
               Juridisk
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               <li>
                 <Link 
                   href="/personvern"
-                  className="text-base text-white hover:text-white/80 font-semibold transition-colors duration-180"
+                  className="text-base sm:text-lg text-white hover:text-white/80 font-semibold transition-colors duration-180 flex items-center min-h-[44px]"
                 >
                   Personvern
                 </Link>
@@ -102,7 +102,7 @@ export const Footer: React.FC = () => {
               <li>
                 <Link 
                   href="/vilkår"
-                  className="text-base text-white hover:text-white/80 font-semibold transition-colors duration-180"
+                  className="text-base sm:text-lg text-white hover:text-white/80 font-semibold transition-colors duration-180 flex items-center min-h-[44px]"
                 >
                   Vilkår
                 </Link>
@@ -112,21 +112,21 @@ export const Footer: React.FC = () => {
         </div>
         
         {/* Bottom section */}
-        <div className="border-t border-white/20 pt-4 md:pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-3">
-            <p className="text-base text-white font-semibold">
+        <div className="border-t border-white/20 pt-6 sm:pt-8 md:pt-10">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-5 text-center md:text-left">
+            <p className="text-sm sm:text-base text-white font-semibold">
               © {new Date().getFullYear()} Xala Technologies. Alle rettigheter reservert.
             </p>
-            <div className="flex items-center gap-2 text-sm text-white">
+            <div className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-white">
               <span>Utviklet av</span>
               <a 
                 href="https://xala.no" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-white hover:text-white/80 font-bold inline-flex items-center gap-1 transition-colors duration-180 underline"
+                className="text-white hover:text-white/80 font-bold inline-flex items-center gap-1.5 transition-colors duration-180 underline min-h-[44px]"
               >
                 <span>Xala Technologies</span>
-                <ExternalLink size={14} />
+                <ExternalLink size={16} className="shrink-0" />
               </a>
             </div>
           </div>

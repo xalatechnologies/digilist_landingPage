@@ -75,7 +75,7 @@ const colorStyles: Record<CardColor, { border: string; bg: string; accent: strin
   secondary: {
     border: 'border-cyan/20',
     bg: 'bg-cyan/5',
-    accent: 'hover:border-cyan',
+    accent: 'hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20',
   },
   success: {
     border: 'border-success/20',
@@ -193,18 +193,18 @@ const CardRoot: React.FC<CardProps> = ({
   const colorStyle = colorStyles[color];
   
   const variantClasses = {
-    default: `bg-white border-2 border-sky2/50`,
-    gradient: `bg-white border-2 border-sky2/50`,
-    outlined: `bg-white/80 backdrop-blur-sm border-2 border-sky2/50`,
-    filled: `${colorStyle.bg} border-2 border-sky2/50`,
+    default: `bg-white border-2 border-gray-200/60 shadow-md`,
+    gradient: `bg-white border-2 border-gray-200/60 shadow-md`,
+    outlined: `bg-white/80 backdrop-blur-sm border-2 border-gray-200/60 shadow-md`,
+    filled: `${colorStyle.bg} border-2 border-gray-200/60 shadow-md`,
   };
 
   const hoverClasses = hoverable 
-    ? `shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-cyan cursor-pointer` 
-    : 'shadow-lg';
+    ? `hover:border-cyan/60 hover:shadow-xl hover:shadow-cyan/20 hover:-translate-y-2 cursor-pointer` 
+    : '';
 
   const baseClasses = `
-    rounded-lg
+    rounded-sm
     transition-all duration-300 ease-smooth
     ${variantClasses[variant]}
     ${hoverClasses}
