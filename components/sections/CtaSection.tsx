@@ -42,34 +42,30 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           {primaryHref ? (
             <Link href={primaryHref}>
-              <Button 
-                variant="gradient" 
-                size="lg" 
+              <button 
                 onClick={onPrimaryClick} 
-                className="w-full sm:w-auto"
+                className="btn text-white font-bold shadow-soft btn-lg w-full sm:w-auto bg-cyan hover:bg-cyan/90 hover:shadow-lift focus-visible:ring-4 focus-visible:ring-cyan/35 transition-all duration-180 ease-smooth"
               >
                 {primaryCta}
-              </Button>
+              </button>
             </Link>
           ) : (
-            <Button 
-              variant="gradient" 
-              size="lg" 
-              onClick={onPrimaryClick} 
-              className="w-full sm:w-auto"
-            >
-              {primaryCta}
-            </Button>
+          <button 
+            onClick={onPrimaryClick} 
+            className="btn text-white font-bold shadow-soft btn-lg w-full sm:w-auto bg-cyan hover:bg-cyan/90 hover:shadow-lift focus-visible:ring-4 focus-visible:ring-cyan/35 transition-all duration-180 ease-smooth"
+          >
+            {primaryCta}
+          </button>
           )}
           {secondaryCta && (
-            <Button 
-              variant="secondary" 
-              size="lg" 
-              onClick={onSecondaryClick} 
-              className="w-full sm:w-auto"
-            >
-              {secondaryCta}
-            </Button>
+          <Button 
+            variant="secondary" 
+            size="lg" 
+            onClick={onSecondaryClick} 
+            className="w-full sm:w-auto"
+          >
+            {secondaryCta}
+          </Button>
           )}
         </div>
       </div>

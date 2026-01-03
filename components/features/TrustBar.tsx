@@ -30,7 +30,7 @@ export const TrustBar: React.FC = () => {
         <div className="relative overflow-hidden mask-gradient">
           <div className="flex gap-3 sm:gap-4 animate-scroll">
             {duplicatedPartners.map((partner, index) => {
-              const isExternal = partner.url && partner.url.startsWith('http');
+            const isExternal = partner.url && partner.url.startsWith('http');
               
               const badgeContent = (
                 <div className="group flex items-center gap-2 px-3 py-2 bg-white rounded-md border border-sky2/50 shadow-sm hover:shadow-md hover:border-cyan hover:-translate-y-0.5 transition-all duration-300 ease-smooth cursor-pointer shrink-0 whitespace-nowrap">
@@ -42,31 +42,31 @@ export const TrustBar: React.FC = () => {
                   )}
                 </div>
               );
-
-              if (isExternal) {
-                return (
-                  <a
-                    key={`${partner.id}-${index}`}
-                    href={partner.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="shrink-0"
-                  >
-                    {badgeContent}
-                  </a>
-                );
-              }
-              
+            
+            if (isExternal) {
               return (
-                <Link
-                  key={`${partner.id}-${index}`}
-                  href={partner.url || '#'}
-                  className="shrink-0"
+                <a
+                    key={`${partner.id}-${index}`}
+                  href={partner.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                    className="shrink-0"
                 >
-                  {badgeContent}
-                </Link>
+                    {badgeContent}
+                </a>
               );
-            })}
+            }
+            
+            return (
+              <Link
+                  key={`${partner.id}-${index}`}
+                href={partner.url || '#'}
+                  className="shrink-0"
+              >
+                  {badgeContent}
+              </Link>
+            );
+          })}
           </div>
         </div>
       </div>

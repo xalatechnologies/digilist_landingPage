@@ -31,7 +31,7 @@ export const Logo: React.FC<LogoProps> = ({
     return (
       <div className={`flex items-center ${className}`}>
         <span 
-          className="font-extrabold text-navy-base tracking-tight"
+          className="font-extrabold text-cyan tracking-tight"
           style={{ fontSize: `${size * 0.7}px` }}
         >
           {LOGO_CONFIG.brandName}
@@ -55,7 +55,7 @@ export const Logo: React.FC<LogoProps> = ({
       {/* "igilist" text - directly next to D logo */}
       {variant !== 'icon-only' && (
         <span 
-          className="font-extrabold text-navy-base tracking-tight leading-none"
+          className="font-extrabold text-cyan tracking-tight leading-none"
           style={{ 
             fontSize: `${textSize}px`,
             marginLeft: '-6px',

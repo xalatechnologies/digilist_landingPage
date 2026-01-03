@@ -23,27 +23,29 @@ export const HowItWorksSection: React.FC = () => {
           {homeContent.howItWorks.map((step, idx) => {
             const Icon = iconMap[idx] || FileText;
             return (
-              <div key={idx} className="flex flex-col items-center text-center">
+              <div key={idx} className="flex flex-col items-center text-center group cursor-pointer">
                 {/* Step label */}
-                <div className="inline-flex items-center px-3 py-1 rounded-full bg-cyan/20 text-cyan text-sm font-semibold mb-4">
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-cyan/20 text-cyan text-sm font-semibold mb-4 group-hover:bg-cyan/30 transition-colors duration-300">
                   Steg {idx + 1}
                 </div>
                 
                 {/* Icon */}
-                <div className="w-20 h-20 rounded-lg bg-cyan flex items-center justify-center mb-6 shadow-lg">
+                <div className="w-20 h-20 rounded-lg bg-cyan flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
                   <Icon size={40} className="text-white" strokeWidth={2} aria-hidden="true" />
-                </div>
+                    </div>
                 
                 {/* Title */}
-                <h3 className="text-xl sm:text-2xl font-bold text-navy mb-4">{step.title}</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-navy mb-4 group-hover:text-cyan transition-colors duration-300">{step.title}</h3>
                 
                 {/* Description */}
                 <p className="text-base text-navy/70 leading-relaxed">{step.description}</p>
-              </div>
+                  </div>
             );
           })}
         </StaggerAnimation>
       </div>
+      {/* Bottom dividing line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-cyan/60 to-transparent mt-12 sm:mt-16" />
     </Section>
   );
 };

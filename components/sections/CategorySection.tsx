@@ -95,32 +95,32 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
               const isActive = activeTab === idx;
               
               return (
-                <button
+        <button
                   key={tab.id}
                   onClick={() => setActiveTab(idx)}
-                  className={`
-                    flex items-center gap-3 px-6 py-4 rounded-lg
-                    transition-all duration-300 cursor-pointer min-h-[60px]
+          className={`
+                    flex items-center gap-2.5 px-4 py-3 rounded-lg
+                    transition-all duration-300 cursor-pointer min-h-[52px] group
                     ${isActive 
                       ? 'bg-cyan text-white shadow-lg shadow-cyan/20' 
-                      : 'bg-white text-navy border border-sky2/20 hover:border-cyan/50 hover:shadow-md'
+                      : 'bg-white text-navy border border-sky2/20 hover:border-cyan hover:bg-cyan/5 hover:shadow-md'
                     }
                   `}
                   aria-pressed={isActive}
                   aria-label={`Velg ${tab.label}`}
-                >
-                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${isActive ? 'bg-white/20' : 'bg-cyan/10'}`}>
-                    <TabIcon size={20} className={isActive ? 'text-white' : 'text-cyan'} strokeWidth={2} />
-                  </div>
-                  <div className="text-left">
-                    <div className={`text-base font-bold ${isActive ? 'text-white' : 'text-navy'}`}>{tab.label}</div>
-                    <div className={`text-xs mt-0.5 ${isActive ? 'text-white/90' : 'text-navy/60'}`}>{tab.preview}</div>
-                  </div>
-                </button>
+        >
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${isActive ? 'bg-white/20' : 'bg-cyan/10 group-hover:bg-cyan/20'}`}>
+                    <TabIcon size={18} className={`transition-colors duration-300 ${isActive ? 'text-white' : 'text-cyan'}`} strokeWidth={2} />
+          </div>
+          <div className="text-left">
+                    <div className={`text-sm font-bold transition-colors duration-300 ${isActive ? 'text-white' : 'text-navy group-hover:text-cyan'}`}>{tab.label}</div>
+                    <div className={`text-xs mt-0.5 transition-colors duration-300 ${isActive ? 'text-white/90' : 'text-navy/60 group-hover:text-cyan/80'}`}>{tab.preview}</div>
+          </div>
+        </button>
               );
             })}
           </div>
-        </div>
+      </div>
       
       {/* Content Card */}
       <div className="max-w-4xl mx-auto">
@@ -128,24 +128,26 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
           <div className="flex items-center gap-4 mb-8">
             <div className={`w-16 h-16 rounded-lg ${activeConfig.bgColor} flex items-center justify-center`}>
               <Icon size={32} className={activeConfig.iconColor} strokeWidth={2} />
-            </div>
+              </div>
             <Heading level={3} className="text-2xl sm:text-3xl text-navy font-bold">
-              {activeCategory.category}
-            </Heading>
-          </div>
-          <ul className="space-y-5">
-            {activeCategory.items.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-4">
+                {activeCategory.category}
+              </Heading>
+            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              {activeCategory.items.map((item, idx) => (
+              <div key={idx} className="flex items-start gap-4">
                 <CheckCircle2 size={22} className="text-cyan mt-0.5 shrink-0" strokeWidth={2.5} />
                 <Text variant="body" className="text-base text-navy/80 leading-relaxed">
-                  {item}
-                </Text>
-              </li>
-            ))}
-          </ul>
+                    {item}
+                  </Text>
+                </div>
+              ))}
+            </div>
         </div>
       </div>
       </div>
+      {/* Bottom dividing line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-cyan/60 to-transparent mt-12 sm:mt-16" />
     </Section>
   );
 };

@@ -4,7 +4,6 @@ import React from 'react';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
 import { Heading, Text } from '@/components/ui/Typography';
-import { Button } from '@/components/ui/Button';
 import { ScrollAnimation, StaggerAnimation } from '@/components/ui/ScrollAnimation';
 import Link from 'next/link';
 
@@ -59,8 +58,8 @@ export const ImageShowcase: React.FC<ImageShowcaseProps> = ({
       <div>
         {badge && (
           <ScrollAnimation variant="fade" delay={0}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-              <span className="text-sm font-medium text-primary">{badge}</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan/10 border border-cyan/20 mb-6">
+              <span className="text-sm font-medium text-cyan">{badge}</span>
             </div>
           </ScrollAnimation>
         )}
@@ -89,10 +88,10 @@ export const ImageShowcase: React.FC<ImageShowcaseProps> = ({
         {ctaText && (
           <ScrollAnimation variant="scale" delay={300}>
             <Link href={ctaHref}>
-              <Button variant="gradient" size="lg" className="group">
+              <button className="btn text-white font-bold shadow-soft btn-lg group bg-cyan hover:bg-cyan/90 hover:shadow-lift focus-visible:ring-4 focus-visible:ring-cyan/35 transition-all duration-180 ease-smooth inline-flex items-center">
                 {ctaText}
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              </button>
             </Link>
           </ScrollAnimation>
         )}
@@ -115,6 +114,8 @@ export const ImageShowcase: React.FC<ImageShowcaseProps> = ({
           </>
         )}
       </div>
+      {/* Bottom dividing line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-cyan/60 to-transparent mt-12 sm:mt-16" />
     </Section>
   );
 };

@@ -49,7 +49,7 @@ export const FeatureGroupsSection: React.FC = () => {
                     <Icon className="text-cyan" size={20} strokeWidth={2} aria-hidden="true" />
                   </div>
                   <div className="flex-1 pt-0.5">
-                    <h3 className="text-lg sm:text-xl font-bold text-navy leading-tight">
+                    <h3 className="text-lg sm:text-xl font-bold text-navy leading-tight group-hover:text-cyan transition-colors duration-300">
                       {group.title}
                     </h3>
                   </div>
@@ -85,13 +85,15 @@ export const FeatureGroupsSection: React.FC = () => {
         <div className="mt-10 sm:mt-12 text-center">
           <Link 
             href="/funksjonalitet"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 group"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-cyan text-white hover:text-white rounded-lg font-semibold hover:bg-cyan/90 transition-all duration-300 group"
           >
             Se alle funksjoner i detalj
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-180" aria-hidden="true" />
           </Link>
         </div>
       </div>
+      {/* Bottom dividing line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-cyan/60 to-transparent mt-12 sm:mt-16" />
     </Section>
   );
 };

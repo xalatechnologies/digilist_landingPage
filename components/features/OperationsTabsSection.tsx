@@ -50,21 +50,25 @@ export const OperationsTabsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Tab Content - 2 columns */}
+          {/* Tab Content - Single card with 2 columns */}
           <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-              {homeContent.operationsTabs[activeTab]?.points.map((point, idx) => (
-                <div key={idx} className="flex items-start gap-3">
-                  <CheckCircle2 size={20} className="text-cyan mt-0.5 shrink-0" strokeWidth={2.5} />
-                  <Text variant="body" className="text-base text-navy/80 leading-relaxed flex-1">
-                    {point}
-                  </Text>
-                </div>
-              ))}
+            <div className="bg-white rounded-lg border border-sky2/20 shadow-lg p-6 sm:p-8 md:p-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                {homeContent.operationsTabs[activeTab]?.points.map((point, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <CheckCircle2 size={20} className="text-cyan mt-0.5 shrink-0" strokeWidth={2.5} />
+                    <Text variant="body" className="text-base text-navy/80 leading-relaxed flex-1">
+                      {point}
+                    </Text>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
+      {/* Bottom dividing line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-cyan/60 to-transparent mt-12 sm:mt-16" />
     </Section>
   );
 };

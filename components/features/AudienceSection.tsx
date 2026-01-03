@@ -71,32 +71,34 @@ export const AudienceSection: React.FC = () => {
               <div 
                 key={card.title} 
                 className="
-                  relative rounded-lg p-6 sm:p-8
+                  relative rounded-lg p-6 sm:p-8 
                   bg-transparent border border-sky2/20
                   hover:border-cyan/50 hover:shadow-lg hover:shadow-cyan/20
                   transition-all duration-300 ease-smooth group cursor-pointer
                   flex flex-col items-center text-center
                 "
               >
-                {/* Icon */}
+                    {/* Icon */}
                 <div className="
                   w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-cyan/10
                   flex items-center justify-center mb-4
                   group-hover:bg-cyan/20 group-hover:scale-110
-                  transition-all duration-300 ease-smooth
+                      transition-all duration-300 ease-smooth
                 ">
                   <Icon size={32} className="text-cyan" strokeWidth={2} aria-hidden="true" />
-                </div>
-                
-                {/* Title */}
-                <h3 className="text-lg sm:text-xl font-bold text-navy leading-tight group-hover:text-primary transition-colors duration-180">
-                  {card.title}
-                </h3>
+                    </div>
+                    
+                    {/* Title */}
+                <h3 className="text-lg sm:text-xl font-bold text-navy leading-tight group-hover:text-cyan transition-colors duration-180">
+                        {card.title}
+                      </h3>
               </div>
             );
           })}
         </StaggerAnimation>
       </div>
+      {/* Bottom dividing line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-cyan/60 to-transparent mt-12 sm:mt-16" />
     </Section>
   );
 };

@@ -1,6 +1,5 @@
 import React from 'react';
 import { HeroSection } from '@/components/features/HeroSection';
-import { TrustBar } from '@/components/features/TrustBar';
 import { AudienceSection } from '@/components/features/AudienceSection';
 import { FeatureGroupsSection } from '@/components/features/FeatureGroupsSection';
 import { HowItWorksSection } from '@/components/features/HowItWorksSection';
@@ -21,12 +20,7 @@ export default function HomePage() {
       {/* 1. HERO SECTION */}
       <HeroSection />
 
-      {/* 2. TRUST BAR */}
-      <ScrollAnimation variant="fadeUp" delay={100}>
-        <TrustBar />
-      </ScrollAnimation>
-
-      {/* 3. HVEM PASSER DET FOR */}
+      {/* 2. HVEM PASSER DET FOR */}
       <ScrollAnimation variant="fadeUp" delay={150}>
         <AudienceSection />
       </ScrollAnimation>

@@ -21,7 +21,7 @@
   @media (min-width: 640px) {
     html {
       font-size: 18px;
-      scroll-padding-top: 100px;
+    scroll-padding-top: 100px;
     }
   }
   
@@ -234,6 +234,14 @@
   /* Section backgrounds - Rich, beautiful color combinations */
   .section-default {
     background: white;
+    border-top: 1px solid rgb(var(--border-light));
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Remove border from first section */
+  .section-default:first-of-type {
+    border-top: none;
+    box-shadow: none;
   }
   .section-tinted {
     background: linear-gradient(135deg, 
@@ -422,5 +430,63 @@
   }
   .rotate-x-\[10deg\] {
     transform: rotateX(10deg);
+  }
+
+  /* Ensure images have transparent backgrounds */
+  img,
+  picture,
+  [data-nimg],
+  span[style*="position: absolute"],
+  span[style*="position:relative"],
+  div[style*="position: absolute"] img,
+  div[style*="position:relative"] img {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+
+  /* Target Next.js Image wrapper elements */
+  span[data-nimg],
+  span[data-nimg] > img,
+  span[data-nimg] > span {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+
+  /* Hero device image - remove all backgrounds */
+  .hero-device-image,
+  .hero-device-image img,
+  .hero-device-image span,
+  .hero-device-image [data-nimg],
+  .hero-device-image [data-nimg] img,
+  .hero-device-image [data-nimg] span,
+  .hero-device-image [data-nimg] > span,
+  .hero-device-image [data-nimg] > img {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  /* Hero image container - blend white backgrounds with white hero section */
+  .hero-image-container {
+    background: white;
+    isolation: isolate;
+  }
+
+  /* Use multiply blend mode to make white backgrounds transparent on white */
+  .hero-image-container > *,
+  .hero-image-container img,
+  .hero-image-container [data-nimg],
+  .hero-image-container [data-nimg] img,
+  .hero-image-container [data-nimg] > img,
+  .hero-image-container [data-nimg] > span,
+  .hero-image-container [data-nimg] > span > img {
+    mix-blend-mode: multiply;
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+
+  /* Ensure the image wrapper doesn't interfere */
+  .hero-image-container [data-nimg] {
+    mix-blend-mode: multiply;
   }
 }

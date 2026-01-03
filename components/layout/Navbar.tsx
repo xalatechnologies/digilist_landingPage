@@ -65,12 +65,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav 
-      className={`
-        sticky top-0 z-50 w-full transition-all duration-180 ease-smooth
-        ${isScrolled 
-          ? 'bg-surface/95 backdrop-blur-md shadow-soft border-b border-border-light' 
-          : 'bg-surface-2 border-b border-border'}
-      `}
+      className="sticky top-0 z-50 w-full transition-all duration-180 ease-smooth bg-surface-2 border-b border-border"
       role="navigation"
       aria-label="Hovednavigasjon"
     >
@@ -84,8 +79,8 @@ export const Navbar: React.FC = () => {
             aria-label="Digilist - Gå til forsiden"
           >
             <Logo size={52} className="group-hover:opacity-90 transition-all duration-180" />
-            {/* Subtle glow on hover */}
-            <div className="absolute inset-0 bg-cyan/0 group-hover:bg-cyan/5 rounded-lg transition-colors duration-180" />
+            {/* Subtle cyan glow on hover */}
+            <div className="absolute inset-0 bg-cyan/0 group-hover:bg-cyan/10 rounded-lg transition-colors duration-180" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -115,10 +110,10 @@ export const Navbar: React.FC = () => {
               );
             })}
             
-            {/* CTA Button with gradient */}
+            {/* CTA Button with cyan color */}
             <Link
               href="/demo"
-              className="btn-gradient ml-4 group"
+              className="btn text-white hover:text-white font-bold shadow-soft ml-4 group bg-cyan hover:bg-cyan/90 hover:shadow-lift focus-visible:ring-4 focus-visible:ring-cyan/35 transition-all duration-180 ease-smooth"
             >
               <PlayCircle size={20} className="transition-transform duration-180 group-hover:scale-110" aria-hidden="true" />
               <span className="ml-2">Book Demo</span>
@@ -275,7 +270,7 @@ export const Navbar: React.FC = () => {
                 >
                   <Link
                     href="/demo"
-                    className="btn-gradient w-full text-base justify-center py-3.5 group"
+                    className="btn text-white hover:text-white font-bold shadow-soft w-full text-base justify-center py-3.5 group bg-cyan hover:bg-cyan/90 hover:shadow-lift focus-visible:ring-4 focus-visible:ring-cyan/35 transition-all duration-180 ease-smooth"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <PlayCircle size={20} aria-hidden="true" />
