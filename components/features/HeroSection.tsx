@@ -14,11 +14,11 @@ import { homeContent } from '@/lib/homeContent';
  */
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative overflow-hidden bg-white">
+    <section className="relative overflow-hidden bg-white min-h-[600px] sm:min-h-[650px] md:min-h-[700px] lg:min-h-[800px]">
 
-      {/* Background Image - Right Side */}
-      <div className="absolute inset-0 right-0 w-full h-full overflow-hidden pointer-events-none z-0 bg-white">
-        <div className="absolute right-0 top-[-5%] bottom-0 w-[75%] lg:w-[70%] xl:w-[65%] h-full bg-white hero-image-container">
+      {/* Background Image - Right Side - Hidden on mobile, shown on desktop */}
+      <div className="hidden lg:block absolute inset-0 right-0 w-full h-full overflow-hidden pointer-events-none z-0 bg-white">
+        <div className="absolute right-0 top-[-5%] bottom-0 w-[70%] xl:w-[65%] h-full bg-white hero-image-container">
           <Image
             src="/images/hero-devices.png"
             alt="Digilist platform on laptop and mobile devices"
@@ -35,20 +35,39 @@ export const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="relative max-w-[1400px] mx-auto px-6 pt-8 pb-20 md:pt-12 md:pb-28 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+      {/* Mobile Image - Shown only on mobile */}
+      <div className="lg:hidden relative w-full h-[250px] sm:h-[350px] mb-6 sm:mb-8 mx-auto px-4">
+        <div className="relative w-full h-full max-w-md mx-auto">
+          <Image
+            src="/images/hero-devices.png"
+            alt="Digilist platform on laptop and mobile devices"
+            fill
+            className="object-contain object-center hero-device-image"
+            priority
+            unoptimized
+            style={{ 
+              backgroundColor: 'transparent', 
+              background: 'none',
+              backgroundImage: 'none'
+            }}
+          />
+        </div>
+      </div>
+
+      <div className="relative max-w-[1400px] mx-auto px-6 pt-8 pb-12 sm:pt-12 sm:pb-16 md:pt-12 md:pb-20 lg:pb-28 z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
           
           {/* Left Column: Text Content */}
-          <div className="text-center lg:text-left relative z-20 bg-white/95 backdrop-blur-sm rounded-lg p-6 lg:p-0 lg:bg-transparent lg:backdrop-blur-none">
+          <div className="text-center lg:text-left relative z-20 w-full">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface/80 backdrop-blur-sm ring-1 ring-cyan/20 shadow-sm mb-6"
+              className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-surface/80 backdrop-blur-sm ring-1 ring-cyan/20 shadow-sm mb-4 sm:mb-6"
             >
-              <Sparkles size={16} className="text-cyan" />
-              <span className="text-sm font-medium text-navy">Smart booking. Enkelt for alle.</span>
+              <Sparkles size={14} className="sm:w-4 sm:h-4 text-cyan" />
+              <span className="text-xs sm:text-sm font-medium text-navy">Smart booking. Enkelt for alle.</span>
             </motion.div>
             
             <motion.div
@@ -56,7 +75,7 @@ export const HeroSection: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.2, 0.8, 0.2, 1] }}
             >
-              <Heading level={1} className="mb-6 text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1]">
+              <Heading level={1} className="mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] px-2 sm:px-0">
                 {homeContent.hero.subtitle}
               </Heading>
             </motion.div>
@@ -66,7 +85,7 @@ export const HeroSection: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.25, ease: [0.2, 0.8, 0.2, 1] }}
             >
-              <Text variant="body" className="mb-8 text-base text-navy/70 max-w-xl mx-auto lg:mx-0">
+              <Text variant="body" className="mb-6 sm:mb-8 text-sm sm:text-base text-navy/70 max-w-xl mx-auto lg:mx-0 px-2 sm:px-0">
                 {homeContent.hero.description}
               </Text>
             </motion.div>
@@ -75,10 +94,10 @@ export const HeroSection: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-6 sm:mb-8"
             >
-              <Link href="/demo">
-                <button className="btn text-white font-bold shadow-soft btn-lg group bg-cyan hover:bg-cyan/90 hover:shadow-lift focus-visible:ring-4 focus-visible:ring-cyan/35 transition-all duration-180 ease-smooth">
+              <Link href="/demo" className="w-full sm:w-auto">
+                <button className="btn text-white font-bold shadow-soft btn-lg w-full sm:w-auto group bg-cyan hover:bg-cyan/90 hover:shadow-lift focus-visible:ring-4 focus-visible:ring-cyan/35 transition-all duration-180 ease-smooth">
                   Mer om DigiList
                 </button>
               </Link>
@@ -89,17 +108,17 @@ export const HeroSection: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
-              className="pt-8 border-t border-border"
+              className="pt-6 sm:pt-8 border-t border-border"
             >
-              <p className="text-sm font-semibold text-navy mb-6 flex items-center gap-2 justify-center lg:justify-start">
-                <Shield size={16} className="text-cyan" />
+              <p className="text-xs sm:text-sm font-semibold text-navy mb-4 sm:mb-6 flex items-center gap-2 justify-center lg:justify-start">
+                <Shield size={14} className="sm:w-4 sm:h-4 text-cyan" />
                 Sikkerhet & Sertifisering
               </p>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="flex flex-nowrap justify-center lg:justify-start gap-1.5 sm:gap-2 overflow-x-auto pb-2 -mx-1 px-1"
+                className="flex flex-nowrap justify-center lg:justify-start gap-1.5 sm:gap-2 overflow-x-auto pb-2 -mx-1 px-1 scrollbar-hide"
               >
                 {/* Vipps - uses brand color */}
                 <motion.div
@@ -210,16 +229,10 @@ export const HeroSection: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Right Column: Spacer for background image */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.2, 0.8, 0.2, 1] }}
-            className="relative lg:pl-8 min-h-[400px] md:min-h-[500px] lg:min-h-[600px] bg-transparent"
-            style={{ backgroundColor: 'transparent', background: 'none' }}
-          >
+          {/* Right Column: Spacer for background image - Only on desktop */}
+          <div className="hidden lg:block relative lg:pl-8 min-h-[600px]">
             {/* This space is for the background image to show through */}
-          </motion.div>
+            </div>
         </div>
       </div>
       

@@ -81,7 +81,7 @@ export const IntegrationShowcase: React.FC = () => {
                 <div
                   key={idx}
                 className="
-                  flex flex-col gap-3 p-5 rounded-lg
+                  flex flex-col gap-3 p-5 rounded-md
                   bg-white border border-sky2/20 shadow-md
                   hover:border-cyan/50 hover:shadow-lg
                     transition-all duration-300 ease-smooth cursor-pointer group

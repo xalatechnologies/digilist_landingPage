@@ -159,7 +159,7 @@ export const LearningPlatform: React.FC = () => {
     <div className="w-full">
       {/* Header Section */}
       <div className="text-center mb-16 pb-8 border-b border-gray-200">
-        <Heading level={2} className="mb-6 text-3xl md:text-4xl font-bold text-navy-base">
+        <Heading level={2} className="mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy-base">
           Læringsmoduler
         </Heading>
         <Text variant="lead" className="max-w-3xl mx-auto text-text-secondary text-lg leading-relaxed">
@@ -339,7 +339,7 @@ export const LearningPlatform: React.FC = () => {
                       </div>
                     </div>
                     
-                    <Heading level={2} className="text-2xl font-bold text-navy mb-3">
+                    <Heading level={2} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-3">
                       {selectedVideo.title}
                     </Heading>
                     

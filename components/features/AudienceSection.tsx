@@ -1,97 +1,67 @@
 'use client';
 
 import React from 'react';
-import { Building2, Theater, Dumbbell, Briefcase } from 'lucide-react';
+import Image from 'next/image';
 import { Section } from '@/components/layout/Section';
-import { SectionHeader } from '@/components/sections/SectionHeader';
 import { StaggerAnimation } from '@/components/ui/ScrollAnimation';
 import { homeContent } from '@/lib/homeContent';
 
-const iconMap = {
-  'Kommuner': Building2,
-  'Kulturhus': Theater,
-  'Idrettslag': Dumbbell,
-  'Bedrifter': Briefcase,
+const imageMap = {
+  'Kommuner': '/images/utleieobjekter/kipo-kultursal.jpg',
+  'Kulturhus': '/images/utleieobjekter/kipo-kultursal.jpg',
+  'Idrettslag': '/images/utleieobjekter/gyllenborg-idrettshall.jpg',
+  'Bedrifter': '/images/utleieobjekter/flytende-badstua-ulefoss.jpg',
 };
-
-// Enhanced color scheme with gradients for each card type
-const cardConfigs = [
-  {
-    title: 'Kommuner',
-    iconBg: 'bg-gradient-to-br from-primary to-primary/80',
-    accentBg: 'bg-primary/5',
-    borderColor: 'border-primary/30',
-    hoverBorder: 'hover:border-primary',
-    glowColor: 'group-hover:shadow-primary/20',
-  },
-  {
-    title: 'Kulturhus',
-    iconBg: 'bg-gradient-to-br from-cyan to-cyan/80',
-    accentBg: 'bg-cyan/5',
-    borderColor: 'border-cyan/30',
-    hoverBorder: 'hover:border-cyan',
-    glowColor: 'group-hover:shadow-cyan/20',
-  },
-  {
-    title: 'Idrettslag',
-    iconBg: 'bg-gradient-to-br from-sky to-sky/80',
-    accentBg: 'bg-sky/5',
-    borderColor: 'border-sky/30',
-    hoverBorder: 'hover:border-sky',
-    glowColor: 'group-hover:shadow-sky/20',
-  },
-  {
-    title: 'Bedrifter',
-    iconBg: 'bg-gradient-to-br from-navy to-navy/80',
-    accentBg: 'bg-navy/5',
-    borderColor: 'border-navy/30',
-    hoverBorder: 'hover:border-navy',
-    glowColor: 'group-hover:shadow-navy/20',
-  },
-];
 
 export const AudienceSection: React.FC = () => {
   return (
-    <Section variant="default" className="bg-white" id="hvem-passer-det-for">
+    <Section variant="default" className="bg-white py-8 sm:py-12 md:py-16" id="hvem-passer-det-for">
       <div className="relative">
-        <SectionHeader
-          title="En plattform. Mange bruksområder"
-          subtitle="Tilpasset kommuner, kulturhus, skoler, idrett og bedrifter"
-          badge="For alle"
-        />
+        {/* Header */}
+        <div className="text-center mb-6 sm:mb-8 md:mb-10">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-3 sm:mb-4">
+            En plattform. Mange bruksområder
+          </h2>
+          <p className="text-sm sm:text-base md:text-lg text-navy/70 max-w-3xl mx-auto px-4">
+            Tilpasset kommuner, kulturhus, skoler, idrett og bedrifter
+          </p>
+        </div>
         
         <StaggerAnimation 
           staggerDelay={0.1} 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-8 sm:mt-12"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-6"
         >
           {homeContent.audienceCards.map((card) => {
-            const Icon = iconMap[card.title as keyof typeof iconMap] || Building2;
+            const imageSrc = imageMap[card.title as keyof typeof imageMap] || '/images/utleieobjekter/kipo-kultursal.jpg';
             
             return (
               <div 
                 key={card.title} 
                 className="
-                  relative rounded-lg p-6 sm:p-8 
-                  bg-transparent border border-sky2/20
-                  hover:border-cyan/50 hover:shadow-lg hover:shadow-cyan/20
+                  relative rounded-md overflow-hidden
+                  bg-white border border-sky2/20
+                  hover:border-cyan/50 hover:shadow-xl
                   transition-all duration-300 ease-smooth group cursor-pointer
-                  flex flex-col items-center text-center
+                  flex flex-col
                 "
               >
-                    {/* Icon */}
-                <div className="
-                  w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-cyan/10
-                  flex items-center justify-center mb-4
-                  group-hover:bg-cyan/20 group-hover:scale-110
-                      transition-all duration-300 ease-smooth
-                ">
-                  <Icon size={32} className="text-cyan" strokeWidth={2} aria-hidden="true" />
-                    </div>
-                    
-                    {/* Title */}
-                <h3 className="text-lg sm:text-xl font-bold text-navy leading-tight group-hover:text-cyan transition-colors duration-180">
-                        {card.title}
-                      </h3>
+                {/* Image */}
+                <div className="relative w-full h-48 sm:h-56 md:h-64 overflow-hidden">
+                  <Image
+                    src={imageSrc}
+                    alt={card.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                  />
+                </div>
+                
+                {/* Title */}
+                <div className="p-4 sm:p-5 md:p-6 bg-white">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-navy text-center group-hover:text-cyan transition-colors duration-300">
+                    {card.title}
+                  </h3>
+                </div>
               </div>
             );
           })}

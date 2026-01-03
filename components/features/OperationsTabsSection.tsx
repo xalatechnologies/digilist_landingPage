@@ -52,7 +52,7 @@ export const OperationsTabsSection: React.FC = () => {
 
           {/* Tab Content - Single card with 2 columns */}
           <div className="max-w-5xl mx-auto">
-            <div className="bg-white rounded-lg border border-sky2/20 shadow-lg p-6 sm:p-8 md:p-10">
+            <div className="bg-white rounded-md border border-sky2/20 shadow-lg p-6 sm:p-8 md:p-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 {homeContent.operationsTabs[activeTab]?.points.map((point, idx) => (
                   <div key={idx} className="flex items-start gap-3">

@@ -175,7 +175,7 @@ export default function OmOssPage() {
               <Lightbulb size={14} />
               Vår visjon
             </div>
-            <Heading level={2} className="text-2xl sm:text-3xl md:text-4xl text-navy mb-6">
+            <Heading level={2} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-navy mb-6">
               {aboutContent.mission.title}
             </Heading>
             <Text variant="lead" className="mb-6 text-base sm:text-lg text-navy/70">
@@ -208,7 +208,7 @@ export default function OmOssPage() {
             <Heart size={14} />
             Verdier
           </div>
-          <Heading level={2} className="text-2xl sm:text-3xl md:text-4xl text-navy mb-4">
+          <Heading level={2} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-navy mb-4">
             Våre verdier
           </Heading>
           <Text variant="lead" className="max-w-2xl mx-auto text-navy/70">
@@ -253,7 +253,7 @@ export default function OmOssPage() {
             <Users size={14} />
             Teamet
           </div>
-          <Heading level={2} className="text-2xl sm:text-3xl md:text-4xl text-navy mb-4">
+          <Heading level={2} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-navy mb-4">
             {aboutContent.team.title}
           </Heading>
           <Text variant="lead" className="max-w-2xl mx-auto text-navy/70">
@@ -301,7 +301,7 @@ export default function OmOssPage() {
             <Sparkles size={14} />
             Historie
           </div>
-          <Heading level={2} className="text-2xl sm:text-3xl md:text-4xl text-navy mb-4">
+          <Heading level={2} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-navy mb-4">
             Vår historie
           </Heading>
           <Text variant="lead" className="max-w-2xl mx-auto text-navy/70">

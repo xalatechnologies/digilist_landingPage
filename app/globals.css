@@ -489,4 +489,14 @@
   .hero-image-container [data-nimg] {
     mix-blend-mode: multiply;
   }
+
+  /* Hide scrollbar for trust badges on mobile */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
 }

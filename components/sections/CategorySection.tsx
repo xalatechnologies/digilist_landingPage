@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Section } from '@/components/layout/Section';
 import { SectionHeader } from './SectionHeader';
-import { Card } from '@/components/ui/Card';
 import { Heading, Text } from '@/components/ui/Typography';
 import { Shield, FileText, Headphones, CheckCircle2 } from 'lucide-react';
 import type { CategoryItem } from './CategoryCardGrid';
@@ -70,7 +70,7 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
   if (!image) {
     return (
       <Section variant={variant} id={id} className={className}>
-        <div className="bg-success/5 rounded-lg p-6 sm:p-8 md:p-10">
+        <div className="bg-success/5 rounded-md p-6 sm:p-8 md:p-10">
           <SectionHeader title={title} subtitle={subtitle} />
           <CategoryCardGrid categories={categories} columns={columns} />
         </div>
@@ -87,64 +87,107 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
       <div className="relative">
         <SectionHeader title={title} subtitle={subtitle} />
         
-        {/* Category tabs - Selectable options */}
-        <div className="mb-10">
-          <div className="flex flex-wrap justify-center gap-4">
+        {/* Modern Category tabs - Horizontal pill design */}
+        <div className="mb-12 sm:mb-16">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
             {tabConfig.map((tab, idx) => {
               const TabIcon = tab.icon;
               const isActive = activeTab === idx;
               
               return (
-        <button
+                <button
                   key={tab.id}
                   onClick={() => setActiveTab(idx)}
-          className={`
-                    flex items-center gap-2.5 px-4 py-3 rounded-lg
-                    transition-all duration-300 cursor-pointer min-h-[52px] group
+                  className={`
+                    relative flex items-center gap-3 px-5 py-3.5 rounded-md
+                    transition-all duration-300 cursor-pointer group
                     ${isActive 
-                      ? 'bg-cyan text-white shadow-lg shadow-cyan/20' 
-                      : 'bg-white text-navy border border-sky2/20 hover:border-cyan hover:bg-cyan/5 hover:shadow-md'
+                      ? 'bg-gradient-to-r from-cyan to-cyan/90 text-white shadow-xl shadow-cyan/30 scale-105' 
+                      : 'bg-white text-navy border-2 border-sky2/30 hover:border-cyan/50 hover:bg-cyan/5 hover:shadow-lg hover:scale-[1.02]'
                     }
                   `}
                   aria-pressed={isActive}
                   aria-label={`Velg ${tab.label}`}
-        >
-                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${isActive ? 'bg-white/20' : 'bg-cyan/10 group-hover:bg-cyan/20'}`}>
-                    <TabIcon size={18} className={`transition-colors duration-300 ${isActive ? 'text-white' : 'text-cyan'}`} strokeWidth={2} />
-          </div>
-          <div className="text-left">
-                    <div className={`text-sm font-bold transition-colors duration-300 ${isActive ? 'text-white' : 'text-navy group-hover:text-cyan'}`}>{tab.label}</div>
-                    <div className={`text-xs mt-0.5 transition-colors duration-300 ${isActive ? 'text-white/90' : 'text-navy/60 group-hover:text-cyan/80'}`}>{tab.preview}</div>
-          </div>
-        </button>
+                >
+                  <div className={`w-11 h-11 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${
+                    isActive 
+                      ? 'bg-white/20 backdrop-blur-sm' 
+                      : 'bg-cyan/10 group-hover:bg-cyan/20'
+                  }`}>
+                    <TabIcon 
+                      size={20} 
+                      className={`transition-colors duration-300 ${
+                        isActive ? 'text-white' : 'text-cyan'
+                      }`} 
+                      strokeWidth={2.5} 
+                    />
+                  </div>
+                  <div className="text-left">
+                    <div className={`text-sm font-bold transition-colors duration-300 ${
+                      isActive ? 'text-white' : 'text-navy group-hover:text-cyan'
+                    }`}>
+                      {tab.label}
+                    </div>
+                    <div className={`text-xs mt-0.5 transition-colors duration-300 ${
+                      isActive ? 'text-white/90' : 'text-navy/60 group-hover:text-cyan/80'
+                    }`}>
+                      {tab.preview}
+                    </div>
+                  </div>
+                </button>
               );
             })}
           </div>
-      </div>
-      
-      {/* Content Card */}
-      <div className="max-w-4xl mx-auto">
-        <div className="bg-white rounded-lg border border-sky2/20 shadow-lg p-8 sm:p-10">
-          <div className="flex items-center gap-4 mb-8">
-            <div className={`w-16 h-16 rounded-lg ${activeConfig.bgColor} flex items-center justify-center`}>
-              <Icon size={32} className={activeConfig.iconColor} strokeWidth={2} />
-              </div>
-            <Heading level={3} className="text-2xl sm:text-3xl text-navy font-bold">
-                {activeCategory.category}
-              </Heading>
-            </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-              {activeCategory.items.map((item, idx) => (
-              <div key={idx} className="flex items-start gap-4">
-                <CheckCircle2 size={22} className="text-cyan mt-0.5 shrink-0" strokeWidth={2.5} />
-                <Text variant="body" className="text-base text-navy/80 leading-relaxed">
-                    {item}
-                  </Text>
-                </div>
-              ))}
-            </div>
         </div>
-      </div>
+      
+        {/* Modern Content Card with Image Split Layout */}
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-gradient-to-br from-white via-cyan/5 to-white rounded-md border border-sky2/20 shadow-xl overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+              {/* Image Section */}
+              <div className="relative h-64 sm:h-80 lg:h-auto min-h-[400px] overflow-hidden order-2 lg:order-1">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan/20 via-transparent to-navy/10 z-10" />
+                <Image
+                  src={activeConfig.image}
+                  alt={activeCategory.category}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                {/* Gradient overlay for text */}
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy/70 via-navy/30 to-transparent z-10" />
+                <div className="absolute bottom-6 left-6 right-6 z-20">
+                  <Heading level={3} className="text-2xl sm:text-3xl text-white font-bold drop-shadow-lg">
+                    {activeCategory.category}
+                  </Heading>
+                </div>
+              </div>
+              
+              {/* Content Section */}
+              <div className="p-8 sm:p-10 lg:p-12 flex flex-col justify-center bg-white order-1 lg:order-2">
+                <div className="space-y-4 sm:space-y-5">
+                  {activeCategory.items.map((item, idx) => (
+                    <div 
+                      key={idx} 
+                      className="flex items-start gap-4 group/item hover:bg-cyan/5 rounded-lg p-3 -m-3 transition-colors duration-300"
+                    >
+                      <div className="w-6 h-6 rounded-lg bg-cyan/10 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:bg-cyan/20 transition-colors duration-300">
+                        <CheckCircle2 
+                          size={18} 
+                          className="text-cyan" 
+                          strokeWidth={2.5} 
+                        />
+                      </div>
+                      <Text variant="body" className="text-base text-navy/80 leading-relaxed group-hover/item:text-navy transition-colors duration-300">
+                        {item}
+                      </Text>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       {/* Bottom dividing line */}
       <div className="h-px bg-gradient-to-r from-transparent via-cyan/60 to-transparent mt-12 sm:mt-16" />

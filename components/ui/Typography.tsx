@@ -46,7 +46,7 @@ export const Heading: React.FC<HeadingProps> = ({
   // Fallback legacy level styles (when no size is provided)
   const levelStyles: Record<number, string> = {
     1: "text-4xl sm:text-5xl md:text-[3.5rem] leading-[1.1] tracking-[-0.03em]",
-    2: "text-2xl sm:text-3xl md:text-[2.5rem] leading-[1.15] tracking-[-0.025em] mb-4",
+    2: "text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.15] tracking-[-0.025em] mb-4",
     3: "text-xl sm:text-2xl leading-[1.2] tracking-[-0.02em] mb-3",
     4: "text-lg sm:text-xl leading-[1.3] tracking-[-0.015em] mb-2",
     5: "text-base sm:text-lg leading-[1.4] mb-2",

@@ -18,7 +18,7 @@ export const TrustBar: React.FC = () => {
     <div className="bg-white py-12 md:py-16 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6">
         <div className="text-center mb-8 md:mb-12">
-          <Heading level={2} className="mb-3 text-2xl md:text-3xl text-navy">
+          <Heading level={2} className="mb-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-navy">
             Partnere
           </Heading>
           <Text variant="body" className="text-base text-navy/70 max-w-2xl mx-auto">

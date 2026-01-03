@@ -344,7 +344,7 @@ export default function FunksjonalitetPage() {
               <Calendar size={16} className="text-primary" />
               <span className="text-sm font-medium text-primary">Enkel booking</span>
             </div>
-            <Heading level={2} className="mb-6 text-2xl sm:text-3xl md:text-4xl text-navy">
+            <Heading level={2} className="mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-navy">
               Se hvordan det fungerer i praksis
             </Heading>
             <Text variant="body" className="text-navy/70 mb-8 text-lg">

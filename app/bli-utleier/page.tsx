@@ -66,7 +66,7 @@ export default function BliUtleierPage() {
             {/* Om Digilist */}
             <ScrollAnimation variant="fadeUp" delay={100}>
               <section>
-                <Heading level={2} className="mb-6 text-2xl md:text-3xl font-bold text-navy leading-tight">
+                <Heading level={2} className="mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy leading-tight">
                   Om Digilist
                 </Heading>
               <div className="space-y-4">
@@ -92,7 +92,7 @@ export default function BliUtleierPage() {
             {/* Fleksibelt og raskt */}
             <ScrollAnimation variant="fadeUp" delay={150}>
               <section>
-                <Heading level={2} className="mb-6 text-2xl md:text-3xl font-bold text-navy leading-tight">
+                <Heading level={2} className="mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy leading-tight">
                   Fleksibelt og raskt å sette opp for din organisasjon
                 </Heading>
                 <Text variant="body" className="text-base text-navy/70 leading-relaxed">
@@ -106,7 +106,7 @@ export default function BliUtleierPage() {
             {/* E-lærings videoer */}
             <ScrollAnimation variant="fadeUp" delay={150}>
               <section>
-                <Heading level={2} className="mb-6 text-2xl md:text-3xl font-bold text-navy leading-tight">
+                <Heading level={2} className="mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy leading-tight">
                   E-lærings videoer og kurs
                 </Heading>
                 <div className="space-y-4">
@@ -132,7 +132,7 @@ export default function BliUtleierPage() {
             {/* Support */}
             <ScrollAnimation variant="fadeUp" delay={150}>
               <section>
-                <Heading level={2} className="mb-6 text-2xl md:text-3xl font-bold text-navy leading-tight">
+                <Heading level={2} className="mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy leading-tight">
                   Support på både norsk og engelsk
                 </Heading>
                 <Text variant="body" className="text-base text-navy/70 leading-relaxed">
@@ -147,7 +147,7 @@ export default function BliUtleierPage() {
             {/* Et hav av funksjoner */}
             <ScrollAnimation variant="fadeUp" delay={150}>
               <section>
-                <Heading level={2} className="mb-6 text-2xl md:text-3xl font-bold text-navy leading-tight">
+                <Heading level={2} className="mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy leading-tight">
                   Et hav av funksjoner
                 </Heading>
                 <div className="space-y-4">
@@ -194,7 +194,7 @@ export default function BliUtleierPage() {
 
             {/* Content */}
             <div className="order-1 lg:order-2">
-              <Heading level={2} className="mb-6 text-3xl md:text-4xl font-bold text-gray-900">
+              <Heading level={2} className="mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
                 Gjør det enkelt!
               </Heading>
               <Text variant="body" className="mb-8 text-base md:text-lg text-gray-700 leading-relaxed">
@@ -217,7 +217,7 @@ export default function BliUtleierPage() {
           <div className="bg-white rounded-digdir border-2 border-gray-200 p-8 md:p-12 shadow-sm">
             <div className="max-w-3xl">
               <Badge className="mb-4">Gratis demo</Badge>
-              <Heading level={2} className="mb-6 text-3xl md:text-4xl font-bold text-gray-900">
+              <Heading level={2} className="mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
                 Vil du ha en presentasjon av Digilist før du bestemmer deg?
               </Heading>
               <Text variant="body" className="mb-8 text-base md:text-lg text-gray-700 leading-relaxed">
@@ -240,7 +240,7 @@ export default function BliUtleierPage() {
         <section className="bg-gradient-to-br from-surface-2 via-white to-sky2/8 py-12 md:py-24">
           <div className="max-w-[1140px] mx-auto px-6">
             <ScrollAnimation variant="fadeUp" delay={0}>
-              <Heading level={2} className="mb-12 text-3xl font-bold text-navy">
+              <Heading level={2} className="mb-12 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy">
                 Artikler
               </Heading>
             </ScrollAnimation>

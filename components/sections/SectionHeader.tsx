@@ -32,7 +32,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         </ScrollAnimation>
       )}
       <ScrollAnimation variant="fadeUp" delay={50}>
-        <Heading level={2} className="text-2xl sm:text-3xl lg:text-[2.5rem]">
+        <Heading level={2} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
           {title}
         </Heading>
       </ScrollAnimation>
